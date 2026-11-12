@@ -1,0 +1,30 @@
+---
+permalink: storage-mgmt/concept_typical_window_layouts_um_6_x.html 
+sidebar: sidebar 
+keywords: typical, window, layouts, object, list, details 
+summary: Unified Manager 창의 일반적인 레이아웃, 오브젝트 목록 또는 세부 정보, 그리고 효과적인 탐색을 위한 권장 표시 설정을 알아봅니다. 
+---
+= Active IQ Unified Manager의 일반적인 창 레이아웃
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일반적인 창 레이아웃을 이해하면 Active IQ Unified Manager를 효과적으로 탐색하고 사용할 수 있습니다. 대부분의 Unified Manager 창은 오브젝트 목록 또는 세부 정보라는 두 가지 일반적인 레이아웃 중 하나와 유사합니다. 권장 디스플레이 설정은 최소 1280 x 1024 픽셀입니다.
+
+모든 창에 다음 다이어그램에 있는 모든 요소가 포함되어 있는 것은 아닙니다.
+
+
+
+[[object-list-window-layout]]
+== 오브젝트 목록 창 레이아웃
+
+image::../media/object_list.png[레이블이 지정된 탐색, 검색, 필터 및 보고서 컨트롤이 있는 Active IQ Unified Manager 오브젝트 목록 창의 스크린샷]
+
+
+
+[[object-details-window-layout]]
+== 오브젝트 세부 정보 창 레이아웃
+
+image::../media/object_details.gif[탭, 용량 세부 정보, 관련 오브젝트, 기록 및 이벤트가 있는 Active IQ Unified Manager 볼륨 세부 정보 창을 보여주는 스크린샷]

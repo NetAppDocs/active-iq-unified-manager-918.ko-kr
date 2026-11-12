@@ -1,0 +1,23 @@
+---
+permalink: api-automation/concept_rest_api_versioning_in_unified_manager_apis.html 
+sidebar: sidebar 
+keywords: api, version, active iq, unified, manager 
+summary: Active IQ Unified Manager의 REST API URI는 버전 번호를 지정합니다. 예를 들어, /v2/datacenter/svm/svms입니다. /v2/datacenter/svm/svms의 버전 번호 v2는 특정 릴리스에서 사용되는 API 버전을 나타냅니다. 버전 번호는 클라이언트가 처리할 수 있는 응답을 반환함으로써 API 변경이 클라이언트 소프트웨어에 미치는 영향을 최소화합니다. 
+---
+= Active IQ Unified Manager의 API 버전 번호 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager의 REST API URI는 버전 번호를 지정합니다. 예를 들어, `/v2/datacenter/svm/svms.` 버전 번호 `v2`는 `/v2/datacenter/svm/svms`에서 특정 릴리즈에 사용된 API 버전을 나타냅니다. 버전 번호는 클라이언트가 처리할 수 있는 응답을 반환하여 API 변경이 클라이언트 소프트웨어에 미치는 영향을 최소화합니다.
+
+이 버전 번호의 숫자 부분은 릴리스에 따라 증가합니다. 버전 번호가 있는 URI는 일관된 인터페이스를 제공하여 향후 릴리스와의 하위 호환성을 유지합니다. 버전이 없는 동일한 API도 찾을 수 있으며, 예를 들어 `/datacenter/svm/svms,`는 버전이 없는 기본 API를 나타냅니다. 기본 API는 항상 최신 버전의 API입니다.
+
+[NOTE]
+====
+Swagger 인터페이스의 오른쪽 상단에서 사용할 API 버전을 선택할 수 있습니다. 기본적으로 가장 높은 버전이 선택되어 있습니다. Unified Manager 인스턴스에서 사용 가능한 특정 API의 가장 높은 버전(증분 정수 기준)을 사용하는 것이 좋습니다.
+
+====
+모든 요청에 대해 사용하려는 API 버전을 명시적으로 요청해야 합니다. 버전 번호가 지정되면 서비스는 애플리케이션이 처리하도록 설계되지 않은 응답 요소를 반환하지 않습니다. REST 요청에는 버전 매개변수를 포함해야 합니다. 이전 버전의 API는 몇 번의 릴리스 후에 결국 사용이 중단됩니다. 이번 릴리스에서는  `v1` 버전의 API가 사용 중단되었습니다.

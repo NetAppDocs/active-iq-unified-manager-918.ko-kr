@@ -1,0 +1,60 @@
+---
+permalink: install-linux/task_create_custom_user_home_directory_and_umadmin.html 
+sidebar: sidebar 
+keywords: create, custom, user, home, directory, umadmin, password, prior, installation 
+summary: Unified Manager를 설치하기 전에 사용자 지정 홈 디렉토리를 생성하고 자체 umadmin 사용자 암호를 정의할 수 있습니다. 이 작업은 선택 사항이지만, 일부 사이트에서는 Unified Manager 설치 기본 설정을 재정의할 수 있는 유연성이 필요할 수 있습니다. 
+---
+= Active IQ Unified Manager를 설치하기 전에 사용자 지정 홈 디렉토리 및 umadmin 암호를 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 설치하기 전에 사용자 지정 홈 디렉토리를 생성하고 자체 umadmin 사용자 암호를 정의할 수 있습니다. 이 작업은 선택 사항이지만, 일부 사이트에서는 Unified Manager 설치 기본 설정을 재정의할 수 있는 유연성이 필요할 수 있습니다.
+
+.시작하기 전에
+* 시스템은 link:concept_virtual_infrastructure_or_hardware_system_requirements.html["하드웨어 시스템 요구 사항"]에 설명된 요구 사항을 충족해야 합니다.
+* Red Hat Enterprise Linux 시스템에 루트 사용자로 로그인할 수 있어야 합니다.
+
+
+Unified Manager의 기본 설치는 다음과 같은 작업을 수행합니다:
+
+*  `/home/umadmin`를 홈 디렉토리로 하여 umadmin 사용자를 생성합니다.
+* umadmin 사용자에게 기본 암호 "`admin`"을 할당합니다.
+
+
+일부 설치 환경에서는  `/home`에 대한 액세스를 제한하므로 설치가 실패합니다. 홈 디렉토리를 다른 위치에 생성해야 합니다. 또한 일부 사이트에서는 암호 복잡성에 대한 규칙이 있거나 설치 프로그램이 설정하는 대신 로컬 관리자가 암호를 설정하도록 요구할 수 있습니다.
+
+설치 환경에 따라 이러한 기본 설치 설정을 재정의해야 하는 경우, 다음 단계를 따라 사용자 지정 홈 디렉토리를 생성하고 umadmin 사용자의 암호를 정의하십시오.
+
+이 정보가 설치 전에 정의되어 있으면 설치 스크립트는 이러한 설정을 찾아 설치 기본 설정 대신 정의된 값을 사용합니다.
+
+또한 기본 Unified Manager 설치에는  `/etc/sudoers.d/` 디렉토리의 sudoers 파일 (`ocum_sudoers` 및 `ocie_sudoers`)에 umadmin 사용자가 포함됩니다. 보안 정책이나 일부 보안 모니터링 툴로 인해 환경에서 이 콘텐츠를 제거한 경우 다시 추가해야 합니다. 일부 Unified Manager 작업에는 이러한 sudo 권한이 필요하므로 sudoers 구성을 유지해야 합니다.
+
+사용 환경의 보안 정책에서 Unified Manager 유지 관리 사용자의 sudo 권한을 제한하지 않아야 합니다. 권한이 제한되면 일부 Unified Manager 작업이 실패할 수 있습니다. 설치가 성공적으로 완료된 후 umadmin 사용자로 로그인하여 다음 sudo 명령을 실행할 수 있는지 확인하십시오.
+
+`sudo systemctl  status ocie`
+
+이 명령은 오류 없이 ocie 서비스의 적절한 상태를 반환해야 합니다.
+
+.단계
+. 루트 사용자로 서버에 로그인하십시오.
+. "`maintenance`"라는 umadmin 그룹 계정을 생성합니다:
++
+`groupadd maintenance`
+
+. 원하는 홈 디렉토리 하위의 유지 관리 그룹에 "`umadmin`" 사용자 계정을 생성하십시오:
++
+`adduser --home <home_directory\> -g maintenance umadmin`
+
+. umadmin 비밀번호를 설정하세요:
++
+`passwd umadmin`
+
++
+시스템에서 umadmin 사용자의 새 암호를 입력하라는 메시지가 표시됩니다.
+
+
+
+Unified Manager를 설치한 후에는 umadmin 사용자 로그인 셸을 지정해야 합니다.

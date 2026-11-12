@@ -1,0 +1,20 @@
+---
+permalink: storage-mgmt/concept_how_discovery_process_works_tobe_rmvd.html 
+sidebar: sidebar 
+keywords: discovery, process, works 
+summary: Unified Manager에 클러스터를 추가하면 서버가 클러스터 오브젝트를 검색하여 데이터베이스에 추가합니다. 검색 프로세스의 작동 방식을 이해하면 조직의 클러스터와 해당 오브젝트를 관리하는 데 도움이 됩니다. 
+---
+= Active IQ Unified Manager에서 클러스터 검색 프로세스가 작동하는 방식에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager에 클러스터를 추가하면 서버가 클러스터 오브젝트를 검색하여 데이터베이스에 추가합니다. 검색 프로세스의 작동 방식을 이해하면 조직의 클러스터와 해당 오브젝트를 관리하는 데 도움이 됩니다.
+
+기본 모니터링 간격은 15분입니다. Unified Manager 서버에 클러스터를 추가한 경우 Unified Manager UI에 클러스터 세부 정보가 표시되는 데 15분이 소요됩니다.
+
+다음 이미지는 Active IQ Unified Manager의 검색 프로세스를 보여줍니다:
+
+image::../media/discovery_process_oc_6_0.gif[검색 프로세스 작동 방식]

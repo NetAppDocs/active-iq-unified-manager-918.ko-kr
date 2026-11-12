@@ -1,0 +1,48 @@
+---
+permalink: health-checker/concept_unified_manager_health_monitoring_features.html 
+sidebar: sidebar 
+keywords: unified manager, health, monitor, features 
+summary: Unified Manager는 확장성, 지원 용이성, 향상된 모니터링 및 알림 기능을 제공하는 서버 인프라를 기반으로 구축되었습니다. Unified Manager는 ONTAP 소프트웨어를 실행하는 시스템의 모니터링을 지원합니다. 
+---
+= Active IQ Unified Manager 상태 모니터링 기능 이해하기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager는 확장성, 지원 용이성, 향상된 모니터링 및 알림 기능을 제공하는 서버 인프라를 기반으로 구축되었습니다. Unified Manager는 ONTAP 소프트웨어를 실행하는 시스템의 모니터링을 지원합니다.
+
+Unified Manager에는 다음과 같은 기능이 포함되어 있습니다:
+
+* ONTAP 소프트웨어가 설치된 시스템에 대한 탐색, 모니터링 및 알림:
++
+** 물리적 오브젝트: 노드, 디스크, 디스크 셸프, SFO 쌍, 포트 및 Flash Cache
+** 논리적 오브젝트: 클러스터, 스토리지 가상 머신(SVM), 애그리게이트, 볼륨, LUN, 네임스페이스, 큐트리, LIF, 스냅샷 복사본, 접합 경로, NFS 공유, SMB 공유, 사용자 및 그룹 할당량, QoS 정책 그룹, 이니시에이터 그룹
+** 프로토콜: CIFS, NFS, FC, iSCSI, NVMe 및 FCoE
+** 스토리지 효율성: SSD 애그리게이트, Flash Pool 애그리게이트, FabricPool 애그리게이트, 중복 제거 및 압축
+** 보호: SnapMirror 관계(동기 및 비동기) 및 SnapVault 관계
+
+
+* 클러스터 탐색 및 모니터링 상태 보기
+* MetroCluster FC 및 IP 기반 구성: 클러스터 구성 요소의 구성, 문제 및 연결 상태 보기 및 모니터링. MetroCluster 스위치 및 브리지(FC 기반 MetroCluster 구성용)
+* 향상된 경고, 이벤트 및 임계값 인프라
+* LDAP, LDAPS, SAML 인증 및 로컬 사용자 지원
+* RBAC(사전에 정의된 역할 집합용)
+* AutoSupport 및 지원 번들
+* 환경의 용량, 가용성, 보호 및 성능 상태를 보여주는 향상된 대시보드
+* 볼륨 이동 상호 운용성, 볼륨 이동 내역 및 정션 경로 변경 내역
+* 일부 디스크 장애, MetroCluster 애그리게이트 미러링 성능 저하 및 MetroCluster 예비 디스크 미사용 등과 같은 이벤트에 대해 영향을 받는 리소스를 그래픽으로 표시하는 영향 범위 영역
+* MetroCluster 이벤트의 영향을 보여주는 예상 영향 영역
+* 일부 디스크 오류, MetroCluster 애그리게이트 미러링 성능 저하, MetroCluster 예비 디스크 미사용 이벤트 등 이벤트를 해결하기 위해 수행할 수 있는 조치를 표시하는 권장되는 시정 조치 영역
+* 볼륨 오프라인 이벤트, 볼륨 제한 이벤트, 씬 프로비저닝 볼륨 공간 부족 위험 이벤트 등과 같은 이벤트로 인해 영향을 받을 수 있는 리소스를 표시하는 '영향을 받을 수 있는 리소스' 영역
+* FlexVol 또는 FlexGroup 볼륨을 사용하는 SVM 지원
+* 노드 루트 볼륨 모니터링 지원
+* 회수 가능한 공간 계산 및 스냅샷 복사본 삭제 등 향상된 스냅샷 복사본 모니터링
+* 스토리지 오브젝트에 대한 주석
+* 물리적 및 논리적 용량, 사용률, 공간 절약, 성능 및 관련 이벤트 등 스토리지 오브젝트 정보의 보고서 생성 및 관리
+* 워크플로를 실행하기 위한 OnCommand Workflow Automation과의 통합
++
+https://mysupport.netapp.com/site/products/all/details/ocwfa/downloads-tab["WFA 다운로드"^]
+
+

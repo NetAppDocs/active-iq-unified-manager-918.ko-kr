@@ -1,0 +1,14 @@
+---
+permalink: reporting/concept_customize_svm_reports.html 
+sidebar: sidebar 
+keywords: customize, storage, vm reports 
+summary: 스토리지 VM 보고서를 생성하여 볼륨 정보를 분석하고 전반적인 상태 및 스토리지 가용성을 확인할 수 있습니다. 예를 들어, 최대 볼륨 수에 도달한 SVM을 표시하고 중지된 SVM을 분석하는 보고서를 생성할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 스토리지 VM 보고서 사용자 지정
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 VM 보고서를 생성하여 볼륨 정보를 분석하고 전반적인 상태 및 스토리지 가용성을 확인할 수 있습니다. 예를 들어, 최대 볼륨 수에 도달한 SVM을 표시하고 중지된 SVM을 분석하는 보고서를 생성할 수 있습니다.

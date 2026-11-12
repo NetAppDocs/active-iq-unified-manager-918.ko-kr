@@ -1,0 +1,36 @@
+---
+permalink: health-checker/task_configure_global_health_threshold_settings.html 
+sidebar: sidebar 
+keywords: configure, global health, threshold settings 
+summary: 애그리게이트, 볼륨 및 qtree 크기를 효과적으로 모니터링하기 위해 용량, 증가율, 스냅샷 예약, 할당량 및 inode에 대한 글로벌 상태 임계값 조건을 구성할 수 있습니다. 지연 임계값 초과 시 이벤트를 생성하기 위한 설정을 편집할 수도 있습니다. 
+---
+= Active IQ Unified Manager에서 글로벌 상태 임계값 설정 구성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+애그리게이트, 볼륨 및 qtree 크기를 효과적으로 모니터링하기 위해 용량, 증가율, 스냅샷 예약, 할당량 및 inode에 대한 글로벌 상태 임계값 조건을 구성할 수 있습니다. 지연 임계값 초과 시 이벤트를 생성하기 위한 설정을 편집할 수도 있습니다.
+
+전역 상태 임계값 설정은 애그리게이트, 볼륨 등과 같이 연결된 모든 오브젝트에 적용됩니다. 임계값을 초과하면 이벤트가 생성되고, 알림이 구성된 경우 알림이 전송됩니다. 임계값 기본값은 권장 값으로 설정되지만, 특정 요구 사항을 충족하도록 일정 간격으로 이벤트를 생성하게 수정할 수 있습니다. 임계값을 변경하면 다음 모니터링 주기에서 이벤트가 생성되거나 폐기됩니다.
+
+전역 상태 임계값 설정은 왼쪽 탐색 메뉴의 이벤트 임계값 섹션에서 접근할 수 있습니다. 또한 인벤토리 페이지 또는 해당 오브젝트의 세부 정보 페이지에서 개별 오브젝트에 대한 임계값 설정을 수정할 수도 있습니다.
+
+* 자세한 내용은 link:task_configure_global_aggregate_health_threshold_values.html["전역 애그리게이트 상태 임계값 구성"]을 참조하십시오.
++
+용량, 증가율 및 스냅샷 복사본에 대한 상태 임계값 설정을 모든 애그리게이트에 대해 구성하여 임계값 위반 여부를 추적할 수 있습니다.
+
+* 자세한 내용은 link:task_configure_global_volume_health_threshold_values.html["전역 볼륨 상태 임계값 구성"]을 참조하십시오.
++
+용량, 스냅샷 복사본, qtree 할당량, 볼륨 증가, 덮어쓰기 예약 공간 및 inode에 대한 상태 임계값 설정을 모든 볼륨에 대해 편집하여 임계값 위반 여부를 추적할 수 있습니다.
+
+* 자세한 내용은 link:task_configure_global_qtree_health_threshold_values.html["전역 qtree 상태 임계값 구성"]을 참조하십시오.
++
+모든 qtree의 용량에 대한 상태 임계값 설정을 편집하여 임계값 위반 여부를 추적할 수 있습니다.
+
+* 자세한 내용은 link:task_configure_lag_threshold_settings_for_unmanaged_protection.html["관리되지 않는 보호 관계에 대한 지연 상태 임계값 설정 편집"]을 참조하십시오.
++
+경고 또는 오류 지연 시간 비율을 늘리거나 줄여서 필요에 더 적합한 간격으로 이벤트가 생성되도록 할 수 있습니다.
+
+

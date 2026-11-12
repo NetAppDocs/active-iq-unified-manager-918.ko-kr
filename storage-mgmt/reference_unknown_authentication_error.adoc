@@ -1,0 +1,30 @@
+---
+permalink: storage-mgmt/reference_unknown_authentication_error.html 
+sidebar: sidebar 
+keywords: unknown, authentication, error 
+summary: 원인을 알 수 없는 인증 오류를 해결합니다. 
+---
+= Active IQ Unified Manager에서 알 수 없는 인증 오류 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+원격 사용자 또는 그룹을 추가, 편집, 삭제 또는 테스트하는 등 인증 관련 작업을 수행할 때 다음과 같은 오류 메시지가 표시될 수 있습니다: `Unknown authentication error.`
+
+*원인*
+
+다음 옵션에 잘못된 값을 설정한 경우 이 문제가 발생할 수 있습니다:
+
+* Active Directory 인증 서비스의 관리자 이름
+* OpenLDAP 인증 서비스의 바인드 고유 이름
+
+
+*시정 조치*
+
+. 왼쪽 탐색 창에서 *일반* > *원격 인증*을 클릭합니다.
+. 선택한 인증 서비스에 따라 관리자 이름 또는 바인드 고유 이름에 적절한 정보를 입력하십시오.
+. 지정한 정보로 인증을 테스트하려면 *인증 테스트*를 클릭하십시오.
+. *저장*을 클릭합니다.
+

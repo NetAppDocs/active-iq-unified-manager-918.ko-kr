@@ -1,0 +1,110 @@
+---
+permalink: reporting/reference_types_of_reports.html 
+sidebar: sidebar 
+keywords: types, reports 
+summary: 이 표는 사용자가 맞춤 설정하고 다운로드하고 예약할 수 있는 보고서로 제공되는 보기 및 인벤토리 페이지의 전체 목록을 제공합니다. 
+---
+= Active IQ Unified Manager의 보고서 유형에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 표는 사용자가 맞춤 설정하고 다운로드하고 예약할 수 있는 보고서로 제공되는 보기 및 인벤토리 페이지의 전체 목록을 제공합니다.
+
+
+
+[[active-iq-unified-manager-reports]]
+== Active IQ Unified Manager 보고서
+
+[cols="2*"]
+|===
+| 유형 | 스토리지 또는 네트워크 오브젝트 
+
+
+ a| 
+용량
+ a| 
+클러스터
+
+애그리게이트
+
+볼륨
+
+큐트리
+
+
+
+ a| 
+상태
+ a| 
+클러스터
+
+노드
+
+애그리게이트
+
+스토리지 VM
+
+볼륨
+
+SMB/CIFS 공유
+
+NFS 공유
+
+
+
+ a| 
+성능
+ a| 
+클러스터
+
+노드
+
+애그리게이트
+
+스토리지 VM
+
+볼륨
+
+LUN
+
+NVMe 네임스페이스
+
+네트워크 인터페이스(LIF)
+
+포트
+
+
+
+ a| 
+서비스 품질(QoS: Quality of Service)
+ a| 
+기존 QoS 정책 그룹
+
+적응형 QoS 정책 그룹
+
+성능 서비스 수준 정책 그룹
+
+
+
+ a| 
+볼륨 보호 관계(볼륨 페이지에서 확인 가능)
+ a| 
+모든 관계
+
+최근 1개월 전송 현황
+
+최근 1개월 전송률
+
+
+
+ a| 
+보안
+ a| 
+스토리지 VM
+
+클러스터
+
+|===

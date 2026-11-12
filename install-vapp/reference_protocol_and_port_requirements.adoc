@@ -1,0 +1,302 @@
+---
+permalink: install-vapp/reference_protocol_and_port_requirements.html 
+sidebar: sidebar 
+keywords: unified manager, protocol, port, requirements, server, connections 
+summary: 필수 포트 및 프로토콜을 통해 Unified Manager 서버와 관리되는 스토리지 시스템, 서버 및 기타 구성 요소 간의 통신이 가능합니다. 
+---
+= Active IQ Unified Manager의 프로토콜 및 포트 요구 사항에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필수 포트 및 프로토콜을 통해 Unified Manager 서버와 관리되는 스토리지 시스템, 서버 및 기타 구성 요소 간의 통신이 가능합니다.
+
+
+
+[[connections-to-the-unified-manager-server]]
+== Unified Manager 서버 연결
+
+일반적인 설치에서는 기본 포트가 항상 사용되므로 Unified Manager 웹 UI에 연결할 때 포트 번호를 지정할 필요가 없습니다. 예를 들어, Unified Manager는 항상 기본 포트에서 실행을 시도하므로 `+https://<host>:443+` 대신 `+https://<host>+`을 입력할 수 있습니다.
+
+Unified Manager 서버는 특정 프로토콜을 사용하여 다음 인터페이스에 액세스합니다:
+
+[cols="4*"]
+|===
+| 인터페이스 | 프로토콜 | 포트 | 설명 
+
+
+ a| 
+Unified Manager 웹 UI
+ a| 
+HTTP
+ a| 
+80
+ a| 
+Unified Manager 웹 UI에 액세스하는 데 사용되며, 보안 포트 443으로 자동 리디렉션됩니다.
+
+
+
+ a| 
+Unified Manager 웹 UI 및 API를 사용하는 프로그램
+ a| 
+HTTPS
+ a| 
+443
+ a| 
+Unified Manager 웹 UI에 안전하게 액세스하거나 API 호출을 수행하는 데 사용됩니다. API 호출은 HTTPS를 통해서만 가능합니다.
+
+
+
+ a| 
+유지보수 콘솔
+ a| 
+SSH/SFTP
+ a| 
+22
+ a| 
+유지 관리 콘솔에 액세스하고 지원 번들을 검색하는 데 사용됩니다.
+
+
+
+ a| 
+Linux 명령줄
+ a| 
+SSH/SFTP
+ a| 
+22
+ a| 
+Red Hat Enterprise Linux 명령줄에 액세스하고 지원 번들을 검색하는 데 사용됩니다.
+
+
+
+ a| 
+Syslog
+ a| 
+UDP
+ a| 
+514
+ a| 
+ONTAP 시스템에서 구독 기반 EMS 메시지에 액세스하고 해당 메시지를 기반으로 이벤트를 생성하는 데 사용됩니다.
+
+
+
+ a| 
+REST
+ a| 
+HTTPS
+ a| 
+9443
+ a| 
+인증된 ONTAP 시스템에서 실시간 REST API 기반 EMS 이벤트에 액세스하는 데 사용됩니다.
+
+
+
+ a| 
+MySQL 데이터베이스
+ a| 
+MySQL
+ a| 
+3306
+ a| 
+OnCommand Workflow Automation 및 OnCommand API Services가 Unified Manager에 액세스할 수 있도록 설정하는 데 사용됩니다.
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP/IP
+ a| 
+56072
+ a| 
+내부 메시지 전달에 사용됩니다.
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP를 통한 WebSocket
+ a| 
+56080
+ a| 
+이 포트는 ONTAP(클라우드 에이전트)에서 수신한 메시지를 수신 대기하는 데 사용됩니다.
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP를 통한 WebSocket
+ a| 
+56443
+ a| 
+이 포트는 ONTAP(클라우드 에이전트)에서 수신하는 메시지를 수신 대기하는 데 사용됩니다. 이 포트를 통한 통신은 TLS 또는 SSL에서 제공하는 암호화를 지원합니다.
+
+|===
+[NOTE]
+====
+VMware vSphere 시스템에 Unified Manager를 설치할 때 MySQL의 기본 포트인 3306은 localhost로만 제한됩니다. 이는 이전 구성을 유지하는 업그레이드 시나리오에는 영향을 미치지 않습니다. 이 구성을 수정할 수 있으며, 유지 관리 콘솔의 `Control access to MySQL port 3306` 옵션을 사용하여 다른 호스트에서 연결을 사용할 수 있도록 할 수 있습니다. 자세한 내용은 link:../config/reference_additional_menu_options.html["추가 메뉴 옵션"]를 참조하십시오. HTTP 및 HTTPS 통신에 사용되는 포트(포트 80 및 443)는 Unified Manager 유지 관리 콘솔을 사용하여 변경할 수 있습니다. 자세한 내용은 link:../config/concept_maintenance_console_menu.html["유지보수 콘솔 메뉴"]를 참조하십시오.
+
+====
+
+
+[[connections-from-the-unified-manager-server]]
+== Unified Manager 서버에서의 연결
+
+Unified Manager 서버와 관리형 스토리지 시스템, 서버 및 기타 구성 요소 간의 통신을 가능하게 하는 포트를 방화벽에서 열도록 구성해야 합니다. 포트가 열려 있지 않으면 통신이 실패합니다.
+
+사용 환경에 따라 Unified Manager 서버가 특정 대상에 연결하는 데 사용하는 포트 및 프로토콜을 수정할 수 있습니다.
+
+Unified Manager 서버는 다음 프로토콜과 포트를 사용하여 관리되는 스토리지 시스템, 서버 및 기타 구성 요소에 연결합니다:
+
+[cols="4*"]
+|===
+| 목적지 | 프로토콜 | 포트 | 설명 
+
+
+ a| 
+스토리지 시스템
+ a| 
+HTTPS
+ a| 
+443/TCP
+ a| 
+스토리지 시스템을 모니터링하고 관리하는 데 사용됩니다.
+
+
+NOTE: VMware vCenter Server 또는 ESXi 서버에 연결하는 데 이 포트 또는 다른 포트를 사용하는 경우, 해당 포트가 사용 가능하고 보안 사이트에서 연결할 수 있는지 확인하십시오.
+
+
+
+ a| 
+스토리지 시스템
+ a| 
+NDMP
+ a| 
+10000/TCP
+ a| 
+특정 스냅샷 복원 작업에 사용됩니다.
+
+
+
+ a| 
+AutoSupport 서버
+ a| 
+HTTPS
+ a| 
+443
+ a| 
+AutoSupport 정보를 전송하는 데 사용됩니다. 이 기능을 수행하려면 인터넷 연결이 필요합니다.
+
+
+
+ a| 
+인증 서버
+ a| 
+LDAP
+ a| 
+389
+ a| 
+인증 요청 및 사용자/그룹 조회 요청에 사용됩니다.
+
+
+
+ a| 
+LDAPS
+ a| 
+636
+ a| 
+안전한 LDAP 통신에 사용됩니다.
+
+
+
+ a| 
+메일 서버
+ a| 
+SMTP
+ a| 
+25
+ a| 
+알림 이메일을 보내는 데 사용됩니다.
+
+
+
+ a| 
+SNMP 트랩 송신자
+ a| 
+SNMPv1 또는 SNMPv3
+ a| 
+162/UDP
+ a| 
+경고 알림 SNMP 트랩을 전송하는 데 사용됩니다.
+
+
+
+ a| 
+외부 데이터 제공자 서버
+ a| 
+TCP
+ a| 
+2003
+ a| 
+Graphite 등 외부 데이터 제공업체에 성능 데이터를 전송하는 데 사용됩니다.
+
+
+
+ a| 
+NTP 서버
+ a| 
+NTP
+ a| 
+123/UDP
+ a| 
+Unified Manager 서버의 시간을 외부 NTP 시간 서버와 동기화하는 데 사용됩니다. (VMware 시스템만 해당)
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP/IP
+ a| 
+56072
+ a| 
+내부 메시지 전달에 사용됩니다.
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP를 통한 WebSocket
+ a| 
+56080
+ a| 
+이 포트는 ONTAP(클라우드 에이전트)에서 수신한 메시지를 수신 대기하는 데 사용됩니다.
+
+
+
+ a| 
+AMQP QPID 브로커
+ a| 
+TCP를 통한 WebSocket
+ a| 
+56443
+ a| 
+이 포트는 ONTAP(클라우드 에이전트)에서 수신하는 메시지를 수신 대기하는 데 사용됩니다. 이 포트를 통한 통신은 TLS 또는 SSL에서 제공하는 암호화를 지원합니다.
+
+
+
+ a| 
+Syslog
+ a| 
+UDP
+ a| 
+514
+ a| 
+Unified Manager에서 감사 로그를 원격 syslog 서버로 전송하는 데 사용됩니다.
+
+|===

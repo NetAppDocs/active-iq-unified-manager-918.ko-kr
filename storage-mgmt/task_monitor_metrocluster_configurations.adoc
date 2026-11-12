@@ -1,0 +1,108 @@
+---
+permalink: storage-mgmt/task_monitor_metrocluster_configurations.html 
+sidebar: sidebar 
+keywords: monitor, metrocluster, configurations 
+summary: MetroCluster 구성에서 연결 문제를 모니터링할 수 있습니다. 세부 정보에는 클러스터 내 구성 요소 및 연결 상태와 MetroCluster 구성의 클러스터 간 연결 상태가 포함됩니다. 
+---
+= Active IQ Unified Manager에서 MetroCluster 구성 모니터링
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 구성에서 연결 문제를 모니터링할 수 있습니다. 세부 정보에는 클러스터 내 구성 요소 및 연결 상태와 MetroCluster 구성의 클러스터 간 연결 상태가 포함됩니다. 여기서는 MetroCluster over FC 및 MetroCluster over IP 구성으로 보호되는 클러스터에서 연결 문제를 모니터링하는 방법을 알아봅니다.
+
+Active IQ Unified Manager 왼쪽 탐색 창의 다음 보기에서 MetroCluster 구성을 모니터링할 수 있습니다.
+
+* *스토리지* > *클러스터* > *보호: MetroCluster* 보기
+* *Protection* > *Relationships* > *Relationship: MetroCluster* 보기
+
+
+Unified Manager는 시스템 상태 경고를 사용하여 MetroCluster 구성의 구성 요소 및 연결 상태를 나타냅니다.
+
+.시작하기 전에
+* MetroCluster 구성의 로컬 및 원격 클러스터 모두 Active IQ Unified Manager에 추가되어야 합니다.
+* IP 기반 MetroCluster 구성에서 Mediator를 지원해야 하는 경우 해당 API를 사용하여 Mediator를 구성하고 클러스터에 추가해야 합니다.
+* 운영자, 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+
+
+
+
+[[monitor-connectivity-issues-in-metrocluster-over-fc-configuration]]
+== FC 구성의 MetroCluster에서 연결 문제 모니터링
+
+FC 기반 MetroCluster 구성의 클러스터의 경우 연결 차트가 *클러스터 / 상태* 세부 정보 페이지에 표시됩니다. 다음 단계를 따르십시오.
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지* > *클러스터*를 클릭합니다.
++
+모니터링 중인 모든 클러스터 목록이 표시됩니다.
+
+. *보호: MetroCluster* 보기에서 MetroCluster over FC 구성 세부 정보를 보려는 클러스터의 이름을 클릭합니다. 또는 MetroCluster 구성의 클러스터별로 필터링할 수 있습니다.
+. *클러스터 / 상태* 세부 정보 페이지에서 *MetroCluster 연결* 탭을 클릭합니다. *MetroCluster 연결* 탭은 FC 기반 MetroCluster 구성에서만 사용할 수 있습니다.
++
+image::../media/opm_um_mcc_connectivity_tab_png.gif[Unified Manager MetroCluster 연결 탭]
+
++
+MetroCluster 구성의 토폴로지가 해당 클러스터 오브젝트 영역에 표시됩니다. 클러스터 / 상태 세부 정보 페이지에 표시된 정보를 사용하여 연결 문제를 해결할 수 있습니다. 예를 들어 클러스터의 노드와 스위치 간의 연결이 끊어진 경우 다음 아이콘이 표시됩니다.
+
+
+
+image::../media/node_switch_connectivity.gif[노드 스위치 연결 아이콘]
+
+포인터를 아이콘 위로 가져가면 발생한 이벤트에 대한 자세한 정보를 볼 수 있습니다.
+
+MetroCluster 구성에서 연결 문제를 탐색하는 경우, System Manager에 로그인하거나 ONTAP CLI에 액세스하여 문제를 해결해야 합니다.
+
+클러스터 상태 확인에 대한 자세한 내용은 link:../health-checker/task_check_health_of_clusters_in_metrocluster_configuration.html#determine-cluster-health-in-metrocluster-over-fc-configuration["FC를 통한 MetroCluster 구성에서 클러스터 상태 확인"]을(를) 참조하십시오.
+
+
+
+[[monitor-connectivity-issues-in-metrocluster-over-ip-configuration]]
+== IP 기반 MetroCluster 구성의 연결 문제 모니터링
+
+IP 기반 MetroCluster 구성의 클러스터의 경우, 연결 차트가 *클러스터* 페이지에 표시됩니다. 다음 단계를 따르십시오.
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지* > *클러스터*를 클릭합니다.
++
+모니터링 중인 모든 클러스터 목록이 표시됩니다.
+
+. *보호: MetroClusters* 보기에서 MetroCluster over IP 구성 세부 정보를 보려는 클러스터의 이름을 클릭합니다. 또는 MetroCluster 구성의 클러스터별로 필터링할 수 있습니다.
+. 캐럿 `v` 아이콘을 클릭하여 행을 확장합니다. 캐럿 아이콘은 MetroCluster over IP 구성으로 보호되는 클러스터에만 나타납니다.
++
+소스 사이트와 미러 사이트의 토폴로지, 그리고 연결에 사용된 미디에이터(있는 경우)를 확인할 수 있습니다. 다음 정보를 볼 수 있습니다.
+
++
+** 사이트 간 연결성
+** 두 사이트 모두의 상태 및 가용성 문제(있는 경우)
+** 중재자 관련 문제
+** 복제 관련 문제.
++
+
+NOTE: 다음과 같은 상태가 보고됩니다. 심각(image:sev_critical_um60.png[""]), 오류(image:sev_error_um60.png[""]) 또는 정상(image:sev_normal_um60.png[""]). 동일한 토폴로지에서 기본 데이터와 미러 데이터의 전체 데이터 복제 상태도 확인할 수 있습니다.
+
++
+다음 다이어그램에서 소스 클러스터와 대상 클러스터 간의 사이트 간 연결을 사용할 수 없으며, 두 클러스터 간의 Mediator가 구성되지 않았음을 확인할 수 있습니다.
+
++
+image:mcc-ip-conn-status.png["원본 사이트와 미러 사이트, 그리고 미디에이터의 토폴로지를 보여주는 UI 스크린샷입니다."]
+
+
+
+. 상태 아이콘을 클릭합니다. 오류 정의가 포함된 메시지가 표시됩니다. MetroCluster over IP 구성에서 문제에 대한 이벤트가 발생한 경우, 메시지에서 *이벤트 보기* 버튼을 클릭하여 이벤트 세부 정보를 확인할 수 있습니다. 문제와 이벤트를 해결하면 이 토폴로지의 상태 아이콘이 정상(image:sev_normal_um60.png[""])으로 바뀝니다.
+. *클러스터 / 상태* 세부 정보 페이지의 *구성* 탭에 있는 *MetroCluster 개요* 및 *보호* 섹션에서 추가 구성 세부 정보를 확인할 수 있습니다.
+
+
+
+NOTE: IP 기반 MetroCluster 구성의 경우에만 *클러스터* 페이지에서 클러스터 토폴로지를 볼 수 있습니다. FC 기반 MetroCluster 구성의 클러스터의 경우, *클러스터 / 상태* 세부 정보 페이지의 *MetroCluster 연결* 탭에 토폴로지가 표시됩니다.
+
+*관련 정보*
+
+* link:../health-checker/reference_health_cluster_details_page.html["클러스터 / 상태 세부 정보 페이지"]
+* *관계:MetroCluster* 보기에 대한 자세한 내용은 link:../storage-mgmt/task_monitor_metrocluster_configurations.html["MetroCluster 구성 모니터링"]를 참조하십시오.
+* *관계: 최근 1개월 전송 상태* 보기에 대한 자세한 내용은 link:../data-protection/reference_relationship_last_1_month_transfer_status_view.html["관계: 최근 1개월 전송 상태 보기"]을(를) 참조하십시오.
+* *관계: 최근 1개월 전송률* 보기에 대한 자세한 내용은 link:../data-protection/reference_relationship_last_1_month_transfer_rate_view.html["관계: 최근 1개월 전송률 보기"]을(를) 참조하십시오.
+* *관계: 모든 관계* 보기에 대한 자세한 내용은 link:../data-protection/reference_relationship_all_relationships_view.html["관계: 모든 관계 보기"]을(를) 참조하십시오.
+

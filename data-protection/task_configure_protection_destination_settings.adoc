@@ -1,0 +1,29 @@
+---
+permalink: data-protection/task_configure_protection_destination_settings.html 
+sidebar: sidebar 
+keywords: configure, destination, efficiency, settings 
+summary: 고급 대상 설정 대화 상자를 사용하여 보호 대상에 중복 제거, 압축, 자동 증가, 공간 보장 등 대상 효율성 설정을 구성할 수 있습니다. 이러한 설정은 대상 또는 보조 볼륨의 공간 활용도를 최대화하려는 경우에 사용합니다. 
+---
+= Active IQ Unified Manager에서 대상 효율성 설정 구성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+고급 대상 설정 대화 상자를 사용하여 보호 대상에 중복 제거, 압축, 자동 증가, 공간 보장 등 대상 효율성 설정을 구성할 수 있습니다. 이러한 설정은 대상 또는 보조 볼륨의 공간 활용도를 최대화하려는 경우에 사용합니다.
+
+.시작하기 전에
+애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+
+기본적으로 효율성 설정은 소스 볼륨의 설정과 동일하지만, SnapVault 관계의 압축 설정은 기본적으로 비활성화되어 있습니다.
+
+.단계
+. 구성하려는 관계 유형에 따라 *보호 구성* 대화 상자에서 *SnapMirror* 탭 또는 *SnapVault* 탭을 클릭합니다.
+. *목적지 정보* 영역에서 *고급*을 클릭하십시오.
++
+고급 대상 설정 대화 상자가 열립니다.
+
+. 필요에 따라 중복 제거, 압축, 자동 증가 및 공간 보장에 대한 효율성 설정을 활성화 또는 비활성화하십시오.
+. 선택 사항을 저장하고 *보호 구성* 대화 상자로 돌아가려면 *적용*을 클릭하십시오.
+

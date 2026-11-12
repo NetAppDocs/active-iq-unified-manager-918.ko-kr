@@ -1,0 +1,31 @@
+---
+permalink: api-automation/concept_storage_resource_model.html 
+sidebar: sidebar 
+keywords: storage, resource, ONTAP 
+summary: ONTAP의 스토리지 리소스는 크게 물리적 스토리지 리소스와 논리적 스토리지 리소스로 분류할 수 있습니다. Active IQ Unified Manager에서 제공하는 API를 사용하여 ONTAP 시스템을 효과적으로 관리하려면 스토리지 리소스 모델과 다양한 스토리지 리소스 간의 관계를 이해해야 합니다. 
+---
+= Active IQ Unified Manager의 ONTAP 스토리지 리소스 모델 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP의 스토리지 리소스는 크게 _물리적 스토리지 리소스_와 _논리적 스토리지 리소스_로 분류할 수 있습니다. Active IQ Unified Manager에서 제공하는 API를 사용하여 ONTAP 시스템을 효과적으로 관리하려면 스토리지 리소스 모델과 다양한 스토리지 리소스 간의 관계를 이해해야 합니다.
+
+* *물리적 스토리지 리소스*
++
+ONTAP에서 제공하는 물리적 스토리지 오브젝트를 나타냅니다. 물리적 스토리지 리소스에는 디스크, 클러스터, 스토리지 컨트롤러, 노드 및 애그리게이트가 포함됩니다.
+
+* *논리적 스토리지 리소스*
++
+물리적 리소스에 연결되지 않은 ONTAP에서 제공하는 스토리지 리소스를 의미합니다. 이러한 리소스는 스토리지 가상 머신(SVM, 이전에는 Vserver라고 함)과 연결되며, 디스크, 어레이 LUN 또는 애그리게이트 등 특정 물리적 스토리지 리소스와는 독립적으로 존재합니다.
+
++
+논리적 스토리지 리소스에는 모든 유형의 볼륨과 qtree뿐만 아니라, 스냅샷 복사본, 중복 제거, 압축, 할당량 등 이러한 리소스와 함께 사용할 수 있는 기능 및 구성이 포함됩니다.
+
+
+
+다음 그림은 2노드 클러스터의 스토리지 리소스를 보여줍니다:
+
+image::../media/storage_resource_model.gif[2노드 클러스터의 스토리지 리소스를 보여주는 UI 스크린샷입니다.]

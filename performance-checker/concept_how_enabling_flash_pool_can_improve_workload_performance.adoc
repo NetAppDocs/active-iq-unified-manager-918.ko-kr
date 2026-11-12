@@ -1,0 +1,20 @@
+---
+permalink: performance-checker/concept_how_enabling_flash_pool_can_improve_workload_performance.html 
+sidebar: sidebar 
+keywords: enable, flash pool, storage, aggregate, improve, workload, performance 
+summary: 애그리게이트에서 Flash Pool 기능을 활성화하면 워크로드 성능을 향상시킬 수 있습니다. Flash Pool은 HDD와 SSD를 모두 포함하는 애그리게이트입니다. HDD는 기본 스토리지로 사용되고, SSD는 고성능 읽기 및 쓰기 캐시를 제공하여 애그리게이트 성능을 향상시킵니다. 
+---
+= Active IQ Unified Manager의 스토리지 애그리게이트에서 Flash Pool을 활성화하여 워크로드 성능 향상
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+애그리게이트에서 Flash Pool 기능을 활성화하면 워크로드 성능을 향상시킬 수 있습니다. Flash Pool은 HDD와 SSD를 모두 포함하는 애그리게이트입니다. HDD는 기본 스토리지로 사용되고, SSD는 고성능 읽기 및 쓰기 캐시를 제공하여 애그리게이트 성능을 향상시킵니다.
+
+Unified Manager의 이벤트 세부 정보 페이지에는 경합 중인 애그리게이트의 이름이 표시됩니다. ONTAP System Manager 또는 ONTAP 명령을 사용하여 애그리게이트에 대해 Flash Pool이 활성화되어 있는지 확인할 수 있습니다. SSD가 설치된 경우 명령줄 인터페이스를 사용하여 활성화할 수 있습니다. SSD가 설치된 경우 애그리게이트에서 다음 명령을 실행하여 Flash Pool이 활성화되어 있는지 확인할 수 있습니다: `*cluster::> storage aggregate show -aggregate aggr_name -field hybrid-enabled*`
+
+이 명령에서  `_aggr_name_`는 경쟁 중인 애그리게이트 등 애그리게이트의 이름입니다.
+
+Flash Pool 및 사용 요구 사항에 대한 자세한 내용은 _클러스터형 Data ONTAP 물리적 스토리지 관리 가이드_를 참조하십시오.

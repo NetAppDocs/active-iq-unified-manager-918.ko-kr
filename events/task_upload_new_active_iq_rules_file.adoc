@@ -1,0 +1,49 @@
+---
+permalink: events/task_upload_new_active_iq_rules_file.html 
+sidebar: sidebar 
+keywords: upload, new, active iq AIQ rules, rules file, CA secure rules, config advisor rules 
+summary: Unified Manager는 새로운 Active IQ 규칙 파일을 자동으로 확인하고 새로운 규칙이 있으면 새 파일을 다운로드합니다. 하지만 외부 네트워크 액세스가 없는 사이트에서는 규칙 파일을 수동으로 업로드해야 합니다. 
+---
+= Active IQ Unified Manager에서 새 Active IQ 규칙 파일 업로드
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager는 새로운 Active IQ 이벤트(규칙) 파일을 자동으로 확인하고 새로운 규칙이 있는 경우 새 파일을 다운로드합니다. 하지만 외부 네트워크 액세스가 없는 사이트에서는 규칙 파일을 수동으로 업로드해야 합니다.
+
+
+NOTE: Active IQ 규칙은 Config Advisor(CA) 보안 규칙이라고도 합니다.
+
+네트워크 연결이 없는 사이트에 Unified Manager를 특정 릴리스로 설치하거나 업그레이드할 때, 번들로 제공되는 Active IQ 규칙을 자동으로 업로드할 수 있습니다. 하지만 업데이트된 이벤트가 생성되고 스토리지 시스템이 최적의 성능을 유지하도록 하려면 NetApp 지원 사이트에서 매달 한 번 정도 새 규칙 파일을 다운로드하는 것이 좋습니다.
+
+.시작하기 전에
+* Active IQ 포털 이벤트 보고 기능을 활성화해야 합니다. 이 기능은 기본적으로 활성화되어 있습니다. 자세한 내용은 link:../config/concept_active_iq_platform_events.html["Active IQ 포털 이벤트 활성화"]를 참조하십시오.
+* 규칙 파일은 NetApp 지원 사이트에서 다운로드해야 합니다.
++
+규칙 파일은 다음 위치에 있습니다: https://mysupport.netapp.com/api/content-service/staticcontents/content/public/tools/unifiedmanager/ca/secure_rules.zip[]
+
+
+
+.단계
+. 네트워크 액세스가 가능한 컴퓨터에서 NetApp Support 사이트로 이동하여 최신 규칙 `.zip` 파일을 다운로드하십시오.
++
+번들로 제공되는 규칙 패키지에는 규칙 저장소, 데이터 소스 및 NetApp 기술 자료 문서가 포함되어 있습니다.
+
++
+
+NOTE: Windows 시스템에서 네트워크 연결이 없는 사이트의 경우 NetApp KB 문서가 설치 프로그램에 기본적으로 포함되어 있지 않습니다. Support 사이트에서 _secure_rules.zip_ 파일을 다운로드하여 업로드하면 모든 규칙에 대한 KB 문서를 볼 수 있습니다.
+
+. 규칙 파일을 보안 구역으로 반입할 수 있는 저장 매체에 옮긴 다음, 보안 구역 내 시스템에 복사하십시오.
+. 왼쪽 탐색 창에서 *스토리지 관리* > *이벤트 설정*을 클릭합니다.
+. *이벤트 설정* 페이지에서 *규칙 업로드* 버튼을 클릭합니다.
+. *규칙 업로드* 대화 상자에서 다운로드한 규칙 `.zip` 파일을 찾아 선택한 다음 *업로드*를 클릭합니다.
++
+이 과정은 몇 분 정도 소요될 수 있습니다.
+
+
+
+규칙 파일은 Unified Manager 서버에서 압축 해제됩니다. 관리되는 클러스터가 자정 이후에 AutoSupport 파일을 생성하면 Unified Manager는 해당 클러스터를 규칙 파일과 비교하여 확인하고 필요에 따라 새로운 위험 및 인시던트 이벤트를 생성합니다.
+
+자세한 내용은 다음 기술 자료(KB) 문서를 참조하십시오: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Infrastructure_Management/Active_IQ_Unified_Manager/How_to_update_AIQCASecure_rules_manually_in_Active_IQ_Unified_Manager["Active IQ Unified Manager에서 AIQCASecure 규칙을 수동으로 업데이트하는 방법"].

@@ -1,0 +1,945 @@
+---
+permalink: events/reference_volume_events.html 
+sidebar: sidebar 
+keywords: volume, events, impact area, availability, capacity, configuration, performance 
+summary: 볼륨 이벤트는 볼륨 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 이름, 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 볼륨 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 이벤트는 볼륨 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 이름, 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+별표(*)는 Unified Manager 이벤트로 변환된 EMS 이벤트를 식별합니다.
+
+
+
+[[impact-area-availability]]
+== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+볼륨 제한됨(ocumEvtVolumeRestricted)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 오프라인(ocumEvtVolumeOffline)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 부분 사용 가능(ocumEvtVolumePartiallyAvailable)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 마운트 해제됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 마운트됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨이 다시 마운트되었습니다(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 접합 경로 비활성(ocumEvtVolumeJunctionPathInactive)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 자동 크기 조정 사용(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 자동 크기 조정 비활성화(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 자동 크기 조정 최대 용량 수정됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 자동 크기 조정 증가 크기 수정됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+|===
+
+
+[[impact-area-capacity]]
+== 영향 영역: 용량
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+씬 프로비저닝된 볼륨 공간 위험(ocumThinProvisionVolumeSpaceAtRisk)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 효율 작동 오류(ocumEvtVolumeEfficiencyOperationError)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 공간 가득 참(ocumEvtVolumeFull)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 공간이 거의 가득 찼습니다(ocumEvtVolumeNearlyFull)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 논리 공간 가득 참 *(volumeLogicalSpaceFull)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 논리 공간이 거의 가득 찼습니다 *(volumeLogicalSpaceNearlyFull)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 논리 공간 정상 *(volumeLogicalSpaceAllOK)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 스냅샷 예약 공간 가득 참(ocumEvtSnapshotFull)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+스냅샷 복사본이 너무 많습니다(ocumEvtSnapshotTooMany)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 Qtree 할당량 초과(ocumEvtVolumeQtreeQuotaOvercommitted)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 Qtree 할당량이 거의 초과되었습니다(ocumEvtVolumeQtreeQuotaAlmostOvercommitted)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 증가율 비정상(ocumEvtVolumeGrowthRateAbnormal)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 전체 용량 충족까지 남은 일수(ocumEvtVolumeDaysUntilFullSoon)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 공간 보장 비활성화됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 공간 보장 활성화됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 공간 보장 수정됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 스냅샷 예약이 가득 찰 때까지 남은 일수(ocumEvtVolumeSnapshotReserveDaysUntilFullSoon)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성 요소에 공간 문제가 있습니다 *(flexGroupConstituentsHaveSpaceIssues)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성 요소 공간 상태 모두 정상 *(flexGroupConstituentsSpaceStatusAllOK)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+FlexGroup 구성원에게 Inodes 문제가 발생했습니다 *(flexGroupConstituentsHaveInodesIssues)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성 요소 Inodes 상태 모두 정상 *(flexGroupConstituentsInodesStatusAllOK)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+WAFL 볼륨 AutoSize 실패 *(waflVolAutoSizeFail)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+WAFL 볼륨 AutoSize 완료 *(waflVolAutoSizeDone)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+FlexGroup 볼륨 활용률이 80%를 넘어섰습니다*
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 볼륨 활용률이 90%를 넘어섰습니다*
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 스토리지 효율성 이상(ocumVolumeAbnormalStorageEfficiencyWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 스냅샷 예약량 활용 부족(volumeSnaphotReserveUnderutilizedWarning)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 스냅샷 예비량 미활용 (volumeSnaphotReserveUnderutilizedCleared)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+경고
+
+|===
+
+
+[[impact-area-configuration]]
+== 영향 영역: 구성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+볼륨 이름 변경됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 검색됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 삭제됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+|===
+
+
+[[impact-area-performance]]
+== 영향 영역: 성능
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+QoS 볼륨 최대 IOPS 경고 임계값 초과(ocumQosVolumeMaxIopsWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+QoS 볼륨 최대 MB/s 경고 임계값 위반(ocumQosVolumeMaxMbpsWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+QoS 볼륨 최대 IOPS/TB 경고 임계값 초과(ocumQosVolumeMaxIopsPerTbWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+성능 서비스 수준 정책에 정의된 워크로드 볼륨 지연 임계값을 초과했습니다(ocumConformanceLatencyWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 IOPS 임계치 초과(ocumVolumeIopsIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 IOPS 경고 임계값 초과(ocumVolumeIopsWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 MB/s 위험 임계치 초과(ocumVolumeMbpsIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 MB/s 경고 임계값 초과(ocumVolumeMbpsWarning )
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 위험 임계값 초과(ocumVolumeLatencyIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 경고 임계값 초과(ocumVolumeLatencyWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 캐시 미스 비율 위험 임계값 초과(ocumVolumeCacheMissRatioIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 캐시 미스 비율 경고 임계값 초과(ocumVolumeCacheMissRatioWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 IOPS 심각 임계값 초과(ocumVolumeLatencyIopsIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 IOPS 경고 임계값 초과(ocumVolumeLatencyIopsWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 MB/s 위험 임계값 초과(ocumVolumeLatencyMbpsIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 MB/s 경고 임계값 초과(ocumVolumeLatencyMbpsWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 애그리게이트 성능 용량 사용량 위험 임계값 초과(ocumVolumeLatencyAggregatePerfCapacityUsedIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 총 성능 용량 사용량 경고 임계값 초과(ocumVolumeLatencyAggregatePerfCapacityUsedWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 애그리게이트 활용률 위험 임계값 초과(ocumVolumeLatencyAggregateUtilizationIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 애그리게이트 사용률 경고 임계값 초과(ocumVolumeLatencyAggregateUtilizationWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 성능 용량 사용량 위험 임계값 초과(ocumVolumeLatencyNodePerfCapacityUsedIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 성능 용량 사용량 경고 임계값 초과(ocumVolumeLatencyNodePerfCapacityUsedWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 성능 용량 사용량 - 테이크오버 위험 임계값 초과(ocumVolumeLatencyAggregatePerfCapacityUsedTakeoverIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 성능 용량 사용량 - 테이크오버 경고 임계값 초과(ocumVolumeLatencyAggregatePerfCapacityUsedTakeoverWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 활용률 중요 임계값 초과(ocumVolumeLatencyNodeUtilizationIncident)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+볼륨 지연 시간 및 노드 활용률 경고 임계값 초과(ocumVolumeLatencyNodeUtilizationWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+|===
+
+
+[[impact-area-security]]
+== 영향 영역: 보안
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+볼륨 랜섬웨어 방지 모니터링이 활성화되었습니다(액티브 모드) (antiRansomwareVolumeStateEnabled)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 랜섬웨어 방지 모니터링이 비활성화되었습니다(antiRansomwareVolumeStateDisabled)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 랜섬웨어 모니터링이 활성화되었습니다(학습 모드) (antiRansomwareVolumeStateDryrun)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 랜섬웨어 방지 모니터링이 일시 중지되었습니다(학습 모드)(antiRansomwareVolumeStateDryrunPaused)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 랜섬웨어 방지 모니터링이 일시 중지되었습니다(활성 모드) (antiRansomwareVolumeStateEnablePaused)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 랜섬웨어 방지 모니터링이 비활성화 중입니다(antiRansomwareVolumeStateDisableInProgress)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+랜섬웨어 활동 감지됨(callHomeRansomwareActivitySeen)
+ a| 
+인시던트
+ a| 
+볼륨
+ a| 
+심각
+
+
+
+ a| 
+랜섬웨어 방지 모니터링에 적합한 볼륨(학습 모드) (ocumEvtVolumeArwCandidate)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+랜섬웨어 모니터링에 적합한 볼륨(액티브 모드) (ocumVolumeSuitedForActiveAntiRansomwareDetection)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨에 노이즈가 많은 안티랜섬웨어 경고가 표시됩니다(antiRansomwareFeatureNoisyVolume)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+|===
+
+
+[[impact-area-data-protection]]
+== 영향 영역: 데이터 보호
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+볼륨에 로컬 스냅샷 보호 기능이 부족합니다(volumeLacksLocalProtectionWarning)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨에 로컬 스냅샷 보호 기능이 부족합니다(volumeLacksLocalProtectionCleared)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+|===

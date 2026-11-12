@@ -1,0 +1,16 @@
+---
+permalink: performance-checker/concept_what_performance_events_are.html 
+sidebar: sidebar 
+keywords: performance, events 
+summary: 성능 이벤트는 클러스터에서 워크로드 성능과 관련된 사건입니다. 이러한 이벤트를 통해 응답 속도가 느린 워크로드를 식별할 수 있습니다. 동시에 발생한 상태 이벤트와 함께 분석하면 응답 속도 저하의 원인이 되거나 영향을 미친 문제를 파악할 수 있습니다. 
+---
+= Active IQ Unified Manager의 성능 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 이벤트는 클러스터에서 워크로드 성능과 관련된 사건입니다. 이러한 이벤트를 통해 응답 속도가 느린 워크로드를 식별할 수 있습니다. 동시에 발생한 상태 이벤트와 함께 분석하면 응답 속도 저하의 원인이 되거나 영향을 미친 문제를 파악할 수 있습니다.
+
+Unified Manager가 동일한 클러스터 구성 요소에 대해 동일한 이벤트 조건이 여러 번 발생하는 것을 감지하면 모든 발생을 별도의 이벤트가 아닌 단일 이벤트로 처리합니다.

@@ -1,0 +1,30 @@
+---
+permalink: performance-checker/concept_metrocluster_configuration_verification.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, verification 
+summary: MetroCluster 구성이 올바르게 설정되어 있는지 확인하여 MetroCluster 구성에서 미러링된 워크로드의 성능 문제를 방지할 수 있습니다. 또한 구성을 변경하거나 소프트웨어 또는 하드웨어 구성 요소를 업그레이드하여 워크로드 성능을 향상시킬 수 있습니다. 
+---
+= Active IQ Unified Manager에서 MetroCluster 구성 확인
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 구성이 올바르게 설정되었는지 확인하여 FC 및 IP 구성의 MetroCluster에서 미러링된 워크로드의 성능 문제를 방지할 수 있습니다. 또한 구성을 변경하거나 소프트웨어 또는 하드웨어 구성 요소를 업그레이드하여 워크로드 성능을 향상시킬 수 있습니다.
+
+Fibre Channel(FC) 스위치, 케이블 및 스위치 간 링크(ISL)를 포함하여 MetroCluster 구성에서 클러스터를 설정하는 지침은  https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 문서"]을(를) 참조하십시오. 또한 로컬 및 원격 클러스터가 미러 볼륨 데이터와 통신할 수 있도록 MetroCluster 소프트웨어를 구성하는 데 도움이 됩니다. MetroCluster over IP 설정에 대한 자세한 내용은  https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 구성 설치"]을(를) 참조하십시오.
+
+MetroCluster 구성을  https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 문서"]의 요구 사항과 비교하여 MetroCluster 구성의 구성 요소를 변경하거나 업그레이드하여 워크로드 성능을 향상시킬 수 있는지 판단할 수 있습니다. 이 비교를 통해 다음과 같은 질문에 대한 답을 찾을 수 있습니다.
+
+* 해당 컨트롤러가 사용 중인 워크로드에 적합한가요?
+* 더 많은 데이터 처리량을 감당하기 위해 ISL 번들을 더 큰 대역폭으로 업그레이드해야 합니까?
+* 대역폭을 늘리기 위해 스위치의 버퍼 간 크레딧(BBC)을 조정할 수 있습니까?
+* 워크로드에서 솔리드 스테이트 드라이브(SSD) 스토리지에 대한 쓰기 처리량이 높은 경우, 처리량을 수용하기 위해 FC-to-SAS 브리지를 업그레이드해야 합니까?
+
+
+*관련 정보*
+
+* MetroCluster 구성 요소 교체 또는 업그레이드에 대한 자세한 내용은  https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 문서"]를 참조하십시오.
+* 컨트롤러 업그레이드에 대한 자세한 내용은  https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["스위치오버 및 스위치백을 사용하여 MetroCluster FC 구성에서 컨트롤러 업그레이드"] 및  https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["스위치오버 및 스위치백을 사용하여 MetroCluster IP 구성에서 컨트롤러 업그레이드"]을(를) 참조하십시오.
+

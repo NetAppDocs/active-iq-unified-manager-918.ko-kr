@@ -1,0 +1,80 @@
+---
+permalink: reporting/task_create_report_to_view_aggregates_with_most_available_iops.html 
+sidebar: sidebar 
+keywords: create, report, view, aggregates, available, IOPS 
+summary: 이 보고서는 새 워크로드를 프로비저닝할 수 있는 애그리게이트 유형별로 사용 가능한 IOPS가 가장 많은 애그리게이트를 보여줍니다. 
+---
+= Active IQ Unified Manager에서 사용 가능한 IOPS가 가장 많은 애그리게이트를 보기 위한 보고서를 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 보고서는 새 워크로드를 프로비저닝할 수 있는 애그리게이트 유형별로 사용 가능한 IOPS가 가장 많은 애그리게이트를 보여줍니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+
+
+다음 단계에 따라 상태: 모든 볼륨 보기를 열고, 보기를 Excel로 다운로드하고, 사용 가능한 용량 차트를 생성하고, 사용자 지정 Excel 파일을 업로드하고, 최종 보고서를 예약하십시오.
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지* > *애그리게이트*를 클릭합니다.
+. *보기* 드롭다운에서 *성능: 모든 애그리게이트*를 선택하십시오.
+.  `Available IOPS` 열을 표시하고  `Cluster FQDN, Inactive Data Reporting,` 및  `Threshold Policy` 열을 숨기려면 *표시/숨기기*를 선택하십시오.
+.  `Available IOPS` 및  `Free Capacity` 열을  `Type` 열 옆으로 드래그 앤 드롭합니다.
+. 사용자 지정 보기의 이름을 지정하고 저장합니다 `Available IOPS Per Aggr.`
+. *보고서* > *Excel 다운로드*를 선택합니다.
++
+image::../media/download_excel_menu.png[보고서에서 엑셀을 다운로드하는 방법을 보여주는 UI 스크린샷입니다.]
+
++
+사용하는 브라우저에 따라 파일을 저장하려면 *확인*을 클릭해야 할 수도 있습니다.
+
+. 필요한 경우 *편집 활성화*를 클릭하십시오.
+. Excel에서 다운로드한 파일을 엽니다.
+. 데이터 시트에서 시트 왼쪽 상단에 있는 작은 삼각형을 클릭하여 시트 전체를 선택합니다.
+. *데이터* 리본의  `Sort & Filter area.`에서 *정렬*을 선택합니다.
+. 다음 정렬 수준을 설정하십시오:
++
+.. *Sort by*를  `Available IOPS` (IOPS)로, *Sort On*을  `Cell Values,`로, *Order*를  `Largest to Smallest.`로 지정하십시오.
+.. *레벨 추가*를 클릭합니다.
+.. *Sort by*를  `Type`(으)로, *Sort On*을  `Cell Values,`(으)로, *Order*를  `Z to A.`(으)로 지정하십시오.
+.. *레벨 추가*를 클릭합니다.
+.. *Sort by*를  `Free Capacity (GB),`(으)로, *Sort On*을  `Cell Values,`(으)로, *Order*를  `Largest to Smallest.`(으)로 지정하십시오.
+.. *확인*을 클릭합니다.
+
+
+. Excel 파일을 저장하고 닫으십시오.
+. Unified Manager에서 *보고서* > *Excel 업로드*를 선택합니다.
++
+[NOTE]
+====
+Excel 파일을 다운로드한 뷰와 동일한 뷰에 있는지 확인하십시오.
+
+====
+. 수정한 Excel 파일을 선택합니다. 이 경우에는 `performance-aggregates-<date>.xlsx.`
+. *열기*를 클릭하세요.
+. *제출*을 클릭하십시오.
++
+*보고서* > *Excel 업로드* 메뉴 항목 옆에 확인 표시가 나타납니다.
+
++
+image::../media/upload_excel.png[엑셀 파일을 보고서에 업로드하는 방법을 보여주는 UI 스크린샷입니다.]
+
+. *예약 보고서*를 클릭합니다.
+. 새 보고서의 일정 특성을 정의할 수 있도록 *일정 추가*를 클릭하여 보고서 일정 페이지에 새 행을 추가하십시오.
+. 보고서 일정의 이름을 입력하고 나머지 보고서 필드를 모두 작성한 다음 행 끝에 있는 확인 표시(image:../media/blue_check.gif[""])를 클릭하십시오.
++
+[NOTE]
+====
+보고서에 대해 *XLSX* 형식을 선택하십시오.
+
+====
++
+보고서는 테스트 목적으로 즉시 전송됩니다. 이후 보고서는 생성된 후 지정된 빈도로 나열된 수신자에게 이메일로 전송됩니다.
+
+
+
+보고서에 나타난 결과를 바탕으로, 사용 가능한 IOPS가 가장 높은 애그리게이트에 새로운 워크로드를 프로비저닝하는 것이 좋을 수 있습니다.

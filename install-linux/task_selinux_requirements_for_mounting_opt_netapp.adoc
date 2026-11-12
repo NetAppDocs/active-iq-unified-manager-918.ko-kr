@@ -1,0 +1,175 @@
+---
+permalink: install-linux/task_selinux_requirements_for_mounting_opt_netapp.html 
+sidebar: sidebar 
+keywords: unified manager, selinux requirements, mounting, nfs, cifs, share 
+summary: NAS 또는 SAN 장치에 /opt/netapp 또는 /opt/netapp/data를 마운트할 계획이고 SELinux가 활성화된 경우 다음 사항을 고려해야 합니다. 
+---
+= Active IQ Unified Manager에서 NFS 및 CIFS 공유에 대한 SELinux 구성
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ `/opt/netapp` 또는  `/opt/netapp/data`를 NAS 또는 SAN 장치에 마운트하려는 경우, SELinux가 활성화되어 있다면 몇 가지 고려 사항을 숙지해야 합니다.
+
+루트 파일 시스템이 아닌 다른 위치에서  `/opt/netapp` 또는  `/opt/netapp/data`를 마운트할 계획이고 환경에 SELinux가 활성화되어 있는 경우, 마운트된 디렉터리에 대해 올바른 컨텍스트를 설정해야 합니다. 사용 환경에 맞는 시나리오에 대해 다음 단계에 따라 올바른 SELinux 컨텍스트를 설정하고 확인하십시오.
+
+
+
+[[configure-the-selinux-context-when-optnetappdata-is-mounted]]
+==  `/opt/netapp/data` 마운트될 때 SELinux 컨텍스트를 구성합니다
+
+시스템에  `/opt/netapp/data`을(를) 마운트하고 SELinux가  `Enforcing`(으)로 설정된 경우,  `/opt/netapp/data`에 대한 SELinux 컨텍스트 유형이 데이터베이스 파일 위치에 대한 기본 컨텍스트 요소인  `mysqld_db_t`(으)로 설정되어 있는지 확인하십시오.
+
+. 컨텍스트를 확인하려면 다음 명령을 실행하세요:
++
+`ls -dZ /opt/netapp/data`
+
++
+예시 출력:
+
++
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:default_t:s0 /opt/netapp/data
+----
++
+
+NOTE: 이 출력에서 컨텍스트는  `default_t`입니다. 이 컨텍스트를  `mysqld_db_t`(으)로 변경해야 합니다.
+
+. 마운트한 방식에 따라 컨텍스트를 설정하려면 다음 단계를 수행하십시오 `/opt/netapp/data`.
++
+.. 컨텍스트를  `mysqld_db_t`(으)로 설정하려면 다음 명령을 실행하십시오:
+`semanage fcontext -a -t mysqld_db_t "/opt/netapp/data"
+`restorecon -R -v /opt/netapp/data`
+..  `/etc/fstab`에서  `/opt/netapp/data`을(를) 구성한 경우  `/etc/fstab` 파일을 편집해야 합니다.  `/opt/netapp/data/` 마운트 옵션의 경우 다음과 같이 MySQL 레이블을 추가합니다.
++
+`context=system_u:object_r:mysqld_db_t:s0`
+
+.. 컨텍스트를 활성화하려면 마운트 해제 및 리마운트 `/opt/netapp/data/`하십시오.
+.. NFS 마운트를 직접 사용하는 경우 다음 명령을 실행하여 컨텍스트를  `mysqld_db_t`(으)로 설정하십시오:
++
+`mount <nfsshare>:/<mountpoint> /opt/netapp/data -o context=system_u:object_r:mysqld_db_t:s0`
+
+
+
+. 컨텍스트가 올바르게 설정되었는지 확인하십시오:
+
+
+`ls -dZ /opt/netapp/data/`
+
+예시 출력:
+
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:mysqld_db_t:s0 /opt/netapp/data/
+----
+
+
+[[configure-the-selinux-context-when-optnetapp-is-mounted-and-optnetappdata-is-also-mounted-separately]]
+==  `/opt/netapp`이(가) 마운트되고  `/opt/netapp/data/`도 별도로 마운트될 때 SELinux 컨텍스트를 구성합니다.
+
+이 시나리오에서는 먼저 이전 섹션에서 설명한 대로  `/opt/netapp/data/`에 대한 컨텍스트를 설정해야 합니다.  `/opt/netapp/data/`에 대한 올바른 컨텍스트를 설정한 후, 상위 디렉터리 `/opt/netapp`의 SELinux 컨텍스트가  `file_t`(으)로 설정되어 있지 않은지 확인하십시오.
+
+.단계
+. 컨텍스트를 확인하려면 다음 명령을 실행하세요:
++
+`ls -dZ /opt/netapp`
+
++
+예시 출력:
+
++
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:file_t:s0 /opt/netapp
+----
++
+이 출력에서 컨텍스트는  `file_t`이며 변경해야 합니다. 다음 명령은 컨텍스트를  `usr_t`(으)로 설정합니다. 보안 요구 사항에 따라 컨텍스트를  `file_t` 이외의 다른 값으로 설정할 수 있습니다.
+
+. 마운트한 방식에 따라 다음 단계를 수행하여 컨텍스트를 설정하십시오 `/opt/netapp`.
++
+.. 컨텍스트를 설정하려면 다음 명령을 실행하십시오:
+
+
+
+
+[listing]
+----
+semanage fcontext -a -t usr_t "/opt/netapp"
+restorecon -v /opt/netapp
+----
+.  `/etc/fstab`에서  `/opt/netapp`을(를) 구성한 경우  `/etc/fstab` 파일을 편집해야 합니다.  `/opt/netapp` 마운트 옵션의 경우 다음과 같이 MySQL 레이블을 추가합니다.
++
+`context=system_u:object_r:usr_t:s0`
+
+. 컨텍스트를 활성화하려면 마운트를 해제한 다음 다시 마운트 `/opt/netapp`하십시오.
+. 직접 NFS 마운트가 있는 경우 다음 명령을 실행하여 컨텍스트를 설정하십시오:
++
+`mount <nfsshare>:/<mountpoint> /opt/netapp -o context=system_u:object_r:usr_t:s0`
+
++
+.. 컨텍스트가 올바르게 설정되었는지 확인하십시오:
++
+`ls -dZ /opt/netapp`
+
++
+샘플 출력
+
+
+
+
+
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:usr_t:s0 /opt/netapp
+----
+
+
+[[configure-the-selinux-context-when-optnetapp-is-mounted-and-optnetappdata-is-not-mounted-separately]]
+==  `/opt/netapp`이(가) 마운트되고  `/opt/netapp/data/`이(가) 별도로 마운트되지 않은 경우 SELinux 컨텍스트를 구성합니다.
+
+시스템에  `/opt/netapp`을(를) 마운트했고 SELinux가  `Enforcing`(으)로 설정된 경우,  `/opt/netapp`에 대한 SELinux 컨텍스트 유형이 데이터베이스 파일 위치에 대한 기본 컨텍스트 요소인  `mysqld_db_t`(으)로 설정되어 있는지 확인하십시오.
+
+.단계
+. 컨텍스트를 확인하려면 다음 명령을 실행하세요:
++
+`ls -dZ /opt/netapp`
+
++
+예시 출력:
+
++
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:default_t:s0 /opt/netapp
+----
++
+
+NOTE: 이 출력에서 컨텍스트는  `default_t`입니다. 이 컨텍스트를  `mysqld_db_t`(으)로 변경해야 합니다.
+
+. 마운트한 방식에 따라 컨텍스트를 설정하려면 다음 단계를 수행하십시오 `/opt/netapp`.
++
+.. 컨텍스트를  `mysqld_db_t`(으)로 설정하려면 다음 명령을 실행하십시오:
+`semanage fcontext -a -t mysqld_db_t "/opt/netapp"
+`restorecon -R -v /opt/netapp`
+..  `/etc/fstab`에서  `/opt/netapp`을(를) 구성한 경우  `/etc/fstab` 파일을 편집하십시오.  `/opt/netapp/` 마운트 옵션의 경우 다음과 같이 MySQL 레이블을 추가하십시오:
+`context=system_u:object_r:mysqld_db_t:s0`
+.. 컨텍스트를 활성화하려면 마운트를 해제한 다음 다시 마운트 `/opt/netapp/`하십시오.
+.. NFS 마운트를 직접 사용하는 경우 다음 명령을 실행하여 컨텍스트를  `mysqld_db_t`(으)로 설정하십시오:
+`mount <nfsshare>:/<mountpoint> /opt/netapp -o context=system_u:object_r:mysqld_db_t:s0`
+
+
+. 컨텍스트가 올바르게 설정되었는지 확인하십시오:
+
+
+`ls -dZ /opt/netapp/`
+
+예시 출력:
+
+[listing]
+----
+drwxr-xr-x. mysql root unconfined_u:object_r:mysqld_db_t:s0 /opt/netapp/
+----
+'''

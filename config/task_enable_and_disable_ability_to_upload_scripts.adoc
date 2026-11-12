@@ -1,0 +1,41 @@
+---
+permalink: config/task_enable_and_disable_ability_to_upload_scripts.html 
+sidebar: sidebar 
+keywords: script upload, enable, disable 
+summary: Unified Manager에 스크립트를 업로드하고 실행하는 기능은 기본적으로 활성화되어 있습니다. 보안상의 이유로 이 기능을 허용하지 않으려면 해당 기능을 비활성화할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 스크립트 업로드 활성화 및 비활성화
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager에 스크립트를 업로드하고 실행하는 기능은 기본적으로 활성화되어 있습니다. 보안상의 이유로 이 기능을 허용하지 않으려면 해당 기능을 비활성화할 수 있습니다.
+
+.시작하기 전에
+애플리케이션 관리자 역할이 있어야 합니다.
+
+.단계
+. 왼쪽 탐색 창에서 *일반* > *기능 설정*을 클릭합니다.
+. *기능 설정* 페이지에서 다음 옵션 중 하나를 선택하여 스크립팅을 비활성화 또는 활성화하십시오:
++
+[cols="2*"]
+|===
+| 원하신다면... | 그런 다음 이렇게 하십시오... 
+
+
+ a| 
+스크립트 비활성화
+ a| 
+*스크립트 업로드* 패널에서 슬라이더 버튼을 왼쪽으로 이동합니다.
+
+
+
+ a| 
+스크립트 활성화
+ a| 
+*스크립트 업로드* 패널에서 슬라이더 버튼을 오른쪽으로 이동합니다.
+
+|===
+

@@ -1,0 +1,100 @@
+---
+permalink: events/reference_snapvault_relationship_events.html 
+sidebar: sidebar 
+keywords: snapvault, relationship, events, impact area, protection 
+summary: SnapVault 관계 이벤트는 잠재적인 문제를 모니터링할 수 있도록 SnapVault 관계의 상태에 대한 정보를 제공합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 SnapVault 관계 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapVault 관계 이벤트는 잠재적인 문제를 모니터링할 수 있도록 SnapVault 관계의 상태에 대한 정보를 제공합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-protection]]
+== 영향 영역: 보호
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+비동기 Vault 비정상(ocumEvtSnapVaultRelationshipUnhealthy)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+비동기 Vault 연결 끊김(ocumEvtSnapVaultRelationshipStateBrokenoff)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+비동기 Vault 초기화 실패(ocumEvtSnapVaultRelationshipInitializeFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+비동기 Vault 업데이트 실패(ocumEvtSnapVaultRelationshipUpdateFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+비동기 Vault 지연 오류(ocumEvtSnapVaultRelationshipLagError)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+비동기 Vault 지연 경고(ocumEvtSnapVaultRelationshipLagWarning)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+비동기 Vault 재동기화 실패(ocumEvtSnapvaultRelationshipResyncFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+|===

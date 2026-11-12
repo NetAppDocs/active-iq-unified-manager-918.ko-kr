@@ -1,0 +1,41 @@
+---
+permalink: data-protection/task_set_up_protection_relationships_in_unified_manager.html 
+sidebar: sidebar 
+keywords: set, protection, relationships, unified manager 
+summary: Unified Manager와 OnCommand Workflow Automation을 사용하여 데이터를 보호하기 위한 SnapMirror 및 SnapVault 관계를 설정하려면 몇 가지 단계를 수행해야 합니다. 
+---
+= Active IQ Unified Manager에서 보호 관계 설정
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager와 OnCommand Workflow Automation을 사용하여 데이터를 보호하기 위한 SnapMirror 및 SnapVault 관계를 설정하려면 몇 가지 단계를 수행해야 합니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* 두 클러스터 또는 두 스토리지 가상 머신(SVM) 간에 피어 관계를 설정해야 합니다.
+* OnCommand Workflow Automation은 Unified Manager와 통합되어야 합니다:
++
+** link:task_configure_connection_between_workflow_automation_um.html["OnCommand Workflow Automation 설정"].
+** link:task_verify_um_data_source_caching_in_workflow_automation.html["Workflow Automation에서 Unified Manager 데이터 소스 캐싱 확인"].
+
+
+
+
+.단계
+. 원하는 보호 관계 유형에 따라 다음 중 하나를 수행하십시오.
++
+** link:task_create_snapmirror_relationship_from_health_volume.html["SnapMirror 보호 관계 생성"].
+** link:task_create_snapvault_protection_relationship_from_health_volume_details.html["SnapVault 보호 관계 생성"].
+
+
+. 관계에 대한 정책을 생성하려면 생성하려는 관계 유형에 따라 다음 중 하나를 수행하십시오:
++
+** link:task_create_snapvault_policy_to_maximize_transfer_efficiency.html["SnapVault 정책을 생성합니다."].
+** link:task_create_snapmirror_policy_to_maximize_transfer_efficiency.html["SnapMirror 정책을 생성합니다."].
+
+
+. link:task_create_snapmirror_and_snapvault_schedules.html["SnapMirror 또는 SnapVault 일정을 생성합니다"].
+

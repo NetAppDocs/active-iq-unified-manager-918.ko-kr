@@ -1,0 +1,22 @@
+---
+permalink: performance-checker/concept_what_information_is_contained_in_an_alert_email.html 
+sidebar: sidebar 
+keywords: information, contained, alert, email 
+summary: Unified Manager 알림 이메일에는 이벤트 유형, 이벤트 심각도, 이벤트 발생 원인이 된 정책 또는 임계값 이름, 이벤트 설명이 포함됩니다. 또한 이메일 메시지에는 각 이벤트에 대한 하이퍼링크가 제공되어 UI에서 해당 이벤트의 세부 정보 페이지를 볼 수 있습니다. 
+---
+= Active IQ Unified Manager의 경고 이메일에서 정보 검토
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager 알림 이메일에는 이벤트 유형, 이벤트 심각도, 이벤트 발생 원인이 된 정책 또는 임계값 이름, 이벤트 설명이 포함됩니다. 또한 이메일 메시지에는 각 이벤트에 대한 하이퍼링크가 제공되어 UI에서 해당 이벤트의 세부 정보 페이지를 볼 수 있습니다.
+
+알림 이메일은 알림 수신을 신청한 모든 사용자에게 발송됩니다.
+
+수집 기간 동안 성능 카운터 또는 용량 값에 큰 변화가 발생하면 동일한 임계값 정책에 대해 심각 이벤트와 경고 이벤트가 동시에 발생할 수 있습니다. 이 경우 경고 이벤트에 대한 이메일과 심각 이벤트에 대한 이메일을 각각 수신할 수 있습니다. 이는 Unified Manager에서 경고 및 심각 임계값 위반에 대한 알림을 별도로 수신하도록 설정할 수 있기 때문입니다.
+
+샘플 알림 이메일은 아래와 같습니다:
+
+image::../media/um_email_alert.gif[샘플 알림 이메일을 보여주는 UI 스크린샷입니다.]

@@ -1,0 +1,376 @@
+---
+section: performance-checker
+title: 클러스터 성능 모니터링 및 관리
+entries:
+- title: Active IQ Unified Manager 성능 모니터링 소개
+  entries:
+  - title: 성능 모니터링에 대해 알아보기
+    url: "/performance-checker/concept_introduction_to_unified_manager_performance_monitoring.html"
+  - title: Unified Manager 성능 모니터링 기능
+    url: "/performance-checker/concept_unified_manager_performance_monitoring_features.html"
+  - title: 스토리지 시스템 성능 관리에 사용되는 Unified Manager 인터페이스
+    url: "/performance-checker/concept_um_interfaces_used_to_manage_storage_system_performance.html"
+  - title: 클러스터 구성 및 성능 데이터 수집 활동
+    url: "/performance-checker/concept_cluster_configuration_and_performance_data_collection_activity.html"
+  - title: 데이터 연속성 수집 주기란 무엇인가
+    url: "/performance-checker/concept_what_data_continuity_collection_cycle_is.html"
+  - title: 수집된 데이터 및 이벤트에서 타임스탬프의 의미
+    url: "/performance-checker/concept_what_timestamp_means_in_collected_data_and_events.html"
+- title: Unified Manager GUI에서 성능 워크플로 탐색하기
+  entries:
+  - title: GUI에서 성능 워크플로를 탐색합니다.
+    url: "/performance-checker/concept_navigate_performance_workflows_in_unified_manager_ui.html"
+  - title: UI에 로그인합니다
+    url: "/performance-checker/task_log_in_to_gui.html"
+  - title: 그래픽 인터페이스 및 탐색 경로
+    entries:
+    - title: 그래픽 인터페이스 및 탐색 경로 살펴보기
+      url: "/performance-checker/concept_graphical_interface_and_navigational_paths.html"
+    - title: 클러스터 오브젝트 탐색 모니터링
+      url: "/performance-checker/concept_monitor_cluster_object_navigation.html"
+    - title: 클러스터 성능 모니터링 탐색
+      url: "/performance-checker/concept_monitor_cluster_performance_navigation.html"
+    - title: 이벤트 조사 탐색
+      url: "/performance-checker/concept_event_investigation_navigation.html"
+  - title: 스토리지 오브젝트 검색
+    url: "/performance-checker/concept_search_for_storage_objects.html"
+  - title: 인벤토리 페이지 콘텐츠 필터링
+    url: "/performance-checker/task_filter_inventory_page_content.html"
+- title: 대시보드에서 클러스터 성능 모니터링
+  entries:
+  - title: 대시보드에서 클러스터 성능 모니터링 정보
+    url: "/performance-checker/concept_monitor_cluster_performance_from_dashboard.html"
+  - title: 대시보드의 성능 패널 이해하기
+    url: "/performance-checker/concept_understand_performance_panels_on_dashboard.html"
+  - title: 성능 배너 메시지 및 설명
+    url: "/performance-checker/reference_performance_dashboard_cluster_banner_messages.html"
+  - title: 성능 통계 수집 간격을 변경하십시오
+    url: "/performance-checker/task_change_performance_statistics_collection_interval.html"
+- title: 워크로드 분석기를 사용하여 워크로드 문제 해결
+  entries:
+  - title: 워크로드 분석기 정보
+    url: "/performance-checker/concept_troubleshooting_workloads_using_workload_analyzer.html"
+  - title: 워크로드 분석기는 어떤 데이터를 표시합니까
+    url: "/performance-checker/reference_what_data_does_workload_analyzer_display.html"
+  - title: 워크로드 분석기는 언제 사용합니까
+    url: "/performance-checker/concept_when_would_i_use_workload_analyzer.html"
+  - title: 워크로드 분석기 사용
+    url: "/performance-checker/task_use_workload_analyzer.html"
+- title: 성능 클러스터 랜딩 페이지에서 클러스터 성능을 모니터링하십시오
+  entries:
+  - title: 클러스터 랜딩 페이지에서 클러스터 성능 모니터링에 대한 정보
+    url: "/performance-checker/concept_monitor_cluster_performance_from_cluster_landing_page.html"
+  - title: 성능 클러스터 랜딩 페이지 이해
+    url: "/performance-checker/concept_understand_performance_cluster_landing_page.html"
+  - title: 성능 클러스터 랜딩 페이지
+    entries:
+    - title: 성능 클러스터 랜딩 페이지를 검토합니다.
+      url: "/performance-checker/reference_performance_cluster_landing_page.html"
+    - title: 성능 클러스터 요약 페이지
+      entries:
+      - title: 성능 클러스터 요약 페이지를 검토합니다
+        url: "/performance-checker/reference_cluster_summary_page_opm.html"
+      - title: 클러스터 성능 이벤트 창
+        url: "/performance-checker/reference_cluster_performance_events_pane.html"
+      - title: 관리되는 오브젝트 창
+        url: "/performance-checker/reference_managed_objects_pane.html"
+    - title: 최고 성능 페이지
+      url: "/performance-checker/reference_top_performers_page.html"
+- title: 성능 인벤토리 페이지를 사용하여 성능 모니터링
+  entries:
+  - title: 성능 인벤토리 페이지를 사용하여 오브젝트 성능 모니터링
+    url: "/performance-checker/concept_monitor_performance_using_object_performance.html"
+  - title: 모든 스토리지 오브젝트에 대한 성능 인벤토리 페이지 보기
+    url: "/performance-checker/performance-view-all.html"
+  - title: 성능 인벤토리 페이지 내용 세분화
+    entries:
+    - title: 성능 인벤토리 페이지 콘텐츠를 구체화하는 방법 이해
+      url: "/performance-checker/concept_refine_object_inventory_performance_page_content.html"
+    - title: 오브젝트 인벤토리 성능 페이지에서 검색
+      url: "/performance-checker/task_search_on_object_inventory_performance_pages.html"
+    - title: 오브젝트 인벤토리 성능 페이지에서 정렬
+      url: "/performance-checker/task_sort_on_object_inventory_performance_pages.html"
+    - title: 오브젝트 인벤토리 성능 페이지에서 데이터를 필터링합니다
+      url: "/performance-checker/task_filter_on_object_inventory_performance_pages.html"
+  - title: Unified Manager의 클라우드 데이터 계층화 권장 사항을 이해하십시오
+    url: "/performance-checker/concept_understand_um_recommendations_to_tier_data_to_cloud.html"
+- title: 성능 탐색기 페이지를 사용하여 성능 모니터링
+  entries:
+  - title: Performance Explorer 페이지 이해
+    url: "/performance-checker/concept_monitor_performance_using_performance_explorer_pages.html"
+  - title: 루트 오브젝트 이해
+    url: "/performance-checker/concept_understand_root_object.html"
+  - title: 그리드에서 상관 관계가 있는 오브젝트 목록을 줄이기 위해 필터링을 적용합니다.
+    url: "/performance-checker/concept_apply_filtering_to_correlated_objects.html"
+  - title: 상관 관계가 있는 오브젝트에 대한 시간 범위를 지정합니다
+    entries:
+    - title: 상관 관계가 있는 오브젝트에 대한 시간 범위 지정에 대해 알아보십시오.
+      url: "/performance-checker/task_specify_correlated_objects_time_range.html"
+    - title: 미리 정의된 시간 범위를 선택하십시오
+      url: "/performance-checker/task_select_predefined_time_range.html"
+    - title: 사용자 지정 시간 범위를 지정하십시오
+      url: "/performance-checker/task_specify_custom_time_range.html"
+  - title: 비교 그래프 작성을 위해 상관 관계가 있는 오브젝트 목록을 정의합니다.
+    url: "/performance-checker/task_define_list_of_correlated_objects_for_comparison_graphing.html"
+  - title: 카운터 차트 이해하기
+    url: "/performance-checker/concept_understand_counter_charts.html"
+  - title: 성능 카운터 차트 유형
+    url: "/performance-checker/reference_types_of_performance_counter_charts.html"
+  - title: 표시할 성능 차트를 선택하십시오
+    url: "/performance-checker/task_select_performance_charts_to_display.html"
+  - title: 카운터 차트 창을 확장합니다
+    url: "/performance-checker/task_expand_counter_charts_pane.html"
+  - title: 카운터 차트의 초점을 더 짧은 기간으로 변경하세요
+    url: "/performance-checker/task_change_counter_charts_focus_to_smaller_period_of_time.html"
+  - title: 이벤트 타임라인에서 이벤트 세부 정보 보기
+    url: "/performance-checker/task_view_event_details_in_performance_explorer_events_timeline.html"
+  - title: 카운터 차트 확대 보기
+    entries:
+    - title: 카운터 차트 확대 보기에 대해 알아보기
+      url: "/performance-checker/concept_counter_charts_zoom_view.html"
+    - title: 카운터 차트 확대 보기 표시
+      url: "/performance-checker/task_display_counter_charts_zoom_view.html"
+    - title: 확대 보기에서 시간 범위를 지정하십시오
+      url: "/performance-checker/task_specify_time_range_in_zoom_view.html"
+    - title: 카운터 차트 확대 보기에서 성능 임계값을 선택하십시오
+      url: "/performance-checker/task_select_performance_thresholds_in_zoom_view.html"
+  - title: 클러스터 구성 요소별 볼륨 지연 시간 보기
+    url: "/performance-checker/task_view_volume_latency_by_cluster_component.html"
+  - title: 프로토콜별 SVM IOPS 트래픽 보기
+    url: "/performance-checker/task_view_svm_iops_traffic_by_protocol.html"
+  - title: 볼륨 및 LUN 지연 시간 차트를 확인하여 성능 보장을 검증하십시오
+    url: "/performance-checker/task_view_volume_and_lun_latency_charts_to_verify_performance_guarantee.html"
+  - title: All SAN Array 클러스터의 성능을 확인하십시오
+    url: "/performance-checker/task_view_performance_status_of_all_san_array_clusters.html"
+  - title: 로컬 노드에만 존재하는 워크로드를 기준으로 노드 IOPS를 확인하세요
+    url: "/performance-checker/task_view_node_iops_based_on_workloads_on_local_node.html"
+  - title: 오브젝트 랜딩 페이지의 구성 요소
+    entries:
+    - title: 오브젝트 랜딩 페이지의 구성 요소를 검토합니다.
+      url: "/performance-checker/concept_components_of_object_landing_pages_opm.html"
+    - title: 요약 페이지
+      url: "/performance-checker/reference_summary_page_opm.html"
+    - title: 성능 탐색기 페이지의 구성 요소
+      url: "/performance-checker/concept_components_of_performance_explorer_page.html"
+- title: QoS 정책 그룹 정보를 사용하여 성능 관리
+  entries:
+  - title: QoS 정책 그룹 성능 관리에 대해 알아보십시오.
+    url: "/performance-checker/concept_manage_performance_using_qos_policy_group_information.html"
+  - title: 스토리지 QoS를 통해 워크로드 처리량을 제어하는 방법
+    url: "/performance-checker/concept_how_storage_qos_can_control_workload_throughput.html"
+  - title: 모든 클러스터에서 사용 가능한 모든 QoS 정책 그룹을 확인하십시오
+    url: "/performance-checker/task_view_all_qos_policy_groups_available_on_all_clusters.html"
+  - title: 동일한 QoS 정책 그룹에 속한 볼륨 또는 LUN 보기
+    url: "/performance-checker/task_view_volumes_or_luns_in_same_qos_policy_group.html"
+  - title: 특정 볼륨 또는 LUN에 적용된 QoS 정책 그룹 설정을 확인하십시오
+    url: "/performance-checker/task_view_qos_policy_group_settings_for_volumes_or_luns.html"
+  - title: 동일한 QoS 정책 그룹에 속한 볼륨 또는 LUN을 비교하려면 성능 차트를 확인하십시오.
+    url: "/performance-checker/task_view_performance_charts_to_compare_volumes_or_luns_in_qos_policy.html"
+  - title: 다양한 유형의 QoS 정책이 처리량 차트에 표시되는 방식
+    url: "/performance-checker/concept_how_qos_policies_are_displayed_in_throughput_charts.html"
+  - title: Performance Explorer에서 워크로드 QoS 최소 및 최대 설정 보기
+    url: "/performance-checker/task_view_workload_qos_minimum_and_maximum_settings.html"
+- title: 성능 용량 및 사용 가능한 IOPS 정보를 사용하여 성능 관리
+  entries:
+  - title: 성능 용량 및 사용 가능한 IOPS 관리
+    url: "/performance-checker/concept_manage_performance_using_perf_capacity_available_iops.html"
+  - title: 사용된 성능 용량이란
+    url: "/performance-checker/concept_what_performance_capacity_used_is.html"
+  - title: 성능 용량 사용 값의 의미
+    url: "/performance-checker/concept_what_used_headroom_value_means.html"
+  - title: 사용 가능한 IOPS란
+    url: "/performance-checker/concept_what_available_iops_is.html"
+  - title: 노드 및 애그리게이트 성능 용량 사용량 값 보기
+    url: "/performance-checker/concept_view_node_and_aggregate_performance_capacity_used_values.html"
+  - title: 노드 및 애그리게이트의 사용 가능한 IOPS 값 확인
+    url: "/performance-checker/concept_view_node_and_aggregate_available_iops_values.html"
+  - title: 성능 용량 카운터 차트를 확인하여 문제를 파악하십시오
+    url: "/performance-checker/task_view_performance_capacity_counter_charts_to_identify_issues.html"
+  - title: 성능 용량 사용 성능 임계값 조건
+    url: "/performance-checker/concept_performance_capacity_used_threshold_conditions.html"
+  - title: 성능 용량 사용량 카운터를 사용하여 성능을 관리하십시오
+    url: "/performance-checker/concept_use_performance_capacity_used_counter.html"
+- title: 노드 장애 조치 계획 페이지를 이해하고 활용하십시오
+  entries:
+  - title: 노드 장애 조치 계획 페이지 개요
+    url: "/performance-checker/reference_understand_and_use_node_failover_planning_page.html"
+  - title: 노드 장애 조치 계획 페이지를 사용하여 시정 조치를 결정하십시오
+    url: "/performance-checker/concept_use_failover_planning_page_to_determine_corrective_actions.html"
+  - title: 노드 장애 조치 계획 페이지의 구성 요소
+    url: "/performance-checker/reference_components_of_node_failover_planning_page.html"
+  - title: 노드 장애 조치 계획 페이지에서 임계값 정책을 사용하십시오
+    url: "/performance-checker/concept_use_threshold_policy_with_node_failover_planning_page.html"
+  - title: 장애 조치 계획에는 성능 용량 사용량 분석 차트를 사용하십시오.
+    url: "/performance-checker/task_use_perf_capacity_used_breakdown_chart_for_failover_planning.html"
+- title: 데이터를 수집하고 워크로드 성능을 모니터링합니다
+  entries:
+  - title: Unified Manager가 워크로드 성능 데이터를 수집하는 방법을 알아보십시오.
+    url: "/performance-checker/concept_collect_data_and_monitor_workload_performance.html"
+  - title: Unified Manager에서 모니터링하는 워크로드 유형
+    url: "/performance-checker/concept_types_of_workloads_monitored_by_unified_manager.html"
+  - title: 워크로드 성능 측정값
+    url: "/performance-checker/reference_workload_performance_measurement_values.html"
+  - title: 예상되는 성능 범위가 무엇인지
+    url: "/performance-checker/concept_what_expected_range_of_performance_is.html"
+  - title: 지연 시간 예측이 성능 분석에 어떻게 활용되는가
+    url: "/performance-checker/reference_how_expected_range_is_used_in_performance_analysis.html"
+  - title: Unified Manager가 워크로드 지연 시간을 사용하여 성능 문제를 식별하는 방법
+    url: "/performance-checker/concept_how_unified_manager_uses_workload_response_time.html"
+  - title: 클러스터 운영이 워크로드 지연 시간에 미치는 영향
+    url: "/performance-checker/concept_how_cluster_operations_can_affect_workload_latency.html"
+  - title: MetroCluster 구성의 성능 모니터링
+    url: "/performance-checker/concept_performance_monitor_of_metrocluster_configurations.html"
+- title: 성능 이벤트 및 알림 이해
+  entries:
+  - title: 성능 이벤트 및 알림에 대해 알아보기
+    url: "/performance-checker/concept_understand_performance_events_and_alerts.html"
+  - title: 성능 이벤트 소스
+    url: "/performance-checker/concept_sources_of_performance_events.html"
+  - title: 성능 이벤트 심각도 유형
+    url: "/performance-checker/reference_performance_event_severity_types.html"
+  - title: Unified Manager에서 감지된 구성 변경 사항
+    url: "/performance-checker/concept_cluster_configuration_changes_detected_by_unified_manager.html"
+  - title: 시스템 정의 성능 임계값 정책의 유형
+    url: "/performance-checker/reference_types_of_system_defined_performance_threshold_policies.html"
+  - title: 성능 이벤트 분석 및 알림
+    url: "/performance-checker/reference_performance_event_analysis_and_notification.html"
+  - title: Unified Manager가 이벤트에 대한 성능 영향을 결정하는 방법
+    url: "/performance-checker/concept_how_um_determines_performance_impact_for_incident.html"
+  - title: 클러스터 구성 요소 및 경합 발생 원인
+    url: "/performance-checker/concept_cluster_components_and_why_they_can_be_in_contention.html"
+  - title: 성능 이벤트에 관련된 워크로드의 역할
+    url: "/performance-checker/concept_roles_of_workloads_involved_in_performance_incident.html"
+- title: 성능 임계값 관리
+  entries:
+  - title: 성능 임계값 정책 이해
+    url: "/performance-checker/concept_manage_performance_thresholds.html"
+  - title: 사용자 정의 성능 임계값 정책 작동 방식
+    url: "/performance-checker/concept_how_user_defined_performance_threshold_policies_work.html"
+  - title: 성능 임계값 정책이 위반되면 어떻게 됩니까
+    url: "/performance-checker/concept_what_happens_when_performance_threshold_policy_is_breached.html"
+  - title: 임계값을 사용하여 추적할 수 있는 성능 카운터는 무엇입니까
+    url: "/performance-checker/reference_what_performance_metrics_can_be_monitored_using_thresholds.html"
+  - title: 조합 임계값 정책에서 사용할 수 있는 오브젝트와 카운터는 무엇입니까
+    url: "/performance-checker/reference_what_objects_can_be_used_in_threshold_policies.html"
+  - title: 사용자 정의 성능 임계값 정책 생성
+    url: "/performance-checker/task_create_user_defined_performance_threshold_policies.html"
+  - title: 스토리지 오브젝트에 성능 임계값 정책을 할당합니다
+    url: "/performance-checker/task_assign_performance_threshold_policies_to_storage_objects.html"
+  - title: 성능 임계값 정책 보기
+    url: "/performance-checker/task_view_performance_threshold_policies.html"
+  - title: 사용자 정의 성능 임계값 정책 편집
+    url: "/performance-checker/task_edit_user_defined_performance_threshold_policies.html"
+  - title: 스토리지 오브젝트에서 성능 임계값 정책 제거
+    url: "/performance-checker/task_remove_performance_threshold_policies_from_storage_objects.html"
+  - title: 성능 임계값 정책이 변경되면 어떤 일이 발생합니까
+    url: "/performance-checker/concept_what_happens_when_performance_threshold_policy_is_changed.html"
+  - title: 오브젝트가 이동될 때 성능 임계값 정책은 어떻게 되나요
+    url: "/performance-checker/concept_performance_threshold_policies_when_object_is_moved.html"
+- title: 성능 이벤트를 분석합니다
+  entries:
+  - title: 성능 이벤트를 분석하는 방법을 알아보십시오.
+    url: "/performance-checker/concept_analyze_performance_events.html"
+  - title: 성능 이벤트에 대한 정보를 표시합니다
+    url: "/performance-checker/task_display_information_about_performance_event.html"
+  - title: 사용자가 정의한 성능 임계값에서 발생하는 이벤트를 분석합니다
+    entries:
+    - title: 사용자 정의 성능 임계값에서 발생하는 이벤트에 대한 정보
+      url: "/performance-checker/concept_analyze_events_from_user_defined_performance_thresholds.html"
+    - title: 사용자 정의 성능 임계값 이벤트에 응답
+      url: "/performance-checker/task_respond_to_user_defined_performance_threshold_events.html"
+  - title: 시스템에서 정의한 성능 임계값에서 발생하는 이벤트를 분석합니다.
+    entries:
+    - title: 시스템에서 정의된 성능 임계값에서 발생하는 이벤트에 대한 정보
+      url: "/performance-checker/concept_analyze_events_from_system_defined_performance_thresholds.html"
+    - title: 시스템에서 정의한 성능 임계값 이벤트에 대응합니다
+      url: "/performance-checker/task_respond_to_system_defined_performance_threshold_events.html"
+    - title: QoS 정책 그룹 성능 이벤트 대응
+      url: "/performance-checker/task_respond_to_system_defined_qos_policy_group_performance_event.html"
+    - title: 정의된 블록 크기를 가진 적응형 QoS 정책에서 발생하는 이벤트를 이해합니다.
+      url: "/performance-checker/concept_understand_events_from_adaptive_qos_policies.html"
+    - title: 노드 리소스 과다 사용 성능 이벤트 대응
+      url: "/performance-checker/task_respond_to_system_defined_node_resources_overutilized.html"
+    - title: 클러스터 불균형 성능 이벤트에 대응합니다
+      url: "/performance-checker/task_respond_to_cluster_imbalance_performance_events.html"
+  - title: 동적 성능 임계값에서 발생하는 이벤트를 분석합니다
+    entries:
+    - title: 동적 성능 임계값에서 발생하는 이벤트에 대한 정보
+      url: "/performance-checker/concept_analyze_events_from_dynamic_performance_thresholds.html"
+    - title: 동적 성능 이벤트에 관련된 피해 워크로드를 식별합니다
+      url: "/performance-checker/task_identify_victim_workloads_involved_in_performance_event.html"
+    - title: 동적 성능 이벤트와 관련된 bully 워크로드 식별
+      url: "/performance-checker/task_identify_bully_workloads_involved_in_performance_event.html"
+    - title: 동적 성능 이벤트에 관련된 샤크 워크로드를 식별합니다
+      url: "/performance-checker/task_identify_shark_workloads_involved_in_performance_event.html"
+    - title: MetroCluster 구성에 대한 성능 이벤트 분석
+      entries:
+      - title: MetroCluster 성능 이벤트 분석
+        url: "/performance-checker/concept_performance_incident_analysis_for_metrocluster_configuration.html"
+      - title: MetroCluster 구성의 클러스터에서 동적 성능 이벤트 분석
+        url: "/performance-checker/task_analyze_performance_incident_on_cluster_in_metrocluster.html"
+      - title: MetroCluster 구성에서 원격 클러스터에 대한 동적 성능 이벤트 분석
+        url: "/performance-checker/task_analyze_performance_incident_in_metrocluster.html"
+    - title: QoS 정책 그룹 스로틀링으로 인해 발생하는 동적 성능 이벤트에 대응합니다
+      url: "/performance-checker/task_respond_to_dynamic_performance_event.html"
+    - title: 디스크 장애로 인한 동적 성능 이벤트 대응
+      url: "/performance-checker/task_respond_to_performance_incident_caused_by_disk_failure.html"
+    - title: HA 테이크오버로 인해 발생하는 동적 성능 이벤트에 대응합니다
+      url: "/performance-checker/task_respond_to_performance_incident_caused_by_ha_takeover.html"
+- title: 성능 이벤트를 해결합니다
+  entries:
+  - title: 성능 이벤트 해결에 대해 알아보기
+    url: "/performance-checker/reference_resolve_performance_events.html"
+  - title: 지연 시간이 예상 범위 내에 있는지 확인하십시오
+    url: "/performance-checker/concept_confirm_that_response_time_is_within_expected_range.html"
+  - title: 구성 변경이 워크로드 성능에 미치는 영향을 검토하십시오.
+    url: "/performance-checker/concept_review_impact_of_configuration_changes.html"
+  - title: 클라이언트 측에서 워크로드 성능을 향상시키는 옵션
+    url: "/performance-checker/concept_options_for_improving_workload_performance_from_client.html"
+  - title: 클라이언트 또는 네트워크 문제를 확인하십시오
+    url: "/performance-checker/concept_check_for_client_or_network_issues.html"
+  - title: QoS 정책 그룹 내의 다른 볼륨에서도 비정상적으로 높은 활동이 나타나는지 확인하십시오
+    url: "/performance-checker/concept_verify_qos_policy_group.html"
+  - title: 논리적 인터페이스(LIF) 이동
+    url: "/performance-checker/concept_move_logical_interfaces.html"
+  - title: 스토리지 효율성 작업은 사용량이 적은 시간대에 실행하십시오.
+    entries:
+    - title: 스토리지 효율성 작업을 사용량이 적은 시간대에 예약하십시오.
+      url: "/performance-checker/concept_run_storage_efficiency_operations_at_less_busy_times.html"
+    - title: 스토리지 효율성이란 무엇인가
+      url: "/performance-checker/concept_what_storage_efficiency_is.html"
+  - title: 디스크를 추가하고 데이터를 재할당합니다
+    url: "/performance-checker/concept_add_disks_and_reallocate_data.html"
+  - title: 노드에서 Flash Cache를 활성화하면 워크로드 성능이 어떻게 향상될 수 있는지
+    url: "/performance-checker/reference_how_enabling_flash_cache_improve_workload_performance.html"
+  - title: 스토리지 애그리게이트에서 Flash Pool을 활성화하면 워크로드 성능이 어떻게 향상될 수 있는지
+    url: "/performance-checker/concept_how_enabling_flash_pool_can_improve_workload_performance.html"
+  - title: MetroCluster 구성 상태 점검
+    url: "/performance-checker/concept_metrocluster_configuration_health_check.html"
+  - title: MetroCluster 구성 검증
+    url: "/performance-checker/concept_metrocluster_configuration_verification.html"
+  - title: 워크로드를 다른 애그리게이트로 이동
+    url: "/performance-checker/task_move_workloads_to_different_aggregate.html"
+  - title: 워크로드를 다른 노드로 이동합니다
+    url: "/performance-checker/task_move_workloads_to_different_node.html"
+  - title: 워크로드를 다른 노드의 애그리게이트로 이동합니다
+    url: "/performance-checker/task_move_workloads_to_an_aggregate_on_different_node.html"
+  - title: 워크로드를 다른 HA 쌍의 노드로 이동합니다
+    url: "/performance-checker/task_move_workloads_to_node_in_different_ha_pair.html"
+  - title: 워크로드를 다른 HA 쌍의 다른 노드로 이동합니다
+    url: "/performance-checker/task_move_workloads_to_another_node_in_different_ha_pair.html"
+  - title: QoS 정책 설정을 사용하여 이 노드에서 수행되는 작업의 우선순위를 지정하십시오
+    url: "/performance-checker/concept_use_qos_policy_settings_to_prioritize_work_on_this_node.html"
+  - title: 비활성 볼륨 및 LUN 제거
+    url: "/performance-checker/concept_remove_inactive_volumes_and_luns.html"
+  - title: 디스크를 추가하고 애그리게이트 레이아웃 재구성을 수행합니다
+    url: "/performance-checker/concept_add_disks_and_perform_aggregate_layout_reconstruction.html"
+- title: Unified Manager 서버와 외부 데이터 공급자 간의 연결 설정
+  entries:
+  - title: 외부 데이터 제공업체에 연결하는 방법에 대해 알아보십시오.
+    url: "/performance-checker/concept_set_up_connection_between_um_and_external_data_provider.html"
+  - title: 외부 서버로 전송할 수 있는 성능 데이터
+    url: "/performance-checker/reference_performance_data_that_can_be_sent_to_an_external_server.html"
+  - title: Graphite가 Unified Manager에서 성능 데이터를 수신하도록 설정합니다.
+    url: "/performance-checker/concept_set_up_graphite_to_receive_performance_data.html"
+  - title: Unified Manager 서버에서 외부 데이터 공급자로의 연결 구성
+    url: "/performance-checker/task_configure_connection_between_um_server_and_external_data_provider.html"

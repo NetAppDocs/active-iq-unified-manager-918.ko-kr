@@ -1,0 +1,258 @@
+---
+permalink: events/reference_metrocluster_connectivity_events.html 
+sidebar: sidebar 
+keywords: metrocluster, connectivity, events, impact area, availability 
+summary: 연결 이벤트는 잠재적인 문제를 모니터링할 수 있도록 클러스터의 구성 요소 간 및 MetroCluster 구성의 클러스터 간 연결에 대한 정보를 제공합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 MetroCluster 연결 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+연결 이벤트는 MetroCluster over FC 및 MetroCluster over IP 구성에서 클러스터 구성 요소 간, 그리고 클러스터 간 연결에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[events-common-in-both-configurations]]
+== 두 구성 모두에서 공통적인 이벤트
+
+이러한 연결 이벤트는 FC 기반 MetroCluster 및 IP 기반 MetroCluster 구성 모두에서 공통적으로 발생합니다.
+
+
+
+[[impact-area-availability]]
+=== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+MetroCluster 파트너 간 모든 링크 다운(ocumEvtMetroClusterAllLinksBetweenPartnersDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 관계
+ a| 
+심각
+
+
+
+ a| 
+MetroCluster 파트너에 피어링 네트워크를 통해 연결할 수 없습니다(ocumEvtMetroClusterPartnersNotReachableOverPeeringNetwork)
+ a| 
+인시던트
+ a| 
+MetroCluster 관계
+ a| 
+심각
+
+
+
+ a| 
+MetroCluster 재해 복구 기능에 영향이 발생했습니다(ocumEvtMetroClusterDRStatusImpacted)
+ a| 
+위험
+ a| 
+MetroCluster 관계
+ a| 
+심각
+
+
+
+ a| 
+MetroCluster 구성이 전환되었습니다(ocumEvtMetroClusterDRStatusImpacted)
+ a| 
+위험
+ a| 
+MetroCluster 관계
+ a| 
+경고
+
+|===
+
+
+[[metrocluster-over-fc-configuration]]
+== FC 기반 MetroCluster 구성
+
+이러한 이벤트는 FC 기반 MetroCluster 구성과 관련이 있습니다.
+
+
+
+[[impact-area-availability]]
+=== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+모든 스위치 간 링크 다운(ocumEvtMetroClusterAllISLBetweenSwitchesDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 스위치 간 연결
+ a| 
+심각
+
+
+
+ a| 
+FC-SAS 브리지-스토리지 스택 링크 다운(ocumEvtBridgeSasPortDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 브리지 스택 연결
+ a| 
+심각
+
+
+
+ a| 
+MetroCluster 구성이 부분적으로 전환되었습니다(ocumEvtMetroClusterDRStatusPartiallyImpacted)
+ a| 
+위험
+ a| 
+MetroCluster 관계
+ a| 
+오류
+
+
+
+ a| 
+노드-FC 스위치 모든 FC-VI 상호 연결 링크 다운(ocumEvtMccNodeSwitchFcviLinksDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 노드 스위치 연결
+ a| 
+심각
+
+
+
+ a| 
+노드에서 FC 스위치로의 하나 이상의 FC 개시자 링크 다운(ocumEvtMccNodeSwitchFcLinksOneOrMoreDown)
+ a| 
+위험
+ a| 
+MetroCluster 노드 스위치 연결
+ a| 
+경고
+
+
+
+ a| 
+노드에서 FC 스위치로의 모든 FC 개시자 링크 다운(ocumEvtMccNodeSwitchFcLinksDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 노드 스위치 연결
+ a| 
+심각
+
+
+
+ a| 
+스위치에서 FC-SAS 브리지로의 FC 링크 다운(ocumEvtMccSwitchBridgeFcLinksDown)
+ a| 
+인시던트
+ a| 
+MetroCluster 스위치 브리지 연결
+ a| 
+심각
+
+
+
+ a| 
+노드 간 모든 FC VI InterConnect 링크 다운(ocumEvtMccInterNodeLinksDown)
+ a| 
+인시던트
+ a| 
+노드 간 연결
+ a| 
+심각
+
+
+
+ a| 
+노드 간 FC VI InterConnect 링크 하나 이상 다운됨(ocumEvtMccInterNodeLinksOneOrMoreDown)
+ a| 
+위험
+ a| 
+노드 간 연결
+ a| 
+경고
+
+
+
+ a| 
+노드-브리지 링크 다운(ocumEvtMccNodeBridgeLinksDown)
+ a| 
+인시던트
+ a| 
+노드 브리지 연결
+ a| 
+심각
+
+
+
+ a| 
+노드에서 스토리지 스택으로 연결되는 모든 SAS 링크 다운 ( ocumEvtMccNodeStackLinksDown)
+ a| 
+인시던트
+ a| 
+노드 스택 연결
+ a| 
+심각
+
+
+
+ a| 
+노드-스토리지 스택 간 하나 이상의 SAS 링크 다운( ocumEvtMccNodeStackLinksOneOrMoreDown)
+ a| 
+위험
+ a| 
+노드 스택 연결
+ a| 
+경고
+
+|===
+
+
+[[metrocluster-over-ip-configuration]]
+== IP 기반 MetroCluster 구성
+
+이러한 이벤트는 IP 기반 MetroCluster 구성과 관련이 있습니다.
+
+
+
+[[impact-area-availability]]
+=== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+MetroCluster IP 사이트 간 연결 상태가 다운되었습니다(mccIntersiteconnectivityStatusDown)
+ a| 
+위험
+ a| 
+MetroCluster 관계
+ a| 
+심각
+
+
+
+ a| 
+MetroCluster-IP 노드와 스위치 간 연결 오프라인(mccIpPortStatusOffline)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+|===

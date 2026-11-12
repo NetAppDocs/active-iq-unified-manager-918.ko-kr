@@ -1,0 +1,31 @@
+---
+permalink: data-protection/task_break_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: break, snapmirror, relationship, volume, relationship page 
+summary: SnapMirror 관계에서 소스 볼륨과 대상 볼륨 간의 데이터 전송을 중지하려면 보호 관계를 해제할 수 있습니다. 데이터 마이그레이션, 재해 복구 또는 애플리케이션 테스트를 위해 보호 관계를 해제해야 할 수 있습니다. 대상 볼륨은 읽기/쓰기 볼륨으로 변경됩니다. SnapVault 관계는 해제할 수 없습니다. 
+---
+= Active IQ Unified Manager 볼륨 관계 페이지에서 SnapMirror 관계 해제
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 관계에서 소스 볼륨과 대상 볼륨 간의 데이터 전송을 중지하려면 보호 관계를 해제할 수 있습니다. 데이터 마이그레이션, 재해 복구 또는 애플리케이션 테스트를 위해 보호 관계를 해제해야 할 수 있습니다. 대상 볼륨은 읽기/쓰기 볼륨으로 변경됩니다. SnapVault 관계는 해제할 수 없습니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* Workflow Automation을 설정해야 합니다.
+
+
+.단계
+. *볼륨 관계* 페이지에서 데이터 전송을 중지하려는 보호 관계가 있는 하나 이상의 볼륨을 선택하고 도구 모음에서 *중단*을 클릭합니다.
++
+관계 끊기 대화 상자가 표시됩니다.
+
+. 관계를 끊으려면 *계속*을 클릭하십시오.
+. *볼륨 관계* 페이지의 *관계 상태* 열에서 관계가 끊어졌는지 확인하십시오.
++
+관계 상태 열은 기본적으로 숨겨져 있으므로 열 표시/숨기기 목록 image:../media/icon_columnshowhide_sm_onc.gif[""]에서 선택해야 할 수 있습니다.
+
+

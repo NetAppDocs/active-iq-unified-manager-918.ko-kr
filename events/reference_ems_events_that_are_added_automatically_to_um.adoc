@@ -1,0 +1,570 @@
+---
+permalink: events/reference_ems_events_that_are_added_automatically_to_um.html 
+sidebar: sidebar 
+keywords: ems events, added, automatically, unified manager 
+summary: 다음 ONTAP EMS 이벤트는 Unified Manager에 자동으로 추가됩니다. 이러한 이벤트는 Unified Manager가 모니터링하는 모든 클러스터에서 트리거될 때 생성됩니다. 
+---
+= Active IQ Unified Manager에 자동으로 추가되는 EMS 이벤트
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 ONTAP EMS 이벤트는 Unified Manager에 자동으로 추가됩니다. 이러한 이벤트는 Unified Manager가 모니터링하는 모든 클러스터에서 트리거될 때 생성됩니다.
+
+ONTAP 9.5 이상 소프트웨어를 실행하는 클러스터를 모니터링할 때 다음과 같은 EMS 이벤트를 사용할 수 있습니다:
+
+|===
+| Unified Manager 이벤트 이름 | EMS 이벤트 이름 | 영향을 받는 리소스 | Unified Manager 심각도 
+
+
+ a| 
+애그리게이트 재배치를 위한 클라우드 계층 액세스가 거부되었습니다.
+ a| 
+arl.netra.ca.check.failed
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+스토리지 장애 조치 중 애그리게이트 재배치를 위한 클라우드 계층 액세스가 거부되었습니다.
+ a| 
+gb.netra.ca.check.failed
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+FabricPool 미러 복제 재동기화 완료
+ a| 
+wafl.ca.resync.complete
+ a| 
+클러스터
+ a| 
+오류
+
+
+
+ a| 
+FabricPool 공간 거의 다 찼습니다
+ a| 
+fabricpool.nearly.full
+ a| 
+클러스터
+ a| 
+오류
+
+
+
+ a| 
+NVMe-oF 유예 기간이 시작되었습니다
+ a| 
+nvmf.graceperiod.start
+ a| 
+클러스터
+ a| 
+경고
+
+
+
+ a| 
+NVMe-oF 유예 기간 활성화됨
+ a| 
+nvmf.graceperiod.active
+ a| 
+클러스터
+ a| 
+경고
+
+
+
+ a| 
+NVMe-oF 유예 기간이 만료되었습니다
+ a| 
+nvmf.graceperiod.expired
+ a| 
+클러스터
+ a| 
+경고
+
+
+
+ a| 
+LUN이 파괴됨
+ a| 
+lun.destroy
+ a| 
+LUN
+ a| 
+정보
+
+
+
+ a| 
+클라우드 AWS MetaDataConnFail
+ a| 
+cloud.aws.metadataConnFail
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 AWS IAMCredsExpired
+ a| 
+cloud.aws.iamCredsExpired
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 AWS IAMCredsInvalid
+ a| 
+cloud.aws.iamCredsInvalid
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 AWS IAMCredsNotFound
+ a| 
+cloud.aws.iamCredsNotFound
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 AWS IAMCredsNotInitialized
+ a| 
+cloud.aws.iamNotInitialized
+ a| 
+노드
+ a| 
+정보
+
+
+
+ a| 
+클라우드 AWS IAMRoleInvalid
+ a| 
+cloud.aws.iamRoleInvalid
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 AWS IAMRoleNotFound
+ a| 
+cloud.aws.iamRoleNotFound
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 계층 호스트를 확인할 수 없습니다
+ a| 
+objstore.host.unresolvable
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+클라우드 계층 클러스터 간 네트워크 인터페이스 다운
+ a| 
+objstore.interclusterlifDown
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+요청 불일치 클라우드 계층 서명
+ a| 
+osc.signatureMismatch
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+NFSv4 풀 중 하나가 고갈되었습니다
+ a| 
+Nblade.nfsV4PoolExhaust
+ a| 
+노드
+ a| 
+심각
+
+
+
+ a| 
+QoS 모니터 메모리 최대치
+ a| 
+qos.monitor.memory.maxed
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+QoS 모니터 메모리 감소
+ a| 
+qos.monitor.memory.abated
+ a| 
+노드
+ a| 
+정보
+
+
+
+ a| 
+NVMeNS 파괴
+ a| 
+NVMeNS.destroy
+ a| 
+네임스페이스
+ a| 
+정보
+
+
+
+ a| 
+NVMeNS 온라인
+ a| 
+NVMeNS.offline
+ a| 
+네임스페이스
+ a| 
+정보
+
+
+
+ a| 
+NVMeNS 오프라인
+ a| 
+NVMeNS.online
+ a| 
+네임스페이스
+ a| 
+정보
+
+
+
+ a| 
+NVMeNS 공간 부족
+ a| 
+NVMeNS.out.of.space
+ a| 
+네임스페이스
+ a| 
+경고
+
+
+
+ a| 
+동기 복제 동기화 오류
+ a| 
+sms.status.out.of.sync
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+동기식 복제가 복원되었습니다
+ a| 
+sms.status.in.sync
+ a| 
+SnapMirror 관계
+ a| 
+정보
+
+
+
+ a| 
+동기 복제 자동 재동기화 실패
+ a| 
+sms.resync.attempt.failed
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+다수의 CIFS 연결
+ a| 
+Nblade.cifsManyAuths
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+CIFS 연결 최대 허용 횟수를 초과했습니다.
+ a| 
+Nblade.cifsMaxOpenSameFile
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+사용자당 최대 CIFS 연결 수를 초과했습니다
+ a| 
+Nblade.cifsMaxSessPerUsrConn
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+CIFS NetBIOS 이름 충돌
+ a| 
+Nblade.cifsNbNameConflict
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+존재하지 않는 CIFS 공유에 연결하려는 시도
+ a| 
+Nblade.cifsNoPrivShare
+ a| 
+SVM
+ a| 
+심각
+
+
+
+ a| 
+CIFS 섀도 복사 작업 실패
+ a| 
+cifs.shadowcopy.failure
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+AV 서버에서 바이러스 발견
+ a| 
+Nblade.vscanVirusDetected
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+바이러스 검사를 위한 AV 서버 연결 없음
+ a| 
+Nblade.vscanNoScannerConn
+ a| 
+SVM
+ a| 
+심각
+
+
+
+ a| 
+등록된 AV 서버가 없습니다
+ a| 
+Nblade.vscanNoRegdScanner
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+응답하는 AV 서버 연결 없음
+ a| 
+Nblade.vscanConnInactive
+ a| 
+SVM
+ a| 
+정보
+
+
+
+ a| 
+AV 서버가 너무 바빠서 새 검사 요청을 수락할 수 없습니다
+ a| 
+Nblade.vscanConnBackPressure
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+권한 없는 사용자의 AV 서버 접근 시도
+ a| 
+Nblade.vscanBadUserPrivAccess
+ a| 
+SVM
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성원에 공간 문제가 있습니다
+ a| 
+flexgroup.constituents.have.space.issues
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성원 공간 상태 모두 정상
+ a| 
+flexgroup.constituents.space.status.all.ok
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+FlexGroup 구성 요소에 Inode 문제가 있습니다
+ a| 
+flexgroup.constituents.have.inodes.issues
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+FlexGroup 구성 요소 Inodes 상태 모두 정상
+ a| 
+flexgroup.constituents.inodes.status.all.ok
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 논리 공간이 거의 꽉 찼습니다
+ a| 
+monitor.vol.nearFull.inc.sav
+ a| 
+볼륨
+ a| 
+경고
+
+
+
+ a| 
+볼륨 논리 공간 가득 참
+ a| 
+monitor.vol.full.inc.sav
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 논리 공간 정상
+ a| 
+monitor.vol.one.ok.inc.sav
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+WAFL 볼륨 AutoSize 실패
+ a| 
+wafl.vol.autoSize.fail
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+WAFL 볼륨 AutoSize 완료
+ a| 
+wafl.vol.autoSize.done
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+WAFL READDIR 파일 작업 시간 초과
+ a| 
+wafl.readdir.expired
+ a| 
+볼륨
+ a| 
+오류
+
+|===

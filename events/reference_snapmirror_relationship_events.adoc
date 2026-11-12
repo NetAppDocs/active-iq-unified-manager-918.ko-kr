@@ -1,0 +1,195 @@
+---
+permalink: events/reference_snapmirror_relationship_events.html 
+sidebar: sidebar 
+keywords: snapmirror, relationship, events, impact area, protection 
+summary: SnapMirror 관계 이벤트는 비동기 및 동기 SnapMirror 관계의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 비동기 SnapMirror 관계 이벤트는 스토리지 VM과 볼륨 모두에 대해 생성되지만, 동기 SnapMirror 관계 이벤트는 볼륨 관계에 대해서만 생성됩니다. 스토리지 VM 재해 복구 관계의 일부인 구성 볼륨에 대해서는 이벤트가 생성되지 않습니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 SnapMirror 관계 이벤트에 대해 알아봅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 관계 이벤트는 비동기 및 동기 SnapMirror 관계의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 비동기 SnapMirror 관계 이벤트는 스토리지 VM과 볼륨 모두에 대해 생성되지만, 동기 SnapMirror 관계 이벤트는 볼륨 관계에 대해서만 생성됩니다. 스토리지 VM 재해 복구 관계의 일부인 구성 볼륨에 대해서는 이벤트가 생성되지 않습니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-protection]]
+== 영향 영역: 보호
+
+별표(*)는 Unified Manager 이벤트로 변환된 EMS 이벤트를 식별합니다.
+
+[NOTE]
+====
+SnapMirror 관계 이벤트는 스토리지 VM 재해 복구로 보호되는 스토리지 VM에 대해 생성되지만, 구성 요소 오브젝트 관계에 대해서는 생성되지 않습니다.
+
+====
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+미러 복제 비정상(ocumEvtSnapmirrorRelationshipUnhealthy)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+미러 복제 중단(ocumEvtSnapmirrorRelationshipStateBrokenoff)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+미러 복제 초기화 실패(ocumEvtSnapmirrorRelationshipInitializeFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+미러 복제 업데이트 실패(ocumEvtSnapmirrorRelationshipUpdateFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+미러 복제 지연 오류(ocumEvtSnapMirrorRelationshipLagError)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+미러 복제 지연 경고(ocumEvtSnapMirrorRelationshipLagWarning)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+미러 복제 재동기화 실패(ocumEvtSnapmirrorRelationshipResyncFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+동기 복제 동기화 오류 *(syncSnapmirrorRelationshipOutofsync)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+경고
+
+
+
+ a| 
+동기 복제 복원됨 *(syncSnapmirrorRelationshipInSync)
+ a| 
+이벤트
+ a| 
+SnapMirror 관계
+ a| 
+정보
+
+
+
+ a| 
+동기 복제 자동 재동기화 실패 *(syncSnapmirrorRelationshipAutoSyncRetryFailed)
+ a| 
+위험
+ a| 
+SnapMirror 관계
+ a| 
+오류
+
+
+
+ a| 
+클러스터에 Ontap Mediator가 추가되었습니다(snapmirrorMediatorAdded)
+ a| 
+이벤트
+ a| 
+클러스터
+ a| 
+정보
+
+
+
+ a| 
+Ontap Mediator가 클러스터에서 제거되었습니다(snapmirrorMediatorRemoved)
+ a| 
+이벤트
+ a| 
+클러스터
+ a| 
+정보
+
+
+
+ a| 
+클러스터에서 Ontap Mediator에 연결할 수 없습니다(snapmirrorMediatorUnreachable)
+ a| 
+위험
+ a| 
+미디에이터
+ a| 
+경고
+
+
+
+ a| 
+클러스터에서 Ontap Mediator에 접근할 수 없습니다(snapmirrorMediatorMisconfigured)
+ a| 
+위험
+ a| 
+미디에이터
+ a| 
+오류
+
+
+
+ a| 
+Ontap Mediator 연결이 다시 설정되었으며, 재동기화되어 SnapMirror 활성 동기화(snapmirrorMediatorInQuorum)를 위한 준비가 완료되었습니다.
+ a| 
+이벤트
+ a| 
+미디에이터
+ a| 
+정보
+
+|===

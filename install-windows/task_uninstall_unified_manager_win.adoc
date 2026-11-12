@@ -1,0 +1,56 @@
+---
+permalink: install-windows/task_uninstall_unified_manager_win.html 
+sidebar: sidebar 
+keywords: uninstall, unified manager 
+summary: Unified Manager는 프로그램 및 기능 마법사를 사용하거나 명령줄 인터페이스에서 무인 제거를 수행하여 제거할 수 있습니다. 
+---
+= Active IQ Unified Manager 제거
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+:pp: &#43;&#43;
+
+
+[role="lead"]
+Unified Manager는 프로그램 및 기능 마법사를 사용하거나 명령줄 인터페이스에서 무인 제거를 수행하여 제거할 수 있습니다.
+
+.시작하기 전에
+* Windows 관리자 권한이 있어야 합니다.
+* 소프트웨어를 제거하기 전에 Unified Manager 서버에서 모든 클러스터(데이터 소스)를 제거해야 합니다.
+* MySQL 포트 3306을 허용하거나 차단하도록 생성된 방화벽 규칙은 수동으로 삭제해야 합니다. 방화벽 규칙은 자동으로 삭제되지 않습니다.
+
+
+.단계
+. 다음 옵션 중 하나를 선택하여 Unified Manager를 제거하십시오:
++
+** *프로그램 및 기능* 마법사에서 Unified Manager를 제거하는 경우 다음 단계를 수행하십시오:
++
+... *제어판* > *프로그램 및 기능*으로 이동하십시오.
+... Active IQ Unified Manager를 선택하고 *제거*를 클릭하십시오.
+
+
+** 명령줄에서 Unified Manager를 제거하는 경우 다음 단계를 수행하십시오:
++
+... 관리자 권한으로 Windows 명령줄에 로그인하십시오.
+... Active IQ Unified Manager 디렉터리로 이동하여 다음 명령을 실행하십시오:
++
+`+msiexec /x {A78760DB-7EC0-4305-97DB-E4A89CDFF4E1} /qn /l*v %systemdrive%\UmUnInstall.log+`
+
++
+서버에서 사용자 계정 제어(UAC)가 활성화되어 있고 도메인 사용자로 로그인한 경우 명령줄을 이용한 제거 방법을 사용해야 합니다.
+
++
+Unified Manager가 시스템에서 제거되었습니다.
+
+
+
+
+
+. Unified Manager 제거 과정에서 삭제되지 않는 다음 타사 패키지 및 데이터를 제거하십시오:
++
+** 타사 패키지: JRE, MySQL, Microsoft Visual C&#43;&#43; 2015 재배포 가능 패키지, Python 및 7zip
+** Unified Manager에서 생성된 MySQL 애플리케이션 데이터
+** 애플리케이션 로그 및 애플리케이션 데이터 디렉터리의 내용
+
+
+

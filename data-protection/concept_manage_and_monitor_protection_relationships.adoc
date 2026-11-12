@@ -1,0 +1,28 @@
+---
+permalink: data-protection/concept_manage_and_monitor_protection_relationships.html 
+sidebar: sidebar 
+keywords: manage, monitor, protection, relationships 
+summary: Active IQ Unified Manager를 사용하면 보호 관계를 생성하고, 관리되는 클러스터에서 SnapMirror 및 SnapVault 관계를 모니터링하고 문제를 해결하며, 데이터가 덮어쓰이거나 손실된 경우 데이터를 복원할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 보호 관계 관리 및 모니터링에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager를 사용하면 보호 관계를 생성하고, 관리되는 클러스터에서 SnapMirror 및 SnapVault 관계를 모니터링하고 문제를 해결하며, 데이터가 덮어쓰이거나 손실된 경우 데이터를 복원할 수 있습니다.
+
+SnapMirror 작업에는 두 가지 복제 유형이 있습니다:
+
+* 비동기
++
+기본 볼륨에서 보조 볼륨으로의 복제는 일정에 따라 결정됩니다.
+
+* 동기식
++
+복제는 기본 볼륨과 보조 볼륨에서 동시에 수행됩니다.
+
+
+
+최대 10개의 보호 작업을 동시에 수행해도 성능 영향은 없습니다. 11개에서 30개 사이의 작업을 동시에 실행할 경우 성능 영향이 발생할 수 있습니다. 30개 이상의 작업을 동시에 실행하는 것은 권장하지 않습니다.

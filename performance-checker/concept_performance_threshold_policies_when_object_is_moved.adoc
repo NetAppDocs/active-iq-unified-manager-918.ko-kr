@@ -1,0 +1,53 @@
+---
+permalink: performance-checker/concept_performance_threshold_policies_when_object_is_moved.html 
+sidebar: sidebar 
+keywords: happens, performance, threshold, policies, object, moved 
+summary: 성능 임계값 정책은 스토리지 오브젝트에 할당되므로 오브젝트를 이동하면 이동이 완료된 후에도 할당된 모든 임계값 정책이 해당 오브젝트에 계속 연결된 상태로 유지됩니다. 예를 들어 볼륨 또는 LUN을 다른 애그리게이트로 이동하는 경우 새 애그리게이트에서도 해당 볼륨 또는 LUN에 대한 임계값 정책이 계속 활성화됩니다. 
+---
+= Active IQ Unified Manager에서 오브젝트 이동 시 임계값 정책 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 임계값 정책은 스토리지 오브젝트에 할당되므로 오브젝트를 이동하면 이동이 완료된 후에도 할당된 모든 임계값 정책이 해당 오브젝트에 계속 연결된 상태로 유지됩니다. 예를 들어 볼륨 또는 LUN을 다른 애그리게이트로 이동하는 경우 새 애그리게이트에서도 해당 볼륨 또는 LUN에 대한 임계값 정책이 계속 활성화됩니다.
+
+임계값 정책(조합 정책)에 보조 카운터 조건이 있는 경우(예: 애그리게이트 또는 노드에 추가 조건이 할당된 경우) 해당 보조 카운터 조건은 볼륨 또는 LUN이 이동된 새 애그리게이트 또는 노드에 적용됩니다.
+
+변경된 임계값 정책을 사용하는 오브젝트에 대해 새로운 활성 이벤트가 있는 경우 해당 이벤트는 더 이상 사용되지 않는 것으로 표시되고, 임계값 정책은 새롭게 정의된 임계값 정책으로 카운터 모니터링을 시작합니다.
+
+볼륨 이동 작업이 수행되면 ONTAP에서 정보성 변경 이벤트를 전송합니다. 변경 이벤트 아이콘은 성능 탐색기 페이지와 워크로드 분석 페이지의 이벤트 타임라인에 나타나 이동 작업이 완료된 시간을 표시합니다.
+
+[NOTE]
+====
+오브젝트를 다른 클러스터로 이동하면 사용자 정의 임계값 정책이 해당 오브젝트에서 제거됩니다. 필요한 경우 이동 작업이 완료된 후 오브젝트에 임계값 정책을 할당해야 합니다. 그러나 동적 및 시스템 정의 임계값 정책은 오브젝트가 새 클러스터로 이동된 후 자동으로 적용됩니다.
+
+====
+
+
+[[threshold-policy-functionality-during-ha-takeover-and-giveback]]
+== HA 인수 및 반환 중 임계값 정책 기능
+
+고가용성(HA) 구성에서 테이크오버 또는 기브백 작업이 발생할 때, 한 노드에서 다른 노드로 이동된 오브젝트는 수동 이동 작업과 동일한 방식으로 임계값 정책을 유지합니다. Unified Manager는 15분마다 클러스터 구성 변경 사항을 확인하므로, 새 노드로의 전환으로 인한 영향은 다음 클러스터 구성 폴링 전까지 식별되지 않습니다.
+
+[NOTE]
+====
+15분 구성 변경 수집 기간 내에 인수 및 반환 작업이 모두 발생하는 경우, 성능 통계가 한 노드에서 다른 노드로 이동하지 않을 수 있습니다.
+
+====
+
+
+[[threshold-policy-functionality-during-aggregate-relocation]]
+== 애그리게이트 재배치 중 임계값 정책 기능
+
+ `aggregate relocation start` 명령을 사용하여 애그리게이트를 한 노드에서 다른 노드로 이동하면 모든 오브젝트에 대해 단일 및 조합 임계값 정책이 모두 유지되며, 임계값 정책의 노드 부분은 새 노드에 적용됩니다.
+
+
+
+[[threshold-policy-functionality-during-metrocluster-switchover]]
+== MetroCluster 전환 중 임계값 정책 기능
+
+MetroCluster 구성에서 한 클러스터에서 다른 클러스터로 이동하는 오브젝트는 사용자 정의 임계값 정책 설정을 유지하지 않습니다. 필요한 경우 파트너 클러스터로 이동한 볼륨 및 LUN에 임계값 정책을 적용할 수 있습니다. 오브젝트가 원래 클러스터로 다시 이동한 후에는 사용자 정의 임계값 정책이 자동으로 다시 적용됩니다.
+
+자세한 내용은 link:../storage-mgmt/concept_volume_behavior_during_switchover_and_switchback.html["전환 및 복귀 중 볼륨 동작"]을 참조하십시오.

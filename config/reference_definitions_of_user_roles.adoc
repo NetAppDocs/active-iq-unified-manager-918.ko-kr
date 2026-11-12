@@ -1,0 +1,54 @@
+---
+permalink: config/reference_definitions_of_user_roles.html 
+sidebar: sidebar 
+keywords: definitions, user roles 
+summary: 유지 관리 사용자 또는 애플리케이션 관리자는 모든 사용자에게 역할을 할당합니다. 각 역할에는 특정 권한이 포함되어 있습니다. Unified Manager에서 수행할 수 있는 작업 범위는 할당된 역할과 해당 역할에 포함된 권한에 따라 달라집니다. 
+---
+= Active IQ Unified Manager의 사용자 역할에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+유지 관리 사용자 또는 애플리케이션 관리자는 모든 사용자에게 역할을 할당합니다. 각 역할에는 특정 권한이 포함되어 있습니다. Unified Manager에서 수행할 수 있는 작업 범위는 할당된 역할과 해당 역할에 포함된 권한에 따라 달라집니다.
+
+Unified Manager에는 다음과 같은 사전 정의된 사용자 역할이 포함되어 있습니다:
+
+* *운영자*
++
+Unified Manager에서 수집한 스토리지 시스템 정보 및 기타 데이터(이력 및 용량 추세 포함)를 볼 수 있습니다. 이 역할을 통해 스토리지 운영자는 이벤트를 보고, 할당하고, 승인하고, 해결하고, 메모를 추가할 수 있습니다.
+
+* *스토리지 관리자*
++
+Unified Manager 내에서 스토리지 관리 작업을 구성합니다. 이 역할을 통해 스토리지 관리자는 임계값을 구성하고 경고 및 기타 스토리지 관리 관련 옵션과 정책을 생성할 수 있습니다.
+
+* *애플리케이션 관리자*
++
+스토리지 관리와 관련 없는 설정을 구성합니다. 이 역할은 사용자, 보안 인증서, 데이터베이스 액세스 및 인증, SMTP, 네트워킹, AutoSupport를 포함한 관리 옵션의 관리를 지원합니다.
+
++
+[NOTE]
+====
+Unified Manager를 Linux 시스템에 설치하면 애플리케이션 관리자 역할을 가진 최초 사용자의 이름은 자동으로 "`umadmin`"으로 지정됩니다.
+
+====
+* *통합 스키마*
++
+이 역할은 Unified Manager를 OnCommand Workflow Automation(WFA)과 통합하기 위해 Unified Manager 데이터베이스 뷰에 대한 읽기 전용 액세스를 제공합니다.
+
+* *보고서 스키마*
++
+이 역할은 Unified Manager 데이터베이스에서 직접 보고서 및 기타 데이터베이스 보기에 대한 읽기 전용 액세스를 제공합니다. 볼 수 있는 데이터베이스는 다음과 같습니다.
+
++
+** netapp_model_view
+** netapp_performance
+** ocum
+** ocum_report
+** ocum_report_birt
+** opm
+** scalemonitor
+
+
+

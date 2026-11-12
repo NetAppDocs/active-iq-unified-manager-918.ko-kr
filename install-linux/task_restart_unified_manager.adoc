@@ -1,0 +1,47 @@
+---
+permalink: install-linux/task_restart_unified_manager.html 
+sidebar: sidebar 
+keywords: restart, unified manager 
+summary: 구성 변경 후 Unified Manager를 다시 시작해야 할 수도 있습니다. 
+---
+= Active IQ Unified Manager 재시작
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+구성 변경 후 Unified Manager를 다시 시작해야 할 수도 있습니다.
+
+.시작하기 전에
+Unified Manager가 설치된 Red Hat Enterprise Linux 서버에 대한 루트 사용자 액세스 권한이 있어야 합니다.
+
+.단계
+. Unified Manager 서비스를 다시 시작하려는 서버에 루트 사용자로 로그인하십시오.
+. Unified Manager 서비스와 연결된 MySQL 서비스를 다음 순서대로 중지하십시오:
++
+`systemctl stop ocieau`
+
++
+`systemctl stop ocie`
+
++
+`systemctl stop mysqld`
+
+. MySQL 및 Unified Manager 서비스를 다음 순서대로 시작하십시오:
++
+`systemctl start mysqld`
+
++
+`systemctl start ocie`
+
++
+`systemctl start ocieau`
+
+
+
+[NOTE]
+====
+`mysqld`은(는) MySQL 서버를 시작하고 중지하는 데 필요한 데몬 프로그램입니다.
+
+====

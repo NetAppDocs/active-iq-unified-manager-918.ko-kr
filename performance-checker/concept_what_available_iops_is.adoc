@@ -1,0 +1,34 @@
+---
+permalink: performance-checker/concept_what_available_iops_is.html 
+sidebar: sidebar 
+keywords: available, iops, total iops, aggregate iops, volume iops 
+summary: 사용 가능한 IOPS 카운터는 리소스가 한계에 도달하기 전에 노드 또는 애그리게이트에 추가할 수 있는 남은 IOPS 수를 나타냅니다. 노드가 제공할 수 있는 총 IOPS는 CPU 개수, CPU 속도, RAM 용량 등 노드의 물리적 특성에 따라 결정됩니다. 애그리게이트가 제공할 수 있는 총 IOPS는 SATA, SAS 또는 SSD 디스크 등 디스크의 물리적 특성에 따라 결정됩니다. 
+---
+= Active IQ Unified Manager에서 사용 가능한 IOPS 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용 가능한 IOPS 카운터는 리소스가 한계에 도달하기 전에 노드 또는 애그리게이트에 추가할 수 있는 남은 IOPS 수를 나타냅니다.
+
+노드가 제공할 수 있는 총 IOPS는 CPU 개수, CPU 속도, RAM 용량 등 노드의 물리적 특성에 따라 결정됩니다. 애그리게이트가 제공할 수 있는 총 IOPS는 SATA, SAS 또는 SSD 디스크 등 디스크의 물리적 특성에 따라 결정됩니다.
+
+애그리게이트에 있는 모든 볼륨의 총 IOPS가 애그리게이트의 총 IOPS와 일치하지 않을 수 있습니다. 이 내용은 다음 기술 자료 문서에서 설명합니다: KB link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Infrastructure_Management/Active_IQ_Unified_Manager/Why_does_the_sum_of_all_volume_IOPs_in_an_aggregate_not_match_the_aggregate_IOPs%3F["애그리게이트 내 모든 볼륨 IOPS의 합이 애그리게이트 IOPS와 일치하지 않는 이유는 무엇입니까?"]
+
+성능 용량 여유 카운터는 리소스에서 아직 사용 가능한 부분의 비율을 나타내는 반면, 사용 가능한 IOPS 카운터는 최대 성능 용량에 도달하기 전에 리소스에 추가할 수 있는 정확한 IOPS(워크로드) 수를 알려줍니다.
+
+예를 들어 FAS2520 및 FAS8060 스토리지 시스템 쌍을 사용하는 경우, 성능 용량 여유 값 30%는 사용 가능한 성능 용량이 어느 정도 있음을 의미합니다. 그러나 이 값은 해당 노드에 얼마나 더 많은 워크로드를 배포할 수 있는지에 대한 가시성을 제공하지 않습니다. 사용 가능한 IOPS 카운터는 FAS8060에서 500의 사용 가능한 IOPS가 있지만 FAS2520에서는 100의 사용 가능한 IOPS만 있음을 표시할 수 있습니다.
+
+다음 그림은 노드의 지연 시간 대 IOPS 곡선 샘플을 보여줍니다.
+
+image::../media/available_iops.gif[노드의 지연 시간 대 IOPS 곡선 샘플을 보여주는 UI 스크린샷입니다.]
+
+리소스가 제공할 수 있는 최대 IOPS는 성능 용량 사용률 카운터가 100%일 때(최적 지점)의 IOPS 수입니다. 운영 지점은 노드가 현재 1.0ms/op의 지연 시간으로 100K IOPS에서 작동 중임을 나타냅니다. 노드에서 수집된 통계를 기반으로 Unified Manager는 노드의 최대 IOPS가 160K라고 판단하며, 이는 60K의 여유 또는 가용 IOPS가 있음을 의미합니다. 따라서 이 노드에 더 많은 워크로드를 추가하여 시스템을 더욱 효율적으로 사용할 수 있습니다.
+
+[NOTE]
+====
+리소스에 사용자 활동이 거의 없을 경우, 사용 가능한 IOPS 값은 CPU 코어당 약 4,500 IOPS를 기준으로 하는 일반적인 워크로드를 가정하여 계산됩니다. 이는 Unified Manager가 처리 중인 워크로드의 특성을 정확하게 추정하는 데 필요한 데이터가 부족하기 때문입니다.
+
+====

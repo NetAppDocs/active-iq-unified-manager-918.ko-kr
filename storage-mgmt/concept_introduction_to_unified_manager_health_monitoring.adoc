@@ -1,0 +1,92 @@
+---
+permalink: storage-mgmt/concept_introduction_to_unified_manager_health_monitoring.html 
+sidebar: sidebar 
+keywords: introduction, active iq unified manager, throughput, Mbps, Kbps, GiB, TiB, logical capacity, PiB, Capacity measurement units 
+summary: 용량 측정 단위 물리적 용량 및 논리적 용량 
+---
+= Active IQ Unified Manager의 상태 모니터링에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager(이전의 OnCommand Unified Manager)를 사용하면 중앙 집중식 사용자 인터페이스를 통해 ONTAP 소프트웨어를 실행하는 수많은 시스템을 모니터링할 수 있습니다. Unified Manager 서버 인프라는 확장성, 지원 용이성, 향상된 모니터링 및 알림 기능을 제공합니다.
+
+Unified Manager의 주요 기능에는 모니터링, 경고, 클러스터의 가용성 및 용량 관리, 보호 기능 관리, 진단 데이터 번들링 및 기술 지원으로의 전송이 포함됩니다.
+
+Unified Manager를 사용하여 클러스터를 모니터링할 수 있습니다. 클러스터에서 문제가 발생하면 Unified Manager는 이벤트를 통해 문제에 대한 자세한 정보를 알려줍니다. 일부 이벤트는 문제를 해결하기 위해 취할 수 있는 조치도 제공합니다. 이벤트에 대한 알림을 구성하면 문제가 발생했을 때 이메일 및 SNMP 트랩을 통해 알림을 받을 수 있습니다.
+
+Unified Manager를 사용하면 스토리지 오브젝트를 주석과 연결하여 환경 내에서 관리할 수 있습니다. 사용자 지정 주석을 생성하고 규칙을 통해 클러스터, 스토리지 가상 머신(SVM) 및 볼륨을 주석과 동적으로 연결할 수 있습니다.
+
+또한 각 클러스터 오브젝트에 대한 용량 및 상태 차트에 제공된 정보를 사용하여 클러스터 오브젝트의 스토리지 요구사항을 계획할 수 있습니다.
+
+
+
+[[physical-and-logical-capacity]]
+== 물리적 및 논리적 용량
+
+Unified Manager는 ONTAP 스토리지 오브젝트에 사용되는 물리적 공간과 논리적 공간의 개념을 활용합니다.
+
+* 물리적 용량: 물리적 공간은 볼륨에서 사용되는 스토리지의 물리적 블록을 의미합니다. “물리적 사용 용량”은 일반적으로 스토리지 효율성 기능(중복 제거 및 압축 등)으로 인한 데이터 감소 때문에 논리적 사용 용량보다 작습니다.
+* 논리적 용량: 논리적 공간은 볼륨에서 사용 가능한 공간(논리 블록)을 의미합니다. 논리적 공간은 데이터 중복 제거 또는 압축 결과를 고려하지 않은 이론적인 공간 사용 가능량을 나타냅니다. “사용된 논리적 공간”은 사용된 물리적 공간에 구성된 스토리지 효율성 기능(데이터 중복 제거 및 압축 등)으로 인한 절감량을 더한 값입니다. 이 측정값은 데이터 압축 및 기타 물리적 공간 절감 효과를 반영하지 않기 때문에 실제 사용된 물리적 용량보다 더 크게 나타날 수 있습니다. 따라서 총 논리적 용량이 프로비저닝된 공간보다 높을 수 있습니다.
+
+
+
+
+[[capacity-measurement-units]]
+== 용량 측정 단위
+
+Unified Manager는 1024(2^10^)바이트의 이진 단위를 기준으로 스토리지 용량을 계산합니다. ONTAP 9.10.0 및 이전 버전에서는 이러한 단위가 KB, MB, GB, TB, PB로 표시되었습니다. ONTAP 9.10.1부터 Unified Manager에서는 KiB, MiB, GiB, TiB, PiB로 표시됩니다.
+
+
+NOTE: ONTAP의 모든 릴리스에서 처리량에 사용되는 단위는 계속해서 초당 킬로바이트(Kbps), 초당 메가바이트(Mbps), 초당 기가바이트(Gbps) 또는 초당 테라바이트(Tbps) 등입니다.
+
+[cols="4*"]
+|===
+| ONTAP 9.10.0 및 이전 버전의 Unified Manager에 표시되는 용량 단위 | ONTAP 9.10.1용 Unified Manager에 표시되는 용량 단위 | 계산 | 바이트 단위 값 
+
+
+ a| 
+KB
+ a| 
+KiB
+ a| 
+1024
+ a| 
+1024바이트
+
+
+
+ a| 
+MB
+ a| 
+MiB
+ a| 
+1024 * 1024
+ a| 
+1,048,576바이트
+
+
+
+ a| 
+GB
+ a| 
+GiB
+ a| 
+1024 * 1024 * 1024
+ a| 
+1,073,741,824바이트
+
+
+
+ a| 
+TB
+ a| 
+TiB
+ a| 
+1024 * 1024 * 1024 * 1024
+ a| 
+1,099,511,627,776바이트
+
+|===

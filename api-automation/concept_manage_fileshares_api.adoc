@@ -1,0 +1,113 @@
+---
+permalink: api-automation/concept_manage_fileshares_api.html 
+sidebar: sidebar 
+keywords: manage, file, share 
+summary: /storage-provider/file-shares API를 사용하면 데이터 센터 환경의 CIFS 및 NFS 파일 공유 볼륨을 보고, 추가하고, 수정하고, 삭제할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 API를 사용하여 파일 공유 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ `/storage-provider/file-shares` API를 사용하여 데이터 센터 환경의 CIFS 및 NFS 파일 공유 볼륨을 보고, 추가하고, 수정하고, 삭제할 수 있습니다.
+
+파일 공유 볼륨을 프로비저닝하기 전에 SVM이 생성되었으며 지원되는 프로토콜로 프로비저닝되었는지 확인하십시오. 프로비저닝하는 동안 PSL(Performance Service Level) 또는 SEP(Storage Efficiency Policy)를 할당하는 경우 파일 공유를 생성하기 전에 PSL 또는 SEP를 생성해야 합니다.
+
+
+
+[[view-file-shares]]
+== 파일 공유 보기
+
+다음 방법을 사용하여 Unified Manager 환경에서 사용 가능한 파일 공유 볼륨을 확인할 수 있습니다. Active IQ Unified Manager에 ONTAP 클러스터를 데이터 소스로 추가하면 해당 클러스터의 스토리지 워크로드가 Unified Manager 인스턴스에 자동으로 추가됩니다. 이 API는 Unified Manager 인스턴스에 자동으로 또는 수동으로 추가된 파일 공유를 검색합니다. 파일 공유 키를 사용하여 이 API를 실행하면 특정 파일 공유의 세부 정보를 볼 수 있습니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/file-shares`
+
+`/storage-provider/file-shares/\{key}`
+
+|===
+
+
+[[add-file-shares]]
+== 파일 공유 추가
+
+다음 방법을 사용하여 SVM에 CIFS 및 NFS 파일 공유를 추가할 수 있습니다. 입력 매개변수로 생성하려는 파일 공유의 세부 정보를 입력해야 합니다. 이 API는 FlexGroup 볼륨을 추가하는 데 사용할 수 없습니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+POST
+ a| 
+`/storage-provider/file-shares`
+
+|===
+[NOTE]
+====
+액세스 제어 목록(ACL) 매개변수 또는 내보내기 정책 매개변수 제공 여부에 따라 CIFS 공유 또는 NFS 파일 공유가 생성됩니다. ACL 매개변수 값을 제공하지 않으면 CIFS 공유는 생성되지 않고 기본적으로 모든 사용자가 접근할 수 있는 NFS 공유가 생성됩니다.
+
+====
+*데이터 보호 볼륨 생성*: SVM에 파일 공유를 추가할 때 기본적으로 마운트되는 볼륨 유형은 `rw`(읽기-쓰기)입니다. 데이터 보호(DP) 볼륨을 생성하려면 `type` 매개변수의 값으로 `dp`를 지정하십시오.
+
+
+
+[[delete-file-shares]]
+== 파일 공유 삭제
+
+다음 방법을 사용하여 특정 파일 공유를 삭제할 수 있습니다. 특정 파일 공유를 삭제하려면 파일 공유 키를 입력 매개 변수로 입력해야 합니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+삭제
+ a| 
+`/storage-provider/file-shares/\{key}`
+
+|===
+
+
+[[modify-file-shares]]
+== 파일 공유 수정
+
+다음 방법을 사용하여 파일 공유를 수정하고 속성을 업데이트할 수 있습니다.
+
+특정 파일 공유를 수정하려면 파일 공유 키를 제공해야 합니다. 또한 업데이트하려는 속성과 해당 값을 입력해야 합니다.
+
+[NOTE]
+====
+이 API를 한 번 호출할 때는 하나의 속성만 업데이트할 수 있다는 점에 유의하십시오. 여러 속성을 업데이트하려면 이 API를 여러 번 실행해야 합니다.
+
+====
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+PATCH
+ a| 
+`/storage-provider/file-shares/\{key}`
+
+|===

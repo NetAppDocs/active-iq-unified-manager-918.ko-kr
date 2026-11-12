@@ -1,0 +1,39 @@
+---
+permalink: data-protection/task_create_cascade_or_fanout_relationships_to_extend_protection.html 
+sidebar: sidebar 
+keywords: create, cascade fanout, relationships, extend protection, existing protection relationship 
+summary: 기존 관계의 소스 볼륨에서 팬아웃을 생성하거나 기존 관계의 대상 볼륨에서 캐스케이드를 생성하여 보호를 확장할 수 있습니다. 한 사이트에서 여러 사이트로 데이터를 복사해야 하거나 더 많은 백업을 생성하여 추가적인 보호를 제공해야 할 때 이 작업을 수행할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 캐스케이드 또는 팬아웃 관계를 사용하여 보호 확장
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 관계의 소스 볼륨에서 팬아웃을 생성하거나 기존 관계의 대상 볼륨에서 캐스케이드를 생성하여 보호를 확장할 수 있습니다. 한 사이트에서 여러 사이트로 데이터를 복사해야 하거나 더 많은 백업을 생성하여 추가적인 보호를 제공해야 할 때 이 작업을 수행할 수 있습니다.
+
+여러 볼륨을 담아 모든 볼륨을 하나의 엔티티로 관리할 수 있도록 하는 컨테이너인 일관성 그룹을 사용하여 볼륨에 대한 보호를 확장할 수 있습니다. Unified Manager의 관계 페이지에서 SnapMirror 활성 동기화 일관성 그룹 및 동기식 일관성 그룹 관계를 확인할 수 있습니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* Workflow Automation을 설정해야 합니다.
+
+
+.단계
+. *보호* > *관계*를 클릭합니다. 또는 볼륨 세부 정보 페이지에서 관계를 확인할 수도 있습니다.
+. *볼륨 관계* 페이지에서 보호를 확장하려는 SnapMirror 관계를 선택합니다.
+. 작업 표시줄에서 *보호 확장*을 클릭합니다.
+. 메뉴에서 소스에서 팬아웃 관계를 생성할지 또는 타겟에서 캐스케이드 관계를 생성할지에 따라 *소스에서* 또는 *타겟에서*를 선택합니다.
+. 생성하려는 보호 관계 유형에 따라 *SnapMirror 사용* 또는 *SnapVault 사용*을 선택하십시오.
++
+*보호 구성* 대화 상자가 표시됩니다.
+
++
+[NOTE]
+====
+이는 통합 관계 / 볼륨 관계 및 볼륨 / 상태 세부 정보 페이지에서 수행할 수 있습니다.
+
+====
+. *보호 구성* 대화 상자에 표시된 대로 정보를 입력하십시오.
+

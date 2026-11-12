@@ -1,0 +1,19 @@
+---
+permalink: reporting/task_sort_data.html 
+sidebar: sidebar 
+keywords: sort, data 
+summary: 결과를 정렬하려면 열을 클릭하고 오름차순 또는 내림차순을 지정하십시오. 데이터를 정렬하면 보고서에 필요한 정보가 우선순위로 표시됩니다. 
+---
+= Active IQ Unified Manager에서 데이터 정렬
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+결과를 정렬하려면 열을 클릭하고 오름차순 또는 내림차순을 지정하십시오. 데이터를 정렬하면 보고서에 필요한 정보가 우선순위로 표시됩니다.
+
+.단계
+. 열의 맨 위를 클릭하여 가장 중요한 정보가 보기 상단에 표시되도록 결과를 정렬하십시오.
+. 변경 사항을 저장하려면 저장되지 않은 뷰의 이름을 지정하세요.
+

@@ -1,0 +1,37 @@
+---
+permalink: config/task_disable_saml_authentication_um.html 
+sidebar: sidebar 
+keywords: disable, saml authentication 
+summary: 'Unified Manager 웹 UI에 로그인하기 전에 보안 ID 공급자(IdP)를 통한 원격 사용자 인증을 중지하려면 SAML 인증을 비활성화할 수 있습니다. SAML 인증이 비활성화되면 Active Directory 또는 LDAP 등 구성된 디렉터리 서비스 공급자가 로그인 인증을 수행합니다.' 
+---
+= Active IQ Unified Manager에서 SAML 인증 비활성화
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager 웹 UI에 로그인하기 전에 보안 ID 공급자(IdP)를 통한 원격 사용자 인증을 중지하려면 SAML 인증을 비활성화할 수 있습니다. SAML 인증이 비활성화되면 Active Directory 또는 LDAP 등 구성된 디렉터리 서비스 공급자가 로그인 인증을 수행합니다.
+
+SAML 인증을 비활성화하면 구성된 원격 사용자 외에도 로컬 사용자 및 유지 관리 사용자가 그래픽 사용자 인터페이스에 액세스할 수 있습니다.
+
+그래픽 사용자 인터페이스에 액세스할 수 없는 경우 Unified Manager 유지보수 콘솔을 사용하여 SAML 인증을 비활성화할 수도 있습니다.
+
+[NOTE]
+====
+SAML 인증이 비활성화되면 Unified Manager가 자동으로 다시 시작됩니다.
+
+====
+.단계
+. 왼쪽 탐색 창에서 *일반* > *SAML 인증*을 클릭합니다.
+. *SAML 인증 활성화* 확인란의 선택을 해제하십시오.
+. *저장*을 클릭합니다.
++
+구성을 완료하고 Unified Manager를 다시 시작할 것인지 확인하는 메시지 상자가 표시됩니다.
+
+. *확인 및 로그아웃*을 클릭하면 Unified Manager가 다시 시작됩니다.
+
+
+다음번에 원격 사용자가 Unified Manager 그래픽 인터페이스에 액세스하려고 할 때, IdP 로그인 페이지 대신 Unified Manager 로그인 페이지에 자격 증명을 입력하게 됩니다.
+
+IdP에 접속하여 Unified Manager 서버 URI 및 메타데이터를 삭제합니다.

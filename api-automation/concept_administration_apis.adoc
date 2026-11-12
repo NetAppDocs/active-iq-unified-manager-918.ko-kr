@@ -1,0 +1,86 @@
+---
+permalink: api-automation/concept_administration_apis.html 
+sidebar: sidebar 
+keywords: perform, administrative, tasks 
+summary: 관리 범주에 있는 API를 사용하여 백업 설정을 수정하고, 백업 파일 정보 및 클러스터 인증서를 확인하고, ONTAP 클러스터를 Active IQ Unified Manager 데이터 소스로 관리할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 API를 사용하여 관리 작업 수행
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ `administration` 범주에 속하는 API를 사용하여 백업 설정을 수정하고, 백업 파일 정보 및 클러스터 인증서를 확인하며, ONTAP 클러스터를 Active IQ Unified Manager 데이터 소스로 관리할 수 있습니다.
+
+[NOTE]
+====
+이러한 작업을 실행하려면 애플리케이션 관리자 역할이 있어야 합니다. Unified Manager 웹 UI를 사용하여 이러한 설정을 구성할 수도 있습니다.
+
+====
+[cols="3*"]
+|===
+| HTTP 동사 | 경로 | 설명 
+
+
+ a| 
+`GET`
+
+`PATCH`
+ a| 
+`/admin/backup-settings`
+
+`/admin/backup-settings`
+ a| 
+ `GET` 메서드를 사용하여 Unified Manager에 기본적으로 구성된 백업 일정 설정을 볼 수 있습니다. 다음 사항을 확인할 수 있습니다.
+
+* 일정이 활성화되어 있는지 또는 비활성화되어 있는지 여부
+* 백업 예약 빈도(매일 또는 매주)
+* 백업 시간
+* 애플리케이션에 보관해야 하는 최대 백업 파일 수
+
+
+백업 시간은 서버 시간대를 기준으로 합니다.
+
+데이터베이스 백업 설정은 Unified Manager에서 기본적으로 제공되며, 백업 일정을 생성할 수는 없습니다. 하지만  `PATCH` 방법을 사용하여 기본 설정을 수정할 수 있습니다.
+
+
+
+ a| 
+`GET`
+ a| 
+`/admin/backup-file-info`
+ a| 
+Unified Manager의 백업 일정이 수정될 때마다 백업 덤프 파일이 생성됩니다. 이 방법을 사용하여 수정된 백업 설정에 따라 백업 파일이 생성되었는지, 그리고 파일의 정보가 수정된 설정과 일치하는지 확인할 수 있습니다.
+
+
+
+ a| 
+`GET`
+ a| 
+`/admin/datasource-certificate`
+ a| 
+이 방법을 사용하여 신뢰 저장소에서 데이터 소스(클러스터) 인증서를 볼 수 있습니다. ONTAP 클러스터를 Unified Manager 데이터 소스로 추가하기 전에 인증서 유효성 검사가 필요합니다.
+
+
+
+ a| 
+`GET`
+
+`POST`
+
+`PATCH`
+
+`DELETE`
+ a| 
+`/admin/datasources/clusters`
+
+`/admin/datasources/clusters/\{key}`
+ a| 
+ `GET` 메서드를 사용하여 Unified Manager에서 관리하는 데이터 소스(ONTAP 클러스터)의 세부 정보를 검색할 수 있습니다.
+
+Unified Manager에 새 클러스터를 데이터 소스로 추가할 수도 있습니다. 클러스터를 추가하려면 호스트 이름, 사용자 이름 및 암호를 알아야 합니다.
+
+Unified Manager에서 데이터 소스로 관리되는 클러스터를 수정하거나 삭제하려면 ONTAP 클러스터 키를 사용하십시오.
+
+|===

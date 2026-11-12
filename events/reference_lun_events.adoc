@@ -1,0 +1,412 @@
+---
+permalink: events/reference_lun_events.html 
+sidebar: sidebar 
+keywords: lun, events, impact area, availability, capacity, configuration, performance 
+summary: LUN 이벤트는 LUN의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 LUN 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN 이벤트는 LUN의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-availability]]
+== 영향 영역: 가용성
+
+별표(*)는 Unified Manager 이벤트로 변환된 EMS 이벤트를 식별합니다.
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+LUN 오프라인(ocumEvtLunOffline)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 파괴됨 *(lunDestroy)
+ a| 
+이벤트
+ a| 
+LUN
+ a| 
+정보
+
+
+
+ a| 
+igroup(igroupUnsupportedOsType)에서 지원되지 않는 운영 체제로 매핑된 LUN
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN에 액세스하기 위한 단일 활성 경로(ocumEvtLunSingleActivePath)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN에 접근할 수 있는 활성 경로가 없습니다(ocumEvtLunNotReachable)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN에 액세스할 최적화된 경로 없음(ocumEvtLunOptimizedPathInactive)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+HA 파트너로부터 LUN에 접근할 수 있는 경로가 없습니다(ocumEvtLunHaPathInactive)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+HA 쌍의 한 노드에서 LUN에 접근할 수 있는 경로가 없습니다(ocumEvtLunNodePathStatusDown)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+오류
+
+|===
+
+
+[[impact-area-capacity]]
+== 영향 영역: 용량
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+LUN 스냅샷 복사를 위한 공간 부족(ocumEvtLunSnapshotNotPossible)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+|===
+
+
+[[impact-area-configuration]]
+== 영향 영역: 구성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+igroup(igroupUnsupportedOsType)에서 지원되지 않는 운영 체제로 매핑된 LUN
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+|===
+
+
+[[impact-area-performance]]
+== 영향 영역: 성능
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+LUN IOPS 위험 임계치 초과(ocumLunIopsIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN IOPS 경고 임계값 초과(ocumLunIopsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN MB/s 위험 임계값 초과(ocumLunMbpsIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN MB/s 경고 임계값 초과(ocumLunMbpsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 ms/op 위험 임계값 초과(ocumLunLatencyIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간(ms/op) 경고 임계값 초과(ocumLunLatencyWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 IOPS 위험 임계값 위반(ocumLunLatencyIopsIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 IOPS 경고 임계값 초과(ocumLunLatencyIopsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 MB/s 위험 임계값 초과(ocumLunLatencyMbpsIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 MB/s 경고 임계값 초과(ocumLunLatencyMbpsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 애그리게이트 성능 용량 사용량 위험 임계값 초과(ocumLunLatencyAggregatePerfCapacityUsedIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 애그리게이트 성능 용량 사용량 경고 임계값 초과(ocumLunLatencyAggregatePerfCapacityUsedWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 애그리게이트 사용률 위험 임계값 초과(ocumLunLatencyAggregateUtilizationIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 애그리게이트 사용률 경고 임계값 초과(ocumLunLatencyAggregateUtilizationWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 노드 성능 용량 사용량 위험 임계값 초과(ocumLunLatencyNodePerfCapacityUsedIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 노드 성능 용량 사용량 경고 임계값 초과(ocumLunLatencyNodePerfCapacityUsedWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 노드 성능 용량 사용량 - 테이크오버 위험 임계값 초과(ocumLunLatencyAggregatePerfCapacityUsedTakeoverIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 노드 성능 용량 사용량 - 테이크오버 경고 임계값 초과(ocumLunLatencyAggregatePerfCapacityUsedTakeoverWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+LUN 지연 시간 및 노드 활용률 위험 임계값 초과(ocumLunLatencyNodeUtilizationIncident)
+ a| 
+인시던트
+ a| 
+LUN
+ a| 
+심각
+
+
+
+ a| 
+LUN 지연 시간 및 노드 활용률 경고 임계값 초과(ocumLunLatencyNodeUtilizationWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+QoS LUN 최대 IOPS 경고 임계값 위반(ocumQosLunMaxIopsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+QoS LUN 최대 MB/s 경고 임계값 초과(ocumQosLunMaxMbpsWarning)
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+
+
+ a| 
+성능 서비스 수준 정책(ocumConformanceLatencyWarning)에 정의된 워크로드 LUN 지연 시간 임계값 초과
+ a| 
+위험
+ a| 
+LUN
+ a| 
+경고
+
+|===

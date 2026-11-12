@@ -1,0 +1,51 @@
+---
+permalink: storage-mgmt/reference_cluster_connectivity_status_definitions.html 
+sidebar: sidebar 
+keywords: cluster, connectivity, status, definitions 
+summary: MetroCluster 구성에서 최적, 영향받음 또는 다운 등 클러스터 간 연결 상태를 이해합니다. 
+---
+= Active IQ Unified Manager에서 FC 구성을 통한 MetroCluster의 클러스터 연결 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 기반 MetroCluster 구성에서 클러스터 간의 연결 상태는 최적, 영향 또는 다운 중 하나일 수 있습니다. 연결 상태를 이해하면 MetroCluster 구성을 효과적으로 관리할 수 있습니다.
+
+|===
+| 연결 상태 | 설명 | 아이콘이 표시됩니다 
+
+
+ a| 
+최적
+ a| 
+MetroCluster 구성 내 클러스터 간 연결이 정상입니다.
+ a| 
+image:../media/metrocluster_connectivity_optimal.gif["MetroCluster 연결 최적 아이콘"]
+
+
+
+ a| 
+영향을 받은
+ a| 
+하나 이상의 오류로 인해 페일오버 가용성 상태가 손상되었지만, MetroCluster 구성의 두 클러스터는 여전히 작동 중입니다. 예를 들어 ISL 링크가 다운되었거나, 클러스터 간 IP 링크가 다운되었거나, 파트너 클러스터에 연결할 수 없는 경우입니다.
+ a| 
+image:../media/metrocluster_connectivity_impacted.gif["MetroCluster 연결 영향 아이콘"]
+
+
+
+ a| 
+다운
+ a| 
+MetroCluster 구성의 클러스터 간 연결이 끊어진 이유는 하나 또는 두 클러스터가 모두 다운되었거나 클러스터가 페일오버 모드에 있기 때문입니다. 예를 들어, 재해로 인해 파트너 클러스터가 다운되었거나 테스트 목적으로 계획된 스위치오버가 있는 경우입니다.
+ a| 
+오류가 발생한 전환:
+
+image::../media/metrocluster_connectivity_down.gif[MetroCluster 연결 다운 아이콘]
+
+전환 성공:
+
+image::../media/metrocluster_connectivity_failover.gif[MetroCluster 연결 장애 조치 아이콘]
+
+|===

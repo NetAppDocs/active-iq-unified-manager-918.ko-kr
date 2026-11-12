@@ -1,0 +1,93 @@
+---
+permalink: config/reference_identity_provider_requirements_um.html 
+sidebar: sidebar 
+keywords: identity, provider, requirements 
+summary: '모든 원격 사용자에 대해 SAML 인증을 수행하기 위해 ID 공급자(IdP)를 사용하도록 Unified Manager를 구성할 때, Unified Manager에 성공적으로 연결되도록 하려면 몇 가지 필수 구성 설정을 숙지해야 합니다.' 
+---
+= Active IQ Unified Manager에서 ID 공급자 사용
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+모든 원격 사용자에 대해 SAML 인증을 수행하기 위해 ID 공급자(IdP)를 사용하도록 Unified Manager를 구성할 때, Unified Manager에 성공적으로 연결되도록 하려면 몇 가지 필수 구성 설정을 숙지해야 합니다.
+
+Unified Manager URI와 메타데이터를 IdP 서버에 입력해야 합니다. 이 정보는 Unified Manager SAML 인증 페이지에서 복사할 수 있습니다. Unified Manager는 SAML(Security Assertion Markup Language) 표준에서 서비스 제공자(SP)로 간주됩니다.
+
+
+
+[[supported-encryption-standards]]
+== 지원되는 암호화 표준
+
+* 고급 암호화 표준(AES): AES-128 및 AES-256
+* 보안 해시 알고리즘(SHA): SHA-1 및 SHA-256
+
+
+
+
+[[validated-identity-providers]]
+== 검증된 신원 제공업체
+
+* Shibboleth
+* Active Directory Federation Services(ADFS)
+
+
+
+
+[[adfs-configuration-requirements]]
+== ADFS 구성 요구 사항
+
+* Unified Manager가 이 신뢰 당사자 트러스트 항목에 대한 ADFS SAML 응답을 구문 분석하려면 다음 순서대로 세 가지 클레임 규칙을 정의해야 합니다.
++
+[cols="2*"]
+|===
+| 청구 규칙 | 가치 
+
+
+ a| 
+SAM-account-name
+ a| 
+이름 ID
+
+
+
+ a| 
+SAM-account-name
+ a| 
+urn:oid:0.9.2342.19200300.100.1.1
+
+
+
+ a| 
+토큰 그룹 -- 정규화되지 않은 이름
+ a| 
+urn:oid:1.3.6.1.4.1.5923.1.5.1.1
+
+|===
+* 인증 방법을 "`Forms Authentication`"(으)로 설정해야 합니다. 그렇지 않으면 사용자가 Unified Manager에서 로그아웃할 때 오류가 발생할 수 있습니다. 다음 단계를 따르십시오.
++
+.. ADFS 관리 콘솔을 엽니다.
+.. 왼쪽 트리 보기에서 인증 정책 폴더를 클릭합니다.
+.. 오른쪽의 작업(Actions)에서 전역 기본 인증 정책 편집(Edit Global Primary Authentication Policy)을 클릭합니다.
+.. 인트라넷 인증 방법을 기본값인 "`Windows Authentication`" 대신 "`Forms Authentication`"으로 설정하십시오.
+
+
+* Unified Manager 보안 인증서가 CA에서 서명된 경우 IdP를 통한 로그인이 거부되는 경우가 있습니다. 이 문제를 해결하기 위한 두 가지 해결 방법이 있습니다:
++
+** 링크에 나와 있는 지침에 따라 ADFS 서버에서 연결된 CA 인증서 관련 신뢰 당사자에 대한 해지 확인을 비활성화하십시오:
++
+http://www.torivar.com/2016/03/22/adfs-3-0-disable-revocation-check-windows-2012-r2/["신뢰 당사자 트러스트별 해지 확인 비활성화"]
+
+** CA 서버가 ADFS 서버 내에 위치하여 Unified Manager 서버 인증서 요청에 서명하도록 하십시오.
+
+
+
+
+
+
+[[other-configuration-requirements]]
+== 기타 구성 요구 사항
+
+* Unified Manager의 시간 편차는 5분으로 설정되어 있으므로 IdP 서버와 Unified Manager 서버 간의 시간 차이가 5분을 초과하면 인증에 실패합니다.
+

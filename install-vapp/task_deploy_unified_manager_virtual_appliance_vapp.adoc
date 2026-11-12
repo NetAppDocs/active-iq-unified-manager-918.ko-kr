@@ -1,0 +1,118 @@
+---
+permalink: install-vapp/task_deploy_unified_manager_virtual_appliance_vapp.html 
+sidebar: sidebar 
+keywords: deploy, unified manager, virtual appliance 
+summary: 설치 파일을 다운로드한 후 Unified Manager를 가상 어플라이언스로 배포합니다. vSphere 웹 클라이언트를 사용하여 ESXi 서버에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 배포하면 가상 머신이 생성됩니다. 
+---
+= Active IQ Unified Manager 가상 어플라이언스를 배포합니다.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+설치 파일을 다운로드한 후 Unified Manager를 가상 어플라이언스로 배포합니다. vSphere 웹 클라이언트를 사용하여 ESXi 서버에 가상 어플라이언스를 배포합니다. 가상 어플라이언스를 배포하면 가상 머신이 생성됩니다.
+
+.시작하기 전에
+시스템 요구 사항을 검토하십시오. Unified Manager 가상 어플라이언스를 배포하기 전에 필요한 변경 사항을 적용하십시오.
+
+link:concept_virtual_infrastructure_or_hardware_system_requirements.html["가상 인프라 요구 사항"]를 참조하십시오.
+
+link:reference_vmware_software_and_installation_requirements.html["VMware 소프트웨어 및 설치 요구 사항"]를 참조하십시오.
+
+동적 호스트 구성 프로토콜(DHCP)을 사용하는 경우 DHCP 서버를 사용할 수 있는지, 그리고 DHCP 및 가상 머신(VM) 네트워크 어댑터 구성이 올바른지 확인하십시오. DHCP는 기본적으로 구성되어 있습니다.
+
+고정 네트워크 구성을 사용하는 경우, 동일한 서브넷에서 IP 주소가 중복되지 않도록 하고 적절한 DNS 서버 항목이 구성되었는지 확인하십시오.
+
+가상 어플라이언스를 배포하기 전에 다음 정보를 확보하십시오:
+
+* VMware vCenter Server 및 vSphere 웹 클라이언트에 액세스하기 위한 자격 증명
+* Unified Manager 가상 어플라이언스를 배포할 ESXi 서버의 IP 주소
+* 스토리지 공간 가용성 등 데이터 센터에 대한 세부 정보
+* DHCP를 사용하지 않는 경우, 연결하려는 네트워크 장치의 IPv4 또는 IPv6 주소를 확보하십시오:
++
+** 호스트의 정규화된 도메인 이름(FQDN)
+** 호스트의 IP 주소
+** 네트워크 마스크
+** 기본 게이트웨이의 IP 주소
+** 기본 및 보조 DNS 주소
+** 검색 도메인
+
+
+
+
+Unified Manager 9.8부터 VMware Tools는 Open VM Tools  `_open-vm-tools_`)로 대체되었습니다.  `_open-vm-tools_`가 Unified Manager 설치 패키지에 포함되어 있으므로 설치 과정에서 VMware Tools를 설치할 필요가 없습니다.
+
+가상 어플라이언스가 배포되면 HTTPS 액세스를 위한 고유한 자체 서명 인증서가 생성됩니다. Unified Manager 웹 UI에 액세스할 때 신뢰할 수 없는 인증서에 대한 브라우저 경고가 표시될 수 있습니다.
+
+Unified Manager 가상 어플라이언스에 대한 VMware 고가용성이 지원됩니다.
+
+.단계
+. vSphere Client에서 *파일* > *OVF 템플릿 배포*를 클릭합니다.
+. Unified Manager 가상 어플라이언스를 배포하려면 OVF 템플릿 배포 마법사를 완료하십시오.
++
+리뷰 상세 정보 페이지에서:
+
++
+** 게시자 섹션의 세부 정보를 확인하십시오. *Entrust Code Signing - OVCS2 (Trusted certificate)* 메시지는 다운로드한 `OVA` 파일의 무결성을 확인합니다. + *Entrust Code Signing - OVCS2 (Invalid certificate)* 메시지가 표시되면 VMware vCenter Server를 7.0U3E 이상 버전으로 업그레이드하십시오.
++
+사용자 정의 템플릿 페이지에서:
+
+** DHCP 및 IPv4 주소 지정을 사용할 때는 모든 필드를 비워 두십시오.
+** DHCP 및 IPv6 주소 지정을 사용하는 경우 "`Enable Auto IPv6 addressing`" 확인란을 선택하고 나머지 필드는 모두 비워 두십시오.
+** 고정 네트워크 구성을 사용하려면 이 페이지의 필드를 작성할 수 있으며 배포 시 이러한 설정이 적용됩니다. IP 주소가 배포되는 호스트에 대해 고유하고, 이미 사용 중이 아니며, 유효한 DNS 항목이 있는지 확인하십시오.
+
+
+. Unified Manager 가상 어플라이언스가 ESXi 서버에 배포되면 가상 머신을 마우스 오른쪽 버튼으로 클릭하고 *전원 켜기*를 선택하여 가상 머신의 전원을 켜십시오.
++
+[NOTE]
+====
+리소스 부족으로 전원 켜기 작업이 실패하는 경우 리소스를 추가한 후 설치를 다시 시도하십시오.
+
+====
+. *콘솔* 탭을 클릭하세요.
++
+초기 부팅 과정은 완료하는 데 몇 분 정도 소요됩니다.
+
+. 시간대를 구성하려면 VM 콘솔 창에 표시되는 안내에 따라 지리적 영역과 도시 또는 지역을 입력하십시오.
++
+표시되는 모든 날짜 정보는 관리 대상 장치의 시간대 설정과 관계없이 Unified Manager에 구성된 시간대를 사용합니다. 스토리지 시스템과 관리 서버가 동일한 NTP 서버로 구성된 경우, 표시되는 방식이 다르더라도 동일한 시점을 참조합니다. 예를 들어, 관리 서버와 다른 시간대로 구성된 장치를 사용하여 Snapshot 복사본을 생성하는 경우 타임스탬프는 관리 서버 시간입니다.
+
+. DHCP 서비스를 사용할 수 없거나 고정 네트워크 구성 세부 정보에 오류가 있는 경우 다음 옵션 중 하나를 선택하십시오.
++
+[cols="2*"]
+|===
+| 사용하는 경우... | 그런 다음 이렇게 하십시오... 
+
+
+ a| 
+DHCP
+ a| 
+*DHCP 재시도*를 선택하십시오. DHCP를 사용할 계획이라면 DHCP가 올바르게 구성되어 있는지 확인해야 합니다.
+
+DHCP 지원 네트워크를 사용하는 경우 FQDN 및 DNS 서버 항목이 가상 어플라이언스에 자동으로 제공됩니다. DHCP가 DNS와 올바르게 구성되지 않은 경우 호스트 이름 "`UnifiedManager`"가 자동으로 할당되고 보안 인증서와 연결됩니다. DHCP 지원 네트워크를 설정하지 않은 경우 네트워킹 구성 정보를 수동으로 입력해야 합니다.
+
+
+
+ a| 
+정적 네트워크 구성
+ a| 
+.. *고정 네트워크 구성 세부 정보 입력*을 선택합니다.
++
+구성 과정은 완료하는 데 몇 분 정도 소요됩니다.
+
+.. 입력한 값을 확인하고 *Y*를 선택하십시오.
+
+
+|===
+. 프롬프트에서 유지 관리 사용자 이름을 입력한 다음 *Enter*를 클릭하십시오.
++
+유지보수 사용자 이름은 a-z 사이의 문자로 시작해야 하며, 그 뒤에는 -, a-z 또는 0-9의 조합이 와야 합니다.
+
+. 프롬프트에서 비밀번호를 입력한 다음 *Enter*를 누르십시오.
++
+VM 콘솔에 Unified Manager 웹 UI의 URL이 표시됩니다.
+
+
+
+link:../config/concept_configure_unified_manager.html["Active IQ Unified Manager 구성"]에 설명된 대로 웹 UI에 액세스하여 Unified Manager의 초기 설정을 수행할 수 있습니다.

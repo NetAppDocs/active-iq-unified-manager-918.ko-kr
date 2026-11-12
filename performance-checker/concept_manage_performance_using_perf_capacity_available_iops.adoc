@@ -1,0 +1,25 @@
+---
+permalink: performance-checker/concept_manage_performance_using_perf_capacity_available_iops.html 
+sidebar: sidebar 
+keywords: managing, performance, performance, capacity, available, iops, information 
+summary: 성능 용량은 리소스의 유효 성능을 초과하지 않고 해당 리소스에서 얻을 수 있는 처리량을 나타냅니다. 기존 성능 카운터를 사용하여 살펴보면, 성능 용량은 지연 시간이 문제가 되기 전에 노드 또는 애그리게이트에서 최대 활용률을 얻을 수 있는 지점입니다. 
+---
+= Active IQ Unified Manager에서 성능 용량 및 사용 가능한 IOPS 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+_성능 용량_은 리소스의 유효 성능을 초과하지 않고 해당 리소스에서 얻을 수 있는 처리량을 나타냅니다. 기존 성능 카운터를 사용하여 살펴보면, 성능 용량은 지연 시간이 문제가 되기 전에 노드 또는 애그리게이트에서 최대 활용률을 얻을 수 있는 지점입니다.
+
+Unified Manager는 각 클러스터의 노드 및 애그리게이트에서 성능 용량 통계를 수집합니다. _사용된 성능 용량_은 현재 사용 중인 성능 용량의 백분율이고, _여유 성능 용량_은 아직 사용 가능한 성능 용량의 백분율입니다.
+
+성능 용량 여유분은 리소스에서 사용 가능한 비율을 나타내는 반면, _사용 가능한 IOPS_는 최대 성능 용량에 도달하기 전에 리소스에 추가할 수 있는 IOPS 수를 나타냅니다. 이 지표를 사용하면 미리 정해진 IOPS 수의 워크로드를 리소스에 추가할 수 있음을 확신할 수 있습니다.
+
+성능 용량 정보를 모니터링하면 다음과 같은 이점이 있습니다.
+
+* 워크플로 프로비저닝 및 밸런싱을 지원합니다.
+* 노드에 과부하가 걸리거나 리소스가 최적점을 넘어 사용되는 것을 방지하여 문제 해결 필요성을 줄여줍니다.
+* 추가 스토리지 장비가 필요한 위치를 더욱 정확하게 파악하는 데 도움이 됩니다.
+

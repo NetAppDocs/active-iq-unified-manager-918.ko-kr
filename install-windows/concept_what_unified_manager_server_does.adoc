@@ -1,0 +1,16 @@
+---
+permalink: install-windows/concept_what_unified_manager_server_does.html 
+sidebar: sidebar 
+keywords: unified manager, server 
+summary: 'Unified Manager 서버 인프라는 데이터 수집 장치, 데이터베이스 및 애플리케이션 서버로 구성됩니다. 이 인프라는 검색, 모니터링, 역할 기반 액세스 제어(RBAC), 감사 및 로깅 등의 인프라 서비스를 제공합니다.' 
+---
+= Active IQ Unified Manager 서버의 기능에 대해 알아보십시오.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager 서버 인프라는 데이터 수집 장치, 데이터베이스 및 애플리케이션 서버로 구성됩니다. 이 인프라는 검색, 모니터링, 역할 기반 액세스 제어(RBAC), 감사 및 로깅 등의 인프라 서비스를 제공합니다.
+
+Unified Manager는 클러스터 정보를 수집하고, 데이터베이스에 데이터를 저장하고, 클러스터에 문제가 있는지 확인하기 위해 데이터를 분석합니다.

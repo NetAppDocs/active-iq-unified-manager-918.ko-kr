@@ -1,0 +1,19 @@
+---
+permalink: health-checker/concept_understand_node_root_volumes.html 
+sidebar: sidebar 
+keywords: understand, node, root, volumes 
+summary: Unified Manager를 사용하여 노드 루트 볼륨을 모니터링할 수 있습니다. 노드 다운을 방지하려면 노드 루트 볼륨에 충분한 용량을 확보하는 것이 좋습니다. 
+---
+= Active IQ Unified Manager에서 노드 루트 볼륨 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 사용하여 노드 루트 볼륨을 모니터링할 수 있습니다. 노드 다운을 방지하려면 노드 루트 볼륨에 충분한 용량을 확보하는 것이 좋습니다.
+
+노드 루트 볼륨의 사용된 용량이 전체 노드 루트 볼륨 용량의 80%를 초과하면 노드 루트 볼륨 공간 거의 가득 참 이벤트가 발생합니다. 이 이벤트에 대한 알림을 받도록 경고를 구성할 수 있습니다. ONTAP System Manager 또는 ONTAP CLI를 사용하여 노드가 다운되는 것을 방지하기 위한 적절한 조치를 취할 수 있습니다.
+
+
+NOTE: 클러스터가 ONTAP 9.14.1 버전 이상을 실행하는 경우 노드 루트 볼륨 모니터링 기능은 사용할 수 없습니다.

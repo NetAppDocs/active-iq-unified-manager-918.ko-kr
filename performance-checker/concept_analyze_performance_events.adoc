@@ -1,0 +1,14 @@
+---
+permalink: performance-checker/concept_analyze_performance_events.html 
+sidebar: sidebar 
+keywords: analyze, performance, events 
+summary: '성능 이벤트를 분석하여 이벤트가 감지된 시점, 활성 상태(새로 발생했거나 확인됨)인지 또는 더 이상 사용되지 않는지 여부, 관련된 워크로드 및 클러스터 구성 요소, 그리고 이벤트를 직접 해결할 수 있는 옵션을 파악할 수 있습니다.' 
+---
+= Active IQ Unified Manager에서 성능 이벤트 분석
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 이벤트를 분석하여 이벤트가 감지된 시점, 활성 상태(새로 발생했거나 확인됨)인지 또는 더 이상 사용되지 않는지 여부, 관련된 워크로드 및 클러스터 구성 요소, 그리고 이벤트를 직접 해결할 수 있는 옵션을 파악할 수 있습니다.

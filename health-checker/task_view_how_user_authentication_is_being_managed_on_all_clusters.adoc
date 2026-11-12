@@ -1,0 +1,24 @@
+---
+permalink: health-checker/task_view_how_user_authentication_is_being_managed_on_all_clusters.html 
+sidebar: sidebar 
+keywords: view, cluster authentication status, user authentication, manage, clusters 
+summary: 보안 페이지에는 각 클러스터에서 사용자를 인증하는 데 사용되는 인증 유형과 각 유형을 사용하여 클러스터에 액세스하는 사용자 수가 표시됩니다. 이를 통해 조직에서 정의한 대로 사용자 인증이 안전하게 수행되고 있는지 확인할 수 있습니다. 
+---
+= Active IQ Unified Manager의 모든 클러스터에서 클러스터가 사용자 인증을 관리하는 방법을 확인합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 페이지에는 각 클러스터에서 사용자를 인증하는 데 사용되는 인증 유형과 각 유형을 사용하여 클러스터에 액세스하는 사용자 수가 표시됩니다. 이를 통해 조직에서 정의한 대로 사용자 인증이 안전하게 수행되고 있는지 확인할 수 있습니다.
+
+.단계
+. 왼쪽 탐색 창에서 *대시보드*를 클릭합니다.
+. 대시보드 상단의 드롭다운 메뉴에서 *모든 클러스터*를 선택합니다.
+. *Security* 패널에서 오른쪽 화살표를 클릭하면 *Security* 페이지가 표시됩니다.
+. *클러스터 인증* 카드를 보면 각 인증 유형을 사용하여 시스템에 접속하는 사용자 수를 확인할 수 있습니다.
+. *클러스터 보안* 카드를 참조하여 각 클러스터에서 사용자를 인증하는 데 사용되는 인증 메커니즘을 확인하십시오.
+
+
+안전하지 않은 방법을 사용하거나 NetApp에서 권장하지 않는 방법을 사용하여 시스템에 액세스하는 사용자가 있는 경우 해당 방법을 비활성화할 수 있습니다.

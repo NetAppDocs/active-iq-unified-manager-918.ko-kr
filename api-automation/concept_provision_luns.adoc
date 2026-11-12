@@ -1,0 +1,276 @@
+---
+permalink: api-automation/concept_provision_luns.html 
+sidebar: sidebar 
+keywords: provision, luns 
+summary: 'Active IQ Unified Manager의 일부로 제공되는 프로비저닝 API를 사용하여 스토리지 가상 머신(SVM)에 LUN을 프로비저닝할 수 있습니다. 이 프로비저닝 워크플로는 LUN을 생성하기 전에 SVM, 성능 서비스 수준 및 스토리지 효율성 정책의 키를 가져오는 단계를 자세히 설명합니다.' 
+---
+= Active IQ Unified Manager API를 사용하여 LUN 프로비저닝
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager의 일부로 제공되는 프로비저닝 API를 사용하여 스토리지 가상 머신(SVM)에 LUN을 프로비저닝할 수 있습니다. 이 프로비저닝 워크플로는 LUN을 생성하기 전에 SVM, 성능 서비스 수준 및 스토리지 효율성 정책의 키를 가져오는 단계를 자세히 설명합니다.
+
+다음 다이어그램은 LUN 프로비저닝 워크플로의 단계를 보여줍니다.
+
+image::../media/create_luns.gif[스토리지 VM, 서비스 레벨 및 igroup 단계를 포함하여 LUN 생성 워크플로를 보여주는 다이어그램]
+
+[NOTE]
+====
+이 워크플로는 ONTAP 클러스터가 Unified Manager에 추가되었고 클러스터 키가 확보되었다고 가정합니다. 또한 클러스터에 SVM이 이미 생성되었다고 가정합니다.
+
+====
+. _클러스터에서 SVM 검증_ 워크플로 항목에 설명된 대로 LUN을 생성하려는 SVM에 대한 SVM 키를 가져오십시오.
+. 다음 API를 실행하고 응답에서 키를 가져와 성능 서비스 수준에 대한 키를 얻으십시오.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/performance-service-levels`
+
+|===
++
+[NOTE]
+====
+ `system_defined` 입력 매개변수를  `true`(으)로 설정하여 시스템 정의 성능 서비스 레벨의 세부 정보를 가져올 수 있습니다. 출력에서 LUN에 적용하려는 성능 서비스 레벨의 키를 가져오십시오.
+
+====
+. 선택적으로, 다음 API를 실행하고 응답에서 키를 검색하여 LUN에 적용하려는 스토리지 효율성 정책의 스토리지 효율성 정책 키를 가져옵니다.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/storage-efficiency-policies`
+
+|===
+. 생성하려는 LUN 대상에 대한 액세스 권한을 부여하기 위해 이니시에이터 그룹(igroup)이 생성되었는지 확인합니다.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+데이터센터
+ a| 
+GET
+ a| 
+`/datacenter/protocols/san/igroups`  `/datacenter/protocols/san/igroups/\{key}`
+
+|===
++
+igroup이 액세스 권한을 가진 SVM을 나타내는 매개변수 값을 입력해야 합니다. 또한 특정 igroup을 조회하려면 igroup 이름(키)을 입력 매개변수로 입력하십시오.
+
+. 출력에서 액세스 권한을 부여하려는 igroup을 찾을 수 있으면 키를 가져오십시오. 그렇지 않으면 igroup을 생성하십시오.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+데이터센터
+ a| 
+POST
+ a| 
+`/datacenter/protocols/san/igroups`
+
+|===
++
+생성하려는 igroup의 세부 정보를 입력 매개변수로 입력해야 합니다. 이 호출은 동기식으로 이루어지며, 출력에서 igroup 생성 여부를 확인할 수 있습니다. 오류가 발생하면 문제 해결 및 API 재실행을 위한 메시지가 표시됩니다.
+
+. LUN를 생성합니다.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+POST
+ a| 
+`/storage-provider/luns`
+
+|===
++
+LUN을 생성할 때, 검색된 값을 필수 입력 매개변수로 추가했는지 확인하십시오.
+
++
+[NOTE]
+====
+스토리지 효율성 정책은 LUN 생성 시 사용할 수 있는 선택적 매개변수입니다.
+
+====
++
+*샘플 cURL*
+
++
+생성하려는 LUN의 모든 세부 정보를 입력 매개변수로 입력해야 합니다.
+
++
+JSON 출력에는 생성한 LUN을 확인하는 데 사용할 수 있는 작업 오브젝트 키가 표시됩니다.
+
+. Job 쿼리 시 반환되는 Job 오브젝트 키를 사용하여 LUN 생성을 확인하십시오:
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+management-server
+ a| 
+GET
+ a| 
+`/management-server/jobs/\{key}`
+
+|===
++
+응답의 마지막 부분에 생성된 LUN의 키가 표시됩니다.
+
+. 반환된 키를 사용하여 다음 API를 실행하여 LUN 생성 여부를 확인하십시오:
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/luns/\{key}`
+
+|===
++
+*샘플 JSON 출력*
+
++
+ `/storage-provider/luns`의 POST 메서드가 내부적으로 각 기능에 필요한 모든 API를 호출하고 오브젝트를 생성하는 것을 볼 수 있습니다. 예를 들어, LUN에 성능 서비스 수준을 할당하기 위해  `/storage-provider/performance-service-levels/` API를 호출합니다.
+
++
+== LUN 생성 또는 매핑 실패 시 문제 해결 단계
+
+
+
+이 워크플로를 완료한 후에도 LUN 생성에 실패할 수 있습니다. LUN이 성공적으로 생성되더라도, LUN을 생성하는 노드에서 SAN LIF 또는 액세스 엔드포인트를 사용할 수 없는 경우 igroup과의 LUN 매핑이 실패할 수 있습니다. 실패할 경우 다음과 같은 메시지가 표시될 수 있습니다:
+
+[listing]
+----
+The nodes <node_name> and <partner_node_name> have no LIFs configured with the iSCSI or FCP protocol for Vserver <server_name>. Use the access-endpoints API to create a LIF for the LUN.
+----
+이 오류를 해결하려면 다음 문제 해결 단계를 따르십시오.
+
+. LUN 생성을 시도했던 SVM에 ISCSI/FCP 프로토콜을 지원하는 액세스 엔드포인트를 생성하십시오.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+POST
+ a| 
+`/storage-provider/access-endpoints`
+
+|===
++
+*샘플 cURL*
+
++
+생성하려는 액세스 엔드포인트의 세부 정보를 입력 매개변수로 입력해야 합니다.
+
++
+[NOTE]
+====
+입력 매개변수에 LUN의 홈 노드를 나타내는 주소와 홈 노드의 파트너 노드를 나타내는 ha_address를 추가했는지 확인하십시오. 이 작업을 실행하면 홈 노드와 파트너 노드 모두에 액세스 엔드포인트가 생성됩니다.
+
+====
+. JSON 출력에서 반환된 Job 오브젝트 키로 작업을 조회하여 SVM에 액세스 엔드포인트를 추가하는 작업이 성공적으로 실행되었는지, 그리고 SVM에서 iSCSI/FCP 서비스가 활성화되었는지 확인합니다.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+management-server
+ a| 
+GET
+ a| 
+`/management-server/jobs/\{key}`
+
+|===
++
+*샘플 JSON 출력*
+
++
+출력의 마지막 부분에서 생성된 액세스 엔드포인트의 키를 확인할 수 있습니다. 다음 출력에서 "name": "accessEndpointKey" 값은 LUN의 홈 노드에 생성된 액세스 엔드포인트를 나타내며, 해당 키는 9c964258-14ef-11ea-95e2-00a098e32c28입니다. "name": "accessEndpointHAKey" 값은 홈 노드의 파트너 노드에 생성된 액세스 엔드포인트를 나타내며, 해당 키는 9d347006-14ef-11ea-8760-00a098e3215f입니다.
+
+. LUN을 수정하여 igroup 매핑을 업데이트하십시오. 워크플로 수정에 대한 자세한 내용은 "`스토리지 워크로드 수정`"을 참조하십시오.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+PATCH
+ a| 
+`/storage-provider/lun/\{key}`
+
+|===
++
+입력란에 LUN 매핑을 업데이트하는 데 사용할 igroup 키와 LUN 키를 지정하십시오.
+
++
+*샘플 cURL*
+
++
+JSON 출력에는 매핑이 성공했는지 확인하는 데 사용할 수 있는 Job 오브젝트 키가 표시됩니다.
+
+. LUN 키로 쿼리하여 LUN 매핑을 확인하십시오.
++
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/luns/\{key}`
+
+|===
++
+*샘플 JSON 출력*
+
++
+출력에서 LUN이 최초 프로비저닝 시 사용되었던 igroup(키 d19ec2fa-fec7-11e8-b23d-00a098e32c28)에 성공적으로 매핑되었음을 확인할 수 있습니다.
+
+

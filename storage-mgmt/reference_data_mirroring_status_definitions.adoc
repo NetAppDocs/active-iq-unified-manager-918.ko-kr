@@ -1,0 +1,42 @@
+---
+permalink: storage-mgmt/reference_data_mirroring_status_definitions.html 
+sidebar: sidebar 
+keywords: data mirror, status, definitions 
+summary: MetroCluster 구성은 데이터 미러링을 제공하며 전체 사이트를 사용할 수 없게 될 경우 페일오버를 시작할 수 있는 추가 기능을 제공합니다. MetroCluster 구성의 클러스터 간 데이터 미러링 상태는 정상 또는 미러링 사용 불가일 수 있습니다. 상태를 이해하면 MetroCluster 구성을 효과적으로 관리할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 FC 데이터 미러링을 통한 MetroCluster에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 기반 MetroCluster 구성은 데이터 미러링을 제공하며, 전체 사이트를 사용할 수 없게 될 경우 페일오버를 시작할 수 있는 추가 기능을 제공합니다. FC 기반 MetroCluster 구성에서 클러스터 간 데이터 미러링 상태는 정상 또는 미러링 사용 불가일 수 있습니다. 이 상태를 이해하면 MetroCluster 구성을 효과적으로 관리할 수 있습니다.
+
+|===
+| 데이터 미러링 상태 | 설명 | 아이콘이 표시됩니다 
+
+
+ a| 
+정상
+ a| 
+MetroCluster 구성에서 클러스터 간 데이터 미러링은 정상입니다.
+ a| 
+image:../media/metrocluster_connectivity_optimal.gif["MetroCluster 연결 최적 아이콘"]
+
+
+
+ a| 
+미러링을 사용할 수 없습니다
+ a| 
+스위치오버로 인해 MetroCluster 구성의 클러스터 간 데이터 미러링을 사용할 수 없습니다. 예를 들어, 파트너 클러스터가 재해로 인해 다운되었거나 테스트 목적으로 계획된 스위치오버가 있는 경우입니다.
+ a| 
+오류가 발생한 전환:
+
+image::../media/metrocluster_connectivity_down.gif[MetroCluster 연결 다운 아이콘]
+
+전환 성공:
+
+image::../media/metrocluster_connectivity_failover.gif[MetroCluster 연결 장애 조치 아이콘]
+
+|===

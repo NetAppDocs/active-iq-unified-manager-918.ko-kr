@@ -1,0 +1,190 @@
+---
+permalink: events/reference_management_station_events.html 
+sidebar: sidebar 
+keywords: management, station, events, impact area, configuration, performance 
+summary: 관리 스테이션 이벤트는 Unified Manager가 설치된 서버의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 관리 스테이션 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리 스테이션 이벤트는 Unified Manager가 설치된 서버의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-configuration]]
+== 영향 영역: 구성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+관리 서버 디스크 공간이 거의 꽉 찼습니다(ocumEvtUnifiedManagerDiskSpaceNearlyFull)
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+관리 서버 디스크 공간 가득 참(ocumEvtUnifiedManagerDiskSpaceFull)
+ a| 
+인시던트
+ a| 
+관리 스테이션
+ a| 
+심각
+
+
+
+ a| 
+관리 서버 메모리 부족(ocumEvtUnifiedManagerMemoryLow)
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+관리 서버 메모리 거의 부족(ocumEvtUnifiedManagerMemoryAlmostOut)
+ a| 
+인시던트
+ a| 
+관리 스테이션
+ a| 
+심각
+
+
+
+ a| 
+MySQL 로그 파일 크기가 증가했습니다. 재시작이 필요합니다(ocumEvtMysqlLogFileSizeWarning)
+ a| 
+인시던트
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+전체 감사 로그 크기 할당량이 거의 다 찼습니다.
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+Syslog 서버 인증서 만료 임박
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+Syslog 서버 인증서 만료
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+오류
+
+
+
+ a| 
+감사 로그 파일이 변조되었습니다
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+감사 로그 파일 삭제됨
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+Syslog 서버 연결 오류
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+오류
+
+
+
+ a| 
+Syslog 서버 구성이 변경되었습니다
+ a| 
+이벤트
+ a| 
+관리 스테이션
+ a| 
+경고
+
+|===
+
+
+[[impact-area-performance]]
+== 영향 영역: 성능
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+성능 데이터 분석에 문제가 발생했습니다(ocumEvtUnifiedManagerDataMissingAnalyze)
+ a| 
+위험
+ a| 
+관리 스테이션
+ a| 
+경고
+
+
+
+ a| 
+성능 데이터 수집에 문제가 발생했습니다(ocumEvtUnifiedManagerDataMissingCollection)
+ a| 
+인시던트
+ a| 
+관리 스테이션
+ a| 
+심각
+
+|===
+[NOTE]
+====
+이 마지막 두 가지 성능 이벤트는 Unified Manager 7.2에서만 사용할 수 있었습니다. 이러한 이벤트 중 하나라도 '새로 생성됨' 상태인 상태에서 Unified Manager 소프트웨어를 최신 버전으로 업그레이드하면 이벤트가 자동으로 삭제되지 않습니다. 이벤트를 수동으로 '해결됨' 상태로 변경해야 합니다.
+
+====

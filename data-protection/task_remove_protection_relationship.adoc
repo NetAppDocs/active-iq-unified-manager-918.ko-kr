@@ -1,0 +1,30 @@
+---
+permalink: data-protection/task_remove_protection_relationship.html 
+sidebar: sidebar 
+keywords: remove, protection, relationship, volume, relationships page 
+summary: 볼륨 관계 페이지에서 소스와 대상 간의 보호 관계를 영구적으로 제거합니다. 이 작업은 되돌릴 수 없습니다. 
+---
+= Active IQ Unified Manager의 볼륨 관계 페이지에서 보호 관계 제거
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 관계 페이지에서 보호 관계를 제거하여 선택한 소스와 타겟 간의 기존 관계를 영구적으로 삭제할 수 있습니다. 예를 들어 다른 타겟을 사용하여 관계를 생성하려는 경우입니다. 이 작업은 모든 메타데이터를 제거하며 되돌릴 수 없습니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* Workflow Automation을 설정해야 합니다.
+
+
+.단계
+. *볼륨 관계* 페이지에서 제거하려는 보호 관계가 있는 볼륨을 하나 이상 선택하고 도구 모음에서 *제거*를 클릭합니다.
++
+관계 제거 대화 상자가 표시됩니다.
+
+. 관계를 삭제하려면 *계속*을 클릭하세요.
++
+볼륨 관계 페이지에서 해당 관계가 제거되었습니다.
+
+

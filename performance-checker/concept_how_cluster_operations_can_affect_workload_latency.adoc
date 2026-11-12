@@ -1,0 +1,26 @@
+---
+permalink: performance-checker/concept_how_cluster_operations_can_affect_workload_latency.html 
+sidebar: sidebar 
+keywords: cluster, operations, affect, workload, latency 
+summary: '작업(IOPS)은 클러스터의 모든 사용자 정의 및 시스템 정의 워크로드의 활동을 나타냅니다. IOPS 통계를 통해 백업 생성이나 중복 제거 실행 등 클러스터 프로세스가 워크로드 지연 시간(응답 시간)에 영향을 미치는지, 또는 성능 이벤트의 원인이 되었거나 이에 기여했는지 여부를 판단할 수 있습니다.' 
+---
+= Active IQ Unified Manager에서 클러스터 작업이 워크로드 레이턴시에 미치는 영향을 평가합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+작업(IOPS)은 클러스터의 모든 사용자 정의 및 시스템 정의 워크로드의 활동을 나타냅니다. IOPS 통계를 통해 백업 생성이나 중복 제거 실행 등 클러스터 프로세스가 워크로드 지연 시간(응답 시간)에 영향을 미치는지, 또는 성능 이벤트의 원인이 되었거나 이에 기여했는지 여부를 판단할 수 있습니다.
+
+성능 이벤트를 분석할 때 IOPS 통계를 사용하여 성능 이벤트가 클러스터 문제로 인해 발생했는지 여부를 판단할 수 있습니다. 성능 이벤트의 주요 원인이 되었을 수 있는 특정 워크로드 활동을 식별할 수 있습니다. IOPS는 초당 작업 수(ops/sec)로 측정됩니다.
+
+image::../media/opm_ops_chart_png.png[Unified Manager IOPS 차트]
+
+이 예시는 IOPS 차트를 보여줍니다. 실제 운영 통계는 파란색 선으로, 운영 통계에 대한 IOPS 예측치는 녹색 선으로 표시됩니다.
+
+[NOTE]
+====
+클러스터에 과부하가 걸린 경우 Unified Manager에서 메시지가 표시될 수 있습니다 `Data collection is taking too long on Cluster _cluster_name_`. 이는 Unified Manager에서 분석할 통계가 충분히 수집되지 않았음을 의미합니다. 통계를 수집할 수 있도록 클러스터에서 사용하는 리소스를 줄여야 합니다.
+
+====

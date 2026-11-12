@@ -1,0 +1,24 @@
+---
+permalink: config/task_set_session_timeout_CLI.html 
+sidebar: sidebar 
+keywords: session timeout, CLI, maximum 
+summary: CLI를 사용하여 일정 시간이 지난 후 세션이 자동으로 종료되도록 Unified Manager의 최대 세션 시간 초과 값을 설정할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 CLI를 사용하여 세션 시간 초과 설정
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CLI를 사용하여 Unified Manager의 최대 세션 시간 초과 값을 설정하여 일정 시간이 지나면 세션이 자동으로 종료되도록 할 수 있습니다. 기본적으로 세션 시간 초과는 최대값인 4,320분(72시간)으로 설정되어 있습니다. 즉, Unified Manager에 로그인하여 활발하게 사용 중이더라도 72시간 후에는 세션이 자동으로 종료됩니다.
+
+.이 작업 정보
+애플리케이션 관리자 역할이 있어야 합니다.
+
+세션 시간 초과 설정은 로그인한 모든 사용자 세션에 적용됩니다.
+
+.단계
+.  `um cli login` 명령을 입력하여 Unified Manager CLI에 로그인하십시오. 인증을 위해 유효한 사용자 이름과 암호를 사용하십시오.
+. 세션 시간 초과 값을 수정하려면  `um option set max.session.timeout.value=<in mins>` 명령을 입력하십시오.
+

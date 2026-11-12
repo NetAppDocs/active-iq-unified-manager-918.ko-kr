@@ -1,0 +1,23 @@
+---
+permalink: health-checker/concept_what_does_not_compliant_mean.html 
+sidebar: sidebar 
+keywords: not compliant, compliant 
+summary: '클러스터 및 스토리지 가상 머신(SVM)은 NetApp ONTAP 9 보안 강화 가이드에 정의된 권장 사항에 따라 평가되는 보안 기준 중 하나라도 충족되지 않으면 규정을 준수하지 않는 것으로 간주됩니다. 또한, SVM 중 하나라도 규정을 준수하지 않는 것으로 표시되면 해당 클러스터는 규정을 준수하지 않는 것으로 간주됩니다.' 
+---
+= Active IQ Unified Manager에서 클러스터 및 SVM 규정 준수 상태에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 및 스토리지 가상 머신(SVM)은 _NetApp ONTAP 9용 보안 강화 가이드_에 정의된 권장 사항에 대한 평가 대상 보안 기준 중 하나라도 충족되지 않으면 규정을 준수하지 않는 것으로 간주됩니다. 또한, SVM 중 하나라도 규정을 준수하지 않는 것으로 표시되면 해당 클러스터는 규정을 준수하지 않는 것으로 간주됩니다.
+
+보안 카드에 있는 상태 아이콘은 규정 준수와 관련하여 다음과 같은 의미를 갖습니다:
+
+* image:../media/sev_normal_um60.png["일반 녹색 체크 표시 아이콘"] - 매개변수는 권장 설정대로 구성되었습니다.
+* image:../media/sev_warning_um60.png["경고 아이콘"] - 해당 매개변수가 권장 설정대로 구성되지 않았습니다.
+* image:../media/sev_information_um60.gif["정보 아이콘"] - 클러스터에서 기능이 활성화되지 않았거나 매개변수가 권장대로 구성되지 않았지만, 이 매개변수는 오브젝트의 규정 준수에 기여하지 않습니다.
+
+
+참고로 볼륨 암호화 상태는 클러스터 또는 SVM의 규정 준수 여부에 영향을 미치지 않습니다.

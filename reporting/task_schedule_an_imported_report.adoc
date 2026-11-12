@@ -1,0 +1,40 @@
+---
+permalink: reporting/task_schedule_an_imported_report.html 
+sidebar: sidebar 
+keywords: schedule, imported, reports 
+summary: Unified Manager의 이전 버전에서 생성 및 가져온 기존 보고서를 예약할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 가져온 .rptdesign 보고서 예약
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager의 이전 버전에서 생성 및 가져온 기존 보고서를 예약할 수 있습니다.
+
+가져온 보고서의 예약 실행에는 다음 사항이 필요합니다.
+
+* 이전 Unified Manager 릴리스에서 가져온 BIRT 디자인 .rptdesign 파일 보고서
+* Unified Manager 9.6 GA 이상 버전으로 업그레이드할 때 적용됩니다.
+
+
+Unified Manager 9.6 GA 이상 버전으로 업그레이드하면 보고서 일정 페이지에 가져온 보고서 목록이 표시됩니다. 이 보고서의 일정을 편집하여 수신자 이메일 주소, 빈도 및 형식(PDF 또는 CSV)을 지정할 수 있습니다. 그렇지 않으면 Unified Manager UI에서 이러한 보고서를 편집하거나 볼 수 없습니다.
+
+.단계
+. 보고서 일정 페이지를 엽니다. 보고서를 가져온 경우 메시지가 나타납니다.
++
+image::../media/message_non_scehduled_reports.png[가져온 보고서가 있는 경우 표시되는 메시지를 보여주는 UI 스크린샷입니다.]
+
+. 보고서 생성에 사용되는 SQL 쿼리를 표시하려면 *보기* 이름을 클릭합니다.
++
+image::../media/importedreport1.png[보고서 생성에 사용된 SQL 쿼리를 보여주는 UI 스크린샷입니다.]
+
+. 더보기 아이콘 image:../media/more_icon.gif[""]을 클릭하고 *편집*을 클릭한 다음, 보고서 일정 세부 정보를 정의하고 보고서를 저장합니다.
++
+[NOTE]
+====
+더 보기 아이콘 image:../media/more_icon.gif[""]에서 원치 않는 보고서를 삭제할 수도 있습니다.
+
+====
+

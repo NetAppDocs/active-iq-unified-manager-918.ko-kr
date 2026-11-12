@@ -1,0 +1,21 @@
+---
+permalink: storage-mgmt/concept_why_you_use_quotas.html 
+sidebar: sidebar 
+keywords: use, quotas 
+summary: 할당량을 사용하여 FlexVol 볼륨의 리소스 사용량을 제한하거나, 리소스 사용량이 특정 수준에 도달했을 때 알림을 받거나, 리소스 사용량을 추적할 수 있습니다. 
+---
+= Active IQ Unified Manager의 할당량에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+할당량을 사용하여 FlexVol 볼륨의 리소스 사용량을 제한하거나, 리소스 사용량이 특정 수준에 도달했을 때 알림을 받거나, 리소스 사용량을 추적할 수 있습니다.
+
+다음과 같은 이유로 할당량을 지정합니다:
+
+* 사용자 또는 그룹이 사용할 수 있거나 qtree에 포함될 수 있는 디스크 공간의 양이나 파일 수를 제한하려면
+* 제한을 두지 않고 사용자, 그룹 또는 qtree가 사용하는 디스크 공간의 양이나 파일 수를 추적하려면
+* 디스크 사용량이나 파일 사용량이 높을 때 사용자에게 경고하기 위해
+

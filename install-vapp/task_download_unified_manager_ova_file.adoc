@@ -1,0 +1,39 @@
+---
+permalink: install-vapp/task_download_unified_manager_ova_file.html 
+sidebar: sidebar 
+keywords: download, unified manager, installation, file 
+summary: Unified Manager를 가상 어플라이언스로 배포하려면 NetApp 지원 사이트에서 Unified Manager 설치 파일을 다운로드하십시오. 
+---
+= Active IQ Unified Manager 설치 파일을 다운로드하십시오.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 가상 어플라이언스로 배포하려면 NetApp 지원 사이트에서 Unified Manager 설치 파일을 다운로드하십시오.
+
+.시작하기 전에
+NetApp 지원 사이트에 로그인할 자격 증명이 있어야 합니다.
+
+설치 파일은 루트 인증서,  `README` 파일, 가상 어플라이언스용으로 구성된 Unified Manager 소프트웨어가 포함된  `OVA` 파일을 포함하는  `.tar` 파일입니다.
+
+.단계
+. NetApp 지원 사이트에 로그인하고 Unified Manager 다운로드 페이지로 이동하십시오:
++
+https://mysupport.netapp.com/site/products/all/details/activeiq-unified-manager/downloads-tab["NetApp 지원 사이트"]
+
+. 필요한 Unified Manager 버전을 선택하고 최종 사용자 라이선스 계약(EULA)에 동의하십시오.
+. VMware vSphere 설치용  `.tar` 파일을 다운로드하여 vSphere 클라이언트에서 접근 가능한 로컬 디렉터리 또는 네트워크 디렉터리에 저장하십시오.
+. 체크섬을 확인하여 소프트웨어가 올바르게 다운로드되었는지 확인하십시오.
+.  `.tar` 파일을 다운로드한 디렉토리로 이동한 다음 터미널 창에 다음 명령을 입력하여 Unified Manager 번들을 압축 해제하십시오:
++
+[listing]
+----
+tar -xvzf ActiveIQUnifiedManager-<version>.tar.gz
+----
++
+필수  `OVA` 파일, 루트 인증서 및 Unified Manager용  `README` 파일이 대상 디렉터리에 압축 해제됩니다.
+
+.  `OVA` 파일의 무결성을 확인하려면 `README` 파일에 제공된 단계를 따르십시오.
+

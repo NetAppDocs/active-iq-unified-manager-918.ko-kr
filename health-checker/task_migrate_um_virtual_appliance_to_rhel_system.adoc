@@ -1,0 +1,67 @@
+---
+permalink: health-checker/task_migrate_um_virtual_appliance_to_rhel_system.html 
+sidebar: sidebar 
+keywords: unified manager, migrate, virtual, appliance, linux system 
+summary: Unified Manager가 실행되는 호스트 운영 체제를 변경하려는 경우 가상 어플라이언스에서 Unified Manager MySQL 데이터베이스 덤프 백업을 Red Hat Enterprise Linux 시스템으로 복원할 수 있습니다. 
+---
+= Active IQ Unified Manager 가상 어플라이언스를 Linux 시스템으로 마이그레이션
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager가 실행되는 호스트 운영 체제를 변경하려는 경우 가상 어플라이언스에서 Unified Manager MySQL 데이터베이스 덤프 백업을 Red Hat Enterprise Linux 시스템으로 복원할 수 있습니다.
+
+.시작하기 전에
+* 가상 어플라이언스에서:
++
+** 운영자, 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+** 복원 작업을 수행하려면 Unified Manager 유지 관리 사용자의 이름을 알아야 합니다.
+
+
+* Linux 시스템에서:
++
+** link:../install-linux/task_install_unified_manager_linux.html["Linux 시스템에 Unified Manager 설치"]에 있는 지침에 따라 Linux 서버에 Unified Manager를 설치해야 합니다.
+** 이 서버에 설치된 Unified Manager 버전은 백업 파일을 사용하는 가상 어플라이언스에 설치된 버전과 동일해야 합니다.
+** 설치 후 Linux 시스템에서 UI를 실행하거나 클러스터, 사용자 또는 인증 설정을 구성하지 마십시오. 백업 파일이 복원 과정에서 이러한 정보를 채웁니다.
+** Linux 호스트에 대한 루트 사용자 자격 증명이 있어야 합니다.
+
+
+
+
+이 단계에서는 가상 어플라이언스에 백업 파일을 생성하고, 백업 파일을 Red Hat Enterprise Linux로 복사한 다음, 새 시스템에 데이터베이스 백업을 복원하는 방법을 설명합니다.
+
+.단계
+. 가상 어플라이언스에서 *관리* > *데이터베이스 백업*을 클릭합니다.
+. *데이터베이스 백업* 페이지에서 *백업 설정*을 클릭합니다.
+. 백업 경로를 /jail/support로 변경하십시오.
+. 일정 섹션에서 *매일 예약*을 선택하고 현재 시간에서 몇 분 후의 시간을 입력하여 백업이 곧바로 생성되도록 하십시오.
+. *적용*을 클릭합니다.
+. 백업 파일이 생성될 때까지 몇 시간 기다려 주세요.
++
+전체 백업은 1GB가 넘을 수 있으며 완료하는 데 3~4시간이 소요될 수 있습니다.
+
+. Unified Manager가 설치된 Linux 호스트에 루트 사용자로 로그인하고 SCP를 사용하여 가상 어플라이언스의 /support에서 백업 파일을 복사합니다..`root@<rhel_server>:/# scp -r admin@<vapp_server_ip_address>:/support/* .`
++
+`root@ocum_rhel-21:/# scp -r admin@10.10.10.10:/support/* .`
+
++
+.7z 백업 파일과 모든 .7z 저장소 파일을 /database-dumps-repo 하위 디렉터리에 복사했는지 확인하십시오.
+
+. 명령 프롬프트에서 백업을 복원합니다: `um backup restore -f /<backup_file_path>/<backup_file_name>`
++
+`um backup restore -f /UM_9.7.N151113.1348_backup_unix_02-12-2019-04-16.7z`
+
+. 복원 작업이 완료되면 Unified Manager 웹 UI에 로그인하십시오.
+
+
+다음 작업을 수행해야 합니다:
+
+* 새로운 HTTPS 보안 인증서를 생성하고 Unified Manager 서버를 다시 시작하십시오.
+* Linux 시스템에는 /jail/support 경로가 없으므로 백업 경로를 Linux 시스템의 기본 설정(/data/ocum-backup) 또는 원하는 새 경로로 변경하십시오.
+* WFA를 사용하는 경우 Workflow Automation 연결의 양쪽을 모두 재구성하십시오.
+* SAML을 사용하는 경우 SAML 인증 설정을 다시 구성하십시오.
+
+
+Linux 시스템에서 모든 것이 예상대로 작동하는지 확인한 후에는 Unified Manager 가상 어플라이언스를 종료하고 제거할 수 있습니다.

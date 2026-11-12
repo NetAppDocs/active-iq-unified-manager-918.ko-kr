@@ -1,0 +1,67 @@
+---
+permalink: events/reference_volume_move_status_events.html 
+sidebar: sidebar 
+keywords: volume, move, status, events, impact area, capacity 
+summary: 볼륨 이동 상태 이벤트는 볼륨 이동의 상태를 알려주므로 잠재적인 문제를 모니터링할 수 있습니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 볼륨 이동 상태 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 이동 상태 이벤트는 볼륨 이동의 상태를 알려주므로 잠재적인 문제를 모니터링할 수 있습니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-capacity]]
+== 영향 영역: 용량
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+볼륨 이동 상태: 진행 중(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 이동 상태 - 실패(ocumEvtVolumeMoveFailed)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+오류
+
+
+
+ a| 
+볼륨 이동 상태: 완료됨(해당 없음)
+ a| 
+이벤트
+ a| 
+볼륨
+ a| 
+정보
+
+
+
+ a| 
+볼륨 이동 - 전환 지연(ocumEvtVolumeMoveCutoverDeferred)
+ a| 
+위험
+ a| 
+볼륨
+ a| 
+경고
+
+|===

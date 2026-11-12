@@ -1,0 +1,51 @@
+---
+permalink: install-vapp/reference_vmware_software_and_installation_requirements.html 
+sidebar: sidebar 
+keywords: vmware, software, installation, requirements 
+summary: Unified Manager를 설치하는 VMware vSphere 시스템에는 특정 버전의 운영 체제와 특정 버전의 지원 소프트웨어가 필요합니다. 
+---
+= Active IQ Unified Manager를 위한 VMware 소프트웨어 및 설치 요구 사항에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 설치하는 VMware vSphere 시스템에는 특정 버전의 운영 체제와 특정 버전의 지원 소프트웨어가 필요합니다.
+
+
+
+[[operating-system-software]]
+== 운영 체제 소프트웨어
+
+지원되는 운영 체제는 VMware ESXi 8.0입니다.
+
+[NOTE]
+====
+VMware vSphere 시스템의 Unified Manager OVA는 내부적으로 Debian OS 13(Trixie)을 실행합니다. 지원되는 ESXi 서버 버전에서 지원할 수 있는 가상 머신 하드웨어 버전에 대한 자세한 내용은 VMware 설명서를 참조하십시오.
+
+====
+지원되는 vSphere 버전은 다음과 같습니다:
+
+* VMware vCenter Server 7.0 및 8.0
+
+
+지원되는 ESXi 버전의 전체 및 최신 목록은 상호 운용성 매트릭스를 참조하십시오.
+
+http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"]
+
+가상 어플라이언스가 올바르게 작동하려면 VMware ESXi 서버 시간이 NTP 서버 시간과 동일해야 합니다. VMware ESXi 서버 시간을 NTP 서버 시간과 동기화하면 시간 오류를 방지할 수 있습니다.
+
+
+
+[[installation-requirements]]
+== 설치 요구 사항
+
+Unified Manager 가상 어플라이언스에 대한 VMware 고가용성이 지원됩니다.
+
+ONTAP 소프트웨어가 실행되는 스토리지 시스템에 NFS 데이터스토어를 배포하는 경우, 씩 프로비저닝을 사용하려면 VMware VAAI용 NetApp NFS 플러그인을 사용하십시오.
+
+고가용성 환경에서 리소스 부족으로 배포가 실패하는 경우, 클러스터 기능의 가상 머신 옵션에서 VM 재시작 우선 순위를 비활성화하고 호스트 격리 응답을 활성화 상태로 유지해야 할 수 있습니다.
+
+
+NOTE: Unified Manager를 설치하거나 업그레이드하는 동안 필요한 타사 소프트웨어 및 보안 패치가 VMware vSphere 시스템에 자동으로 설치되거나 업그레이드됩니다. Unified Manager 설치 및 업그레이드 프로세스에서 이러한 구성 요소를 제어하므로 타사 구성 요소를 단독으로 설치하거나 업그레이드하려고 시도해서는 안 됩니다.

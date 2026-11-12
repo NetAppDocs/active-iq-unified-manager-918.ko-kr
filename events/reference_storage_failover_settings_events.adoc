@@ -1,0 +1,100 @@
+---
+permalink: events/reference_storage_failover_settings_events.html 
+sidebar: sidebar 
+keywords: storage, failover, settings, events, impact area, availability 
+summary: '스토리지 페일오버(SFO) 설정 이벤트는 스토리지 페일오버가 비활성화되었는지 또는 구성되지 않았는지에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.' 
+---
+= Active IQ Unified Manager의 스토리지 페일오버 설정 이벤트에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 페일오버(SFO) 설정 이벤트는 스토리지 페일오버가 비활성화되었는지 또는 구성되지 않았는지에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-availability]]
+== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+스토리지 페일오버 인터커넥트 하나 이상의 링크 다운(ocumEvtSfoInterconnectOneOrMoreLinksDown)
+ a| 
+위험
+ a| 
+노드
+ a| 
+경고
+
+
+
+ a| 
+스토리지 페일오버 비활성화됨(ocumEvtSfoSettingsDisabled)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+스토리지 페일오버가 구성되지 않았습니다(ocumEvtSfoSettingsNotConfigured)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+스토리지 페일오버 상태 - 테이크오버(ocumEvtSfoStateTakeover)
+ a| 
+위험
+ a| 
+노드
+ a| 
+경고
+
+
+
+ a| 
+스토리지 페일오버 상태 - 부분 반환(ocumEvtSfoStatePartialGiveback)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+스토리지 페일오버 노드 상태 다운(ocumEvtSfoNodeStatusDown)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+
+
+ a| 
+스토리지 페일오버 테이크오버 불가(ocumEvtSfoTakeoverNotPossible)
+ a| 
+위험
+ a| 
+노드
+ a| 
+오류
+
+|===

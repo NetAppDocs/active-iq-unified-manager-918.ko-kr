@@ -1,0 +1,38 @@
+---
+permalink: performance-checker/task_expand_counter_charts_pane.html 
+sidebar: sidebar 
+keywords: expand, counter, charts, pane 
+summary: 카운터 차트 창을 확장하면 차트가 더 커지고 읽기 쉬워집니다. 
+---
+= Active IQ Unified Manager에서 카운터 차트 창 확장
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+카운터 차트 창을 확장하면 차트가 더 커지고 읽기 쉬워집니다.
+
+비교 오브젝트와 카운터의 시간 범위를 정의한 후에는 더 큰 카운터 차트 창을 볼 수 있습니다. 성능 탐색기 창 가운데에 있는 *<* 버튼을 사용하여 창을 확장합니다.
+
+.단계
+. *카운터 차트* 창을 확장하거나 축소하십시오.
+
+
+|===
+| ~하려면... | 이렇게 하세요... 
+
+
+ a| 
+카운터 차트 창을 페이지 너비에 맞게 확장합니다.
+ a| 
+*<* 버튼을 클릭합니다
+
+
+
+ a| 
+카운터 차트 창을 페이지 오른쪽 절반으로 줄이십시오.
+ a| 
+*>* 버튼을 클릭하십시오
+
+|===

@@ -1,0 +1,14 @@
+---
+permalink: performance-checker/reference_cluster_summary_page_opm.html 
+sidebar: sidebar 
+keywords: performance, cluster, summary page 
+summary: 성능 클러스터 요약 페이지는 클러스터의 활성 이벤트, IOPS 성능 및 MB/s 성능에 대한 요약을 제공합니다. 이 페이지에는 클러스터에 있는 스토리지 오브젝트의 총 개수도 포함됩니다. 
+---
+= Active IQ Unified Manager의 Performance Cluster Summary 페이지를 검토합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 클러스터 요약 페이지는 클러스터의 활성 이벤트, IOPS 성능 및 MB/s 성능에 대한 요약을 제공합니다. 이 페이지에는 클러스터에 있는 스토리지 오브젝트의 총 개수도 포함됩니다.

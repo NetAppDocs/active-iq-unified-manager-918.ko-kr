@@ -1,0 +1,20 @@
+---
+permalink: performance-checker/reference_understand_and_use_node_failover_planning_page.html 
+sidebar: sidebar 
+keywords: understanding, node, failover, planning page 
+summary: '성능/노드 장애 조치 계획 페이지는 노드의 고가용성(HA) 파트너 노드에 장애가 발생할 경우 해당 노드에 미치는 성능 영향을 예측합니다. Unified Manager는 HA 쌍에 속한 노드의 과거 성능을 기반으로 예측을 수행합니다.' 
+---
+= Active IQ Unified Manager에서 노드 페일오버 계획 페이지 사용
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능/노드 장애 조치 계획 페이지는 노드의 고가용성(HA) 파트너 노드에 장애가 발생할 경우 해당 노드에 미치는 성능 영향을 예측합니다. Unified Manager는 HA 쌍에 속한 노드들의 과거 성능을 기반으로 이러한 예측을 수행합니다.
+
+장애 조치의 성능 영향을 예측하면 다음과 같은 시나리오에 대한 계획을 세우는 데 도움이 됩니다.
+
+* 장애 조치로 인해 인수 노드의 예상 성능이 지속적으로 허용할 수 없는 수준으로 저하되는 경우, 장애 조치로 인한 성능 영향을 줄이기 위한 시정 조치를 고려할 수 있습니다.
+* 하드웨어 유지 관리 작업을 수행하기 위해 수동 페일오버를 시작하기 전에 페일오버가 인수 노드의 성능에 미치는 영향을 예측하여 작업을 수행하기에 가장 적합한 시기를 결정할 수 있습니다.
+

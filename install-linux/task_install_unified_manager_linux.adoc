@@ -1,0 +1,165 @@
+---
+permalink: install-linux/task_install_unified_manager_linux.html 
+sidebar: sidebar 
+keywords: install, unified manager 
+summary: Unified Manager는 물리적 또는 가상 Red Hat Enterprise Linux 플랫폼에 설치할 수 있습니다. 
+---
+= Red Hat Enterprise Linux에 Active IQ Unified Manager 설치
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager는 물리적 또는 가상 Red Hat Enterprise Linux 플랫폼에 설치할 수 있습니다.
+
+.시작하기 전에
+* Unified Manager를 설치하려는 시스템은 시스템 및 소프트웨어 요구 사항을 충족해야 합니다.
++
+link:concept_virtual_infrastructure_or_hardware_system_requirements.html["하드웨어 시스템 요구 사항"]를 참조하십시오.
+
++
+link:reference_red_hat_software_and_installation_requirements.html["Linux 소프트웨어 및 설치 요구 사항"]를 참조하십시오.
+
+* NetApp 지원 사이트에서 Unified Manager `.zip` 파일을 대상 시스템으로 다운로드해야 합니다.
+* 다운로드한  `.zip` 파일의 무결성을 확인했어야 합니다.
+* 지원되는 웹 브라우저가 있어야 합니다.
+* 터미널 에뮬레이션 소프트웨어에 스크롤백 기능이 활성화되어 있어야 합니다.
+
+
+Red Hat Enterprise Linux 시스템에는 필요한 지원 소프트웨어(Java, MySQL, 기타 유틸리티)의 모든 버전이 설치되어 있을 수도 있고, 필요한 소프트웨어 중 일부만 설치되어 있을 수도 있으며, 필요한 소프트웨어가 전혀 설치되지 않은 새로 설치된 시스템일 수도 있습니다.
+
+.단계
+. Unified Manager를 설치할 서버에 로그인하십시오.
+. 설치를 지원하기 위해 대상 시스템에 설치 또는 업그레이드가 필요한 소프트웨어를 평가하려면 적절한 명령어를 입력하십시오:
++
+[cols="2*"]
+|===
+| 필수 소프트웨어 및 최소 버전 | 소프트웨어 및 버전을 확인하는 명령 
+
+
+ a| 
+OpenJDK 버전 17.0.14+6
+ a| 
+`java -version`
+
+
+
+ a| 
+MySQL 8.4.10 Community Edition
+ a| 
+`rpm -qa | grep -i mysql`
+
+
+
+ a| 
+7-zip
+ a| 
+`7zz -version`
+
+|===
+. 설치된 MySQL 버전이 MySQL 8.4.10 Community Edition 이전 버전인 경우, 다음 명령을 입력하여 제거하십시오.
++
+`rpm -e <mysql_package_name>`
+
++
+종속성 오류가 발생하는 경우 구성 요소를 제거하려면  `--nodeps` 옵션을 추가해야 합니다.
+
+. 설치 `.zip` 파일을 다운로드한 디렉토리로 이동하여 Unified Manager 번들을 압축 해제하십시오:
++
+`unzip ActiveIQUnifiedManager-_<version>_.zip`
+
++
+Unified Manager에 필요한 `.rpm` 모듈이 대상 디렉토리에 압축 해제됩니다.
+
+. 다음 모듈이 디렉터리에 있는지 확인하십시오:
++
+`ls *.rpm`
+
++
+`netapp-um<version>.x86_64.rpm`
+
+. Unified Manager 설치와 충돌할 수 있는 시스템 구성 설정이나 설치된 소프트웨어가 없는지 확인하기 위해 사전 설치 스크립트를 실행하십시오:
++
+`sudo ./pre_install_check.sh`
+
++
+사전 설치 스크립트는 시스템에 유효한 Red Hat Enterprise Linux 구독이 있는지, 그리고 필요한 소프트웨어 저장소에 대한 액세스 권한이 있는지 확인합니다. 스크립트에서 문제가 발견되면 Unified Manager를 설치하기 전에 해당 문제를 해결해야 합니다.
+
++
+Red Hat Enterprise Linux 8 시스템에서 JDK 17 - OpenJDK, 7-zip 및 AppStream 저장소에서 제공하는 기타 소프트웨어 패키지가 포함된 내부 저장소가 있는 경우 AppStream 저장소를 비활성화하고 MySQL Community Server를 설치해야 합니다. 다음 명령을 실행하십시오.
+
++
+[listing]
+----
+# sudo yum --disablerepo=rhel-8-for-x86_64-appstream-rpms install  mysql-community-server
+----
+. *선택 사항:* 시스템이 인터넷에 연결되어 있지 않고 설치에 필요한 패키지를 수동으로 다운로드해야 하는 경우에만 7단계를 수행하십시오. 시스템에 인터넷 연결이 되어 있고 필요한 모든 패키지를 사용할 수 있는 경우 8단계로 이동하십시오. 인터넷에 연결되어 있지 않거나 Red Hat Enterprise Linux 리포지토리를 사용하지 않는 시스템의 경우 다음 단계를 수행하여 필요한 패키지가 누락되었는지 확인한 다음 해당 패키지를 다운로드하십시오.
++
+.. Unified Manager를 설치하는 시스템에서 사용 가능한 패키지와 사용 불가능한 패키지 목록을 확인하십시오: +
+`yum install netapp-um<version>.x86_64.rpm --assumeno`
++
+"`Installing:`" 섹션의 항목은 현재 디렉토리에서 사용할 수 있는 패키지이며, "`Installing for dependencies:`" 섹션의 항목은 시스템에 누락된 패키지입니다.
+
+.. 인터넷에 접속 가능한 시스템에서 누락된 패키지를 다운로드하십시오:
++
+`yum install <package_name> --downloadonly --downloaddir=.`
+
++
+[NOTE]
+====
+Red Hat Enterprise Linux 시스템에서는 "`yum-plugin-downloadonly`" 플러그인이 항상 활성화되어 있는 것은 아니므로, 패키지를 설치하지 않고 다운로드하려면 해당 기능을 활성화해야 할 수도 있습니다:
+`yum install yum-plugin-downloadonly`
+
+====
+.. 인터넷에 연결된 시스템에서 누락된 패키지를 설치 시스템으로 복사하십시오.
+
+
+. 루트 사용자로, 또는  `sudo`을(를) 사용하여 다음 명령을 실행하여 소프트웨어를 설치하십시오:
++
+`yum install netapp-um<version>.x86_64.rpm`
+
++
+이 명령은 .rpm 패키지, 기타 필요한 지원 소프트웨어 및 Unified Manager 소프트웨어를 설치합니다.
+
++
+GPG NOKEY 오류로 설치가 실패하는 경우  `rpm --import`을(를) 사용하여 URL에서 키를 가져오십시오:
+
++
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023[]
+
++
+[NOTE]
+====
+대체 명령( `rpm -ivh` 등)을 사용하여 설치를 시도하지 마십시오. Red Hat Enterprise Linux 시스템에 Unified Manager를 성공적으로 설치하려면 모든 Unified Manager 파일과 관련 파일이  `yum install netapp-um<version>.x86_64.rpm` 명령으로 자동 적용되는 특정 디렉토리 구조에 특정 순서로 설치되어야 합니다.
+
+====
+. 설치 메시지 직후에 표시되는 이메일 알림은 무시하십시오.
++
+이메일은 루트 사용자에게 초기 cron 작업 실패를 알리는 내용이며, 이는 설치에 부정적인 영향을 미치지 않습니다.
+
+. 설치 메시지가 완료되면 시스템이 Unified Manager 웹 UI의 IP 주소 또는 URL, 유지 관리 사용자 이름(umadmin) 및 기본 암호를 표시하는 메시지가 나타날 때까지 메시지를 위로 스크롤하십시오.
++
+해당 메시지는 다음과 유사합니다.
+
++
+[listing]
+----
+Active IQ Unified Manager installed successfully.
+Use a web browser and one of the following URL(s) to configure and access the Unified Manager GUI.
+https://default_ip_address/    (if using IPv4)
+https://[default_ip_address]/  (if using IPv6)
+https://fully_qualified_domain_name/
+
+Log in to Unified Manager in a web browser by using following details:
+  username: umadmin
+  password: admin
+----
+. IP 주소 또는 URL, 할당된 사용자 이름(umadmin) 및 현재 비밀번호를 기록하십시오.
+. Unified Manager를 설치하기 전에 사용자 지정 홈 디렉토리가 있는 umadmin 사용자 계정을 생성한 경우 umadmin 사용자 로그인 셸을 지정해야 합니다:
++
+`usermod -s /bin/maintenance-user-shell.sh umadmin`
+
+
+
+웹 UI에 접속하여 umadmin 사용자의 기본 암호를 변경하고, link:../config/concept_configure_unified_manager.html["Active IQ Unified Manager 구성"]에 설명된 대로 Unified Manager의 초기 설정을 수행하십시오. umadmin 사용자의 기본 암호를 변경하는 것은 필수입니다.

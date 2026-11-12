@@ -1,0 +1,23 @@
+---
+permalink: reporting/task_customize_columns.html 
+sidebar: sidebar 
+keywords: customize, columns 
+summary: 표시/숨기기를 사용하여 보고서에 사용할 열을 선택하십시오. 인벤토리 페이지에서 열을 드래그하여 순서를 변경하십시오. 
+---
+= Active IQ Unified Manager의 보고서에서 열 사용자 지정
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+*표시/숨기기*를 사용하여 보고서에 사용할 열을 선택하십시오. 인벤토리 페이지에서 열을 드래그하여 재배열하십시오.
+
+.단계
+. 열을 추가하거나 제거하려면 *표시/숨기기*를 클릭하십시오.
++
+image::../media/show_hide_3.png[열을 추가하거나 제거하는 방법을 보여주는 UI 스크린샷입니다.]
+
+. 인벤토리 페이지에서 열을 드래그하여 보고서에서 원하는 순서대로 재배열하십시오.
+. 변경 사항을 저장하려면 저장되지 않은 뷰의 이름을 지정하세요.
+

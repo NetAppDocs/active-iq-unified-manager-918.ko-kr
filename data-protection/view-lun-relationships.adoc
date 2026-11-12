@@ -1,0 +1,38 @@
+---
+permalink: data-protection/view-lun-relationships.html 
+sidebar: sidebar 
+keywords: LUN, SnapMirror active sync, Consistency Group, CG 
+summary: SnapMirror 활성 동기화로 보호되는 LUN에 대한 통합 보기. 
+---
+= Active IQ Unified Manager에서 Consistency Group LUN 관계 모니터링
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 환경에서 LUN을 사용하는 애플리케이션을 보호하기 위해 SnapMirror 활성 동기화를 지원하는 경우, Active IQ Unified Manager에서 해당 LUN을 보고 모니터링할 수 있습니다.
+
+SnapMirror 액티브 싱크는 SAN 환경에서 장애 조치 시 0의 복구 시간 목표(RTO)를 보장합니다. SnapMirror 액티브 싱크를 지원하는 일반적인 구축 환경에서 볼륨의 LUN은 일관성 그룹 관계를 통해 보호됩니다.
+
+이러한 기본 및 보조 LUN은 복합 LUN, 즉 동일한 UUID와 일련 번호를 가진 복제 LUN 쌍입니다. I/O 작업(읽기 및 쓰기 모두)은 이러한 복합 LUN에서 소스 및 대상 사이트 간에 다중화되어 투명성을 보장합니다.
+
+복합 LUN을 보려면 일관성 그룹 관계에 속한 LUN이 포함된 기본 클러스터와 보조 클러스터를 Unified Manager에 추가하고 검색해야 합니다. iSCSI 및 FCP LUN만 지원됩니다.
+
+SnapMirror 활성 동기화에 대한 자세한 내용은 link:https://docs.netapp.com/us-en/ontap/smbc/index.html["ONTAP 9 SnapMirror 액티브 싱크(이전 명칭: SM-BC) 문서"]을(를) 참조하십시오.
+
+환경에서 복합 LUN을 보려면 다음 단계를 따르십시오:
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지* > *LUN*을 클릭합니다.
+. 보기 메뉴에서 *관계* > *모든 LUN*을 선택합니다.
++
+관계: 모든 LUN 보기가 표시됩니다.
+
+
+
+LUN 이름, 볼륨, LUN을 호스팅하는 스토리지 VM, 클러스터, 일관성 그룹, 파트너 LUN 등 LUN 세부 정보를 볼 수 있습니다. 각 구성 요소를 클릭하면 자세한 보기로 이동합니다. 일관성 그룹을 클릭하면 관계 페이지로 이동합니다.
+
+파트너 LUN을 클릭하면 해당 파트너 LUN이 호스팅되는 스토리지 VM의 스토리지 VM 세부 정보 페이지의 SAN 탭에서 구성 세부 정보를 볼 수 있습니다. 이니시에이터 및 이니시에이터 그룹 등 파트너 LUN의 기타 측면에 대한 정보가 표시됩니다.
+
+환경 내 보호된 LUN에 대해 정렬, 필터링, 보고서 생성 및 업로드와 같은 표준 그리드 수준 기능을 수행할 수 있습니다.

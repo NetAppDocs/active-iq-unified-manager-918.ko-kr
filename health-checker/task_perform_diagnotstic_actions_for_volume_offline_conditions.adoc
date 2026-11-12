@@ -1,0 +1,39 @@
+---
+permalink: health-checker/task_perform_diagnotstic_actions_for_volume_offline_conditions.html 
+sidebar: sidebar 
+keywords: perform, diagnostic actions, volume, offline, conditions 
+summary: 오프라인 상태로 보고된 볼륨의 볼륨/상태 세부 정보 페이지로 이동하면 볼륨 오프라인 상태를 진단하는 데 도움이 되는 추가 정보를 검색할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 볼륨 오프라인 상태에 대한 진단 작업 수행
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+오프라인 상태로 보고된 볼륨의 볼륨/상태 세부 정보 페이지로 이동하면 볼륨 오프라인 상태를 진단하는 데 도움이 되는 추가 정보를 검색할 수 있습니다.
+
+.시작하기 전에
+운영자, 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+
+오프라인으로 보고된 볼륨이 의도적으로 오프라인 상태가 된 것이 아니라면, 해당 볼륨이 오프라인 상태가 된 데에는 여러 가지 이유가 있을 수 있습니다.
+
+오프라인 볼륨의 볼륨/상태 세부 정보 페이지에서 시작하여 다른 페이지와 창으로 이동하여 가능한 원인을 확인하거나 제거할 수 있습니다:
+
+* 호스트 노드가 다운되고 HA 쌍 파트너로의 스토리지 페일오버도 실패하여 볼륨이 오프라인 상태인지 확인하려면 *볼륨 / 상태* 세부 정보 페이지 링크를 클릭하십시오.
++
+link:task_determine_if_volume_offline_condition_is_by_down_cluster_node.html["볼륨 오프라인 상태가 노드 다운으로 인한 것인지 여부 판단"]를 참조하십시오.
+
+* 볼륨이 오프라인 상태인지, 그리고 해당 SVM의 루트 볼륨을 호스팅하는 노드가 다운되어 호스트 스토리지 가상 머신(SVM)이 중지되었는지 확인하려면 *볼륨 / 상태* 세부 정보 페이지 링크를 클릭하십시오.
++
+link:task_determine_if_volume_is_offline_and_its_svm_is_stopped.html["볼륨이 오프라인 상태인지, 그리고 노드 다운으로 인해 SVM이 중지되었는지 여부 확인"]를 참조하십시오.
+
+* 볼륨이 호스트 애그리게이트의 디스크 손상으로 인해 오프라인 상태인지 확인하려면 *볼륨 / 상태* 세부 정보 페이지 링크를 클릭하십시오.
++
+link:task_determine_if_volume_is_offline_because_of_broken_disks.html["애그리게이트 내 디스크 손상으로 인해 볼륨이 오프라인 상태인지 여부 확인"]를 참조하십시오.
+
+
+
+*관련 정보*
+
+link:../config/reference_unified_manager_roles_and_capabilities.html["Unified Manager 사용자 역할 및 기능"]

@@ -1,0 +1,60 @@
+---
+permalink: install-linux/task_manually_configure_mysql_repository.html 
+sidebar: sidebar 
+keywords: manually configure mysql repository, mysql key, keys update 
+summary: Unified Manager를 설치하려는 시스템에서 MySQL Community Edition 저장소에 접근할 수 없는 경우, 설치를 성공적으로 완료하려면 저장소를 수동으로 다운로드하고 구성해야 합니다. 
+---
+= Active IQ Unified Manager용 MySQL 리포지토리를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 설치하려는 시스템에서 MySQL Community Edition 저장소에 접근할 수 없는 경우, 설치를 성공적으로 완료하려면 저장소를 수동으로 다운로드하고 구성해야 합니다.
+
+MySQL 저장소는 시스템에 설치해야 하는 필수 MySQL 소프트웨어에 대한 접근을 제공합니다.
+
+[NOTE]
+====
+시스템에 인터넷 연결이 없으면 이 작업이 실패할 수 있습니다. Unified Manager를 설치하는 시스템에 인터넷 연결이 없는 경우 MySQL 설명서를 참조하십시오.
+
+====
+.단계
+. 설치에 적합한 MySQL 저장소를 다운로드하십시오. 버전 8의 경우 다음에서 다운로드하십시오:
++
+`wget http://repo.mysql.com/yum/mysql-8.4-community/el/8/x86_64/mysql84-community-release-el8-1.noarch.rpm`
+
++
+버전 9는 다음 링크에서 다운로드하세요:
+
++
+`wget http://repo.mysql.com/yum/mysql-8.4-community/el/9/x86_64/mysql84-community-release-el9-1.noarch.rpm`
+
+. MySQL 저장소를 구성합니다:
++
+`yum install mysql84-community-release-.noarch.rpm`
+
+
+
+Red Hat Enterprise Linux 8 시스템에서 java-17-openjdk, 7-zip 및 AppStream 저장소에서 제공하는 기타 소프트웨어 패키지가 포함된 내부 저장소가 있는 경우 AppStream 저장소를 비활성화하고 MySQL Community Server를 설치해야 합니다. 다음 명령을 실행하십시오.
+
+[listing]
+----
+# sudo yum --disablerepo=rhel-8-for-x86_64-appstream-rpms install  mysql-community-server
+----
+키 누락 또는 키 불일치 오류가 발생하여 설치가 실패하는 경우 다음 단계를 시도해 보십시오:
+
+* 연결된 시스템에서 다음 명령을 실행하여 업데이트된 MySQL 키를 가져옵니다:
+
+
+[listing]
+----
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-<xxxx>
+
+for example:
+
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+----
+* 인터넷 연결이 없는 시스템에서는 MySQL 리포지토리 파일을 업데이트하고 `gpgcheck`을 비활성화하려면 `gpgcheck=0`로 표시합니다.
+

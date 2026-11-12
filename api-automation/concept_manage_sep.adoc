@@ -1,0 +1,107 @@
+---
+permalink: api-automation/concept_manage_sep.html 
+sidebar: sidebar 
+keywords: manage, storage, efficiency, policy 
+summary: 스토리지 공급자 API를 사용하면 스토리지 효율성 정책을 보고, 생성하고, 수정하고, 삭제할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 API를 사용하여 스토리지 효율성 정책 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 공급자 API를 사용하면 스토리지 효율성 정책을 보고, 생성하고, 수정하고, 삭제할 수 있습니다.
+
+[NOTE]
+====
+다음 사항에 유의하십시오:
+
+* Unified Manager에서 워크로드를 생성할 때 스토리지 효율성 정책을 할당하는 것은 필수 사항이 아닙니다.
+* 스토리지 효율성 정책이 워크로드에 할당된 후에는 해당 정책을 할당 해제할 수 없습니다.
+* 워크로드에 중복 제거 및 압축 등 ONTAP 볼륨에 지정된 스토리지 설정이 있는 경우, Unified Manager에 스토리지 워크로드를 추가할 때 적용하는 스토리지 효율성 정책에 지정된 설정으로 해당 설정이 덮어쓰일 수 있습니다.
+
+
+====
+
+
+[[view-storage-efficiency-policies]]
+== 스토리지 효율성 정책 보기
+
+스토리지 워크로드에 할당하기 전에 스토리지 효율성 정책을 확인하려면 다음 방법을 사용할 수 있습니다. 이 API는 시스템에서 정의하고 사용자가 생성한 모든 스토리지 효율성 정책을 나열하고, 모든 스토리지 효율성 정책의 속성을 검색합니다. 특정 스토리지 효율성 정책을 조회하려면 해당 정책의 고유 ID를 입력하여 세부 정보를 검색해야 합니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+GET
+ a| 
+`/storage-provider/storage-efficiency-policies`
+
+`/storage-provider/storage-efficiency-policies/\{key}`
+
+|===
+
+
+[[add-storage-efficiency-policies]]
+== 스토리지 효율성 정책 추가
+
+시스템에서 정의한 정책이 스토리지 워크로드의 프로비저닝 요구 사항을 충족하지 못하는 경우, 다음 방법을 사용하여 사용자 지정 스토리지 효율성 정책을 생성하고 스토리지 워크로드에 할당할 수 있습니다. 생성하려는 스토리지 효율성 정책의 세부 정보를 입력 매개변수로 입력하십시오.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+POST
+ a| 
+`/storage-provider/storage-efficiency-policies`
+
+|===
+
+
+[[delete-storage-efficiency-policies]]
+== 스토리지 효율성 정책 삭제
+
+다음 방법을 사용하여 특정 스토리지 효율성 정책을 삭제할 수 있습니다. 스토리지 효율성 정책이 워크로드에 할당되어 있거나 사용 가능한 유일한 스토리지 효율성 정책인 경우에는 삭제할 수 없습니다. 특정 스토리지 효율성 정책을 삭제하려면 스토리지 효율성 정책의 고유 ID를 입력 매개변수로 제공해야 합니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+삭제
+ a| 
+`/storage-provider/storage-efficiency-policies/\{key}`
+
+|===
+
+
+[[modify-storage-efficiency-policies]]
+== 스토리지 효율성 정책 수정
+
+다음 방법을 사용하여 스토리지 효율성 정책을 수정하고 속성을 업데이트할 수 있습니다. 시스템에서 정의되었거나 워크로드에 할당된 스토리지 효율성 정책은 수정할 수 없습니다. 특정 스토리지 효율성 정책을 수정하려면 스토리지 효율성 정책의 고유 ID를 제공해야 합니다. 또한 업데이트할 속성과 해당 값을 제공해야 합니다.
+
+[cols="3*"]
+|===
+| 범주 | HTTP 동사 | 경로 
+
+
+ a| 
+storage-provider
+ a| 
+PATCH
+ a| 
+`/storage-provider/storage-efficiency-policies/\{key}`
+
+|===

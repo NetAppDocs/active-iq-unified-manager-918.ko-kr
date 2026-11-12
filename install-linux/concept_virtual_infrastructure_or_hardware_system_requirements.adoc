@@ -1,0 +1,88 @@
+---
+permalink: install-linux/concept_virtual_infrastructure_or_hardware_system_requirements.html 
+sidebar: sidebar 
+keywords: virtual, infrastructure, hardware, system, requirements, host, connectivity 
+summary: 가상 인프라 또는 물리적 시스템에 Unified Manager를 설치하려면 메모리, CPU 및 디스크 공간에 대한 최소 요구사항을 충족해야 합니다. 
+---
+= Active IQ Unified Manager의 가상 인프라 및 하드웨어 요구 사항 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+가상 인프라 또는 물리적 시스템에 Unified Manager를 설치하려면 메모리, CPU 및 디스크 공간에 대한 최소 요구사항을 충족해야 합니다.
+
+다음 표는 메모리, CPU 및 디스크 공간 리소스에 권장되는 값을 보여줍니다. 이러한 값은 Unified Manager가 허용 가능한 성능 수준을 충족하도록 검증되었습니다.
+
+[cols="2*"]
+|===
+| 하드웨어 구성 | 권장 설정 
+
+
+ a| 
+RAM
+ a| 
+12 GB
+
+
+
+ a| 
+프로세서
+ a| 
+4개의 CPU
+
+
+
+ a| 
+CPU 사이클 용량
+ a| 
+총 9572MHz (최소 요구 사항 9572MHz)
+
+
+
+ a| 
+여유 디스크 공간
+ a| 
+150 GB이며, 용량은 다음과 같이 할당됩니다:
+
+* 루트 파티션에 50 GB 할당
+* LVM 드라이브 또는 대상 시스템에 연결된 별도의 로컬 디스크에 마운트된  `/opt/netapp/data` 디렉터리에 할당된 100GB의 여유 디스크 공간
+
+
+[NOTE]
+====
+별도로 마운트된  `/opt` 및  `/var/log` 디렉터리의 경우,  `/opt`에 15GB,  `/var/log`에 16GB의 여유 공간이 있는지 확인하십시오.  `/tmp` 디렉터리에는 최소 10GB의 여유 공간이 있어야 합니다.
+
+====
+|===
+Unified Manager는 메모리 용량이 적은 시스템에도 설치할 수 있지만, 권장되는 12GB의 RAM은 최적의 성능을 위해 충분한 메모리를 확보하고, 구성이 확장됨에 따라 시스템이 추가 클러스터 및 스토리지 객체를 수용할 수 있도록 보장합니다. Unified Manager가 배포된 VM에는 메모리 제한을 설정해서는 안 되며, 소프트웨어가 시스템에 할당된 메모리를 활용하는 데 방해가 되는 기능(예: 벌루닝)을 활성화해서는 안 됩니다.
+
+또한 Unified Manager의 두 번째 인스턴스를 설치하기 전에 단일 Unified Manager 인스턴스가 모니터링할 수 있는 노드 수에는 제한이 있습니다. 노드 제한, CPU 및 메모리 권장 사항은  https://www.netapp.com/pdf.html?item=/media/13504-tr4621.pdf["Unified Manager 모범 사례 가이드"^]을 참조하십시오.
+
+메모리 페이지 스와핑은 시스템 및 관리 애플리케이션의 성능에 부정적인 영향을 미칩니다. 호스트 전체 사용률로 인해 사용 불가능한 CPU 리소스를 두고 경쟁하면 성능이 저하될 수 있습니다.
+
+
+
+[[requirement-for-dedicated-use]]
+== 전용 사용을 위한 요구 사항
+
+Unified Manager를 설치하는 물리적 또는 가상 시스템은 Unified Manager 전용으로 사용해야 하며 다른 애플리케이션과 공유해서는 안 됩니다. 다른 애플리케이션이 시스템 리소스를 소모하면 Unified Manager의 성능이 크게 저하될 수 있습니다.
+
+
+
+[[space-requirements-for-backups]]
+== 백업을 위한 공간 요구 사항
+
+Unified Manager 백업 및 복원 기능을 사용할 계획이라면 "`data`" 디렉터리 또는 디스크에 150 GB의 공간이 확보되도록 추가 용량을 할당하십시오. 백업은 로컬 대상 또는 원격 대상에 기록할 수 있습니다. 모범 사례는 최소 150 GB의 공간이 있는 Unified Manager 호스트 시스템 외부의 원격 위치를 식별하는 것입니다.
+
+
+
+[[requirements-for-host-connectivity]]
+== 호스트 연결 요구 사항
+
+Unified Manager를 설치하는 물리적 시스템 또는 가상 시스템은 호스트 자체에서 호스트 이름을 성공적으로  `ping`할 수 있도록 구성되어야 합니다. IPv6 구성의 경우, Unified Manager 설치가 성공적으로 완료되도록 호스트 이름에 대한  `ping6`이(가) 성공적인지 확인해야 합니다.
+
+호스트 이름(또는 호스트 IP 주소)을 사용하여 제품 웹 UI에 액세스할 수 있습니다. 배포 중에 네트워크에 고정 IP 주소를 구성한 경우 네트워크 호스트의 이름을 지정했습니다. DHCP를 사용하여 네트워크를 구성한 경우 DNS에서 호스트 이름을 가져와야 합니다.
+
+사용자가 정규화된 도메인 이름(FQDN) 또는 IP 주소 대신 짧은 이름을 사용하여 Unified Manager에 액세스하도록 허용하려는 경우, 네트워크 구성에서 이 짧은 이름을 유효한 FQDN으로 해석해야 합니다.

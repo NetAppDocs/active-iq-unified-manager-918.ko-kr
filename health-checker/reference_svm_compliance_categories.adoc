@@ -1,0 +1,151 @@
+---
+permalink: health-checker/reference_svm_compliance_categories.html 
+sidebar: sidebar 
+keywords: storage vm, compliance, svm compliance, categories 
+summary: '이 표는 Unified Manager가 평가하는 스토리지 가상 머신(SVM) 보안 규정 준수 기준, NetApp 권장 사항, 그리고 해당 매개변수가 SVM의 규정 준수 여부 최종 결정에 영향을 미치는지 여부를 설명합니다.' 
+---
+= Active IQ Unified Manager에서 스토리지 VM 규정 준수 범주 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 표는 Unified Manager가 평가하는 스토리지 가상 머신(SVM) 보안 규정 준수 기준, NetApp 권장 사항, 그리고 해당 매개변수가 SVM의 규정 준수 여부 최종 결정에 영향을 미치는지 여부를 설명합니다.
+
+[cols="4*"]
+|===
+| 매개변수 | 설명 | 권장 사항 | SVM 규정 준수에 영향을 미칩니다 
+
+
+ a| 
+감사 로그
+ a| 
+감사 로깅이 활성화되었는지 비활성화되었는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+예
+
+
+
+ a| 
+안전하지 않은 SSH 설정
+ a| 
+SSH가 안전하지 않은 암호(예:  `cbc*`(으)로 시작하는 암호)를 사용하는지 여부를 나타냅니다.
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+로그인 배너
+ a| 
+시스템에서 SVM에 액세스하는 사용자에게 로그인 배너가 활성화되는지 또는 비활성화되는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+예
+
+
+
+ a| 
+LDAP 암호화
+ a| 
+LDAP 암호화가 활성화되었는지 비활성화되었는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+NTLM 인증
+ a| 
+NTLM 인증이 활성화되었는지 비활성화되었는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+LDAP 페이로드 서명
+ a| 
+LDAP 페이로드 서명 기능이 활성화되었는지 비활성화되었는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+CHAP 설정
+ a| 
+CHAP 활성화 여부를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+Kerberos V5
+ a| 
+Kerberos V5 인증이 활성화되었는지 비활성화되었는지를 나타냅니다.
+ a| 
+활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+NIS 인증
+ a| 
+NIS 인증 사용이 구성되어 있는지 여부를 나타냅니다.
+ a| 
+비활성화됨
+ a| 
+아니요
+
+
+
+ a| 
+FPolicy 상태 활성
+ a| 
+FPolicy가 생성되었는지 여부를 나타냅니다.
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
+SMB 암호화 활성화됨
+ a| 
+SMB 서명 및 봉인 기능이 활성화되어 있지 않은지 여부를 나타냅니다.
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
+SMB 서명 활성화됨
+ a| 
+SMB 서명이 활성화되어 있지 않은지 여부를 나타냅니다.
+ a| 
+예
+ a| 
+아니요
+
+|===

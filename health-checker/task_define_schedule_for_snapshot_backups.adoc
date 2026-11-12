@@ -1,0 +1,53 @@
+---
+permalink: health-checker/task_define_schedule_for_snapshot_backups.html 
+sidebar: sidebar 
+keywords: define, backup, schedule, linux, windows, snapshot copy, copies 
+summary: Unified Manager UI를 사용하여 Unified Manager 스냅샷 복사본이 생성되는 일정을 구성할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 Linux 및 Windows에 대한 백업 일정 정의
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager UI를 사용하여 Unified Manager 스냅샷 복사본이 생성되는 일정을 구성할 수 있습니다.
+
+.시작하기 전에
+* 운영자, 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* 유지 관리 콘솔에서 스냅샷 복사본을 생성하기 위한 설정을 구성하여 스냅샷이 생성될 대상을 지정해야 합니다.
+
+
+스냅샷 복사본은 단 몇 분 만에 생성되며 Unified Manager 데이터베이스는 단 몇 초 동안만 잠깁니다.
+
+[NOTE]
+====
+새로운 클러스터를 추가한 후 처음 15일 동안 생성된 백업은 과거 성능 데이터를 얻기에 충분히 정확하지 않을 수 있습니다.
+
+====
+.단계
+. 왼쪽 탐색 창에서 *일반* > *데이터베이스 백업*을 클릭합니다.
+. *데이터베이스 백업* 페이지에서 *백업 설정*을 클릭합니다.
+. *보관 개수* 필드에 보관할 스냅샷 복사본의 최대 개수를 입력하십시오.
++
+보존 횟수의 기본값은 10입니다. 스냅샷 복사본의 최대 개수는 클러스터의 ONTAP 소프트웨어 버전에 따라 결정됩니다. ONTAP 버전에 관계없이 최대값을 적용하려면 이 필드를 비워 둘 수 있습니다.
+
+. *매일 예약* 또는 *매주 예약* 버튼을 선택한 다음 일정 세부 정보를 지정하십시오.
+. *적용*을 클릭합니다.
+
+
+스냅샷 복사본은 예약된 일정에 따라 생성됩니다. 사용 가능한 백업 파일은 데이터베이스 백업 페이지에서 확인할 수 있습니다.
+
+이 볼륨과 스냅샷의 중요성을 고려하여, 다음 중 하나일 때 알림을 받을 수 있도록 이 볼륨에 대한 알림을 하나 또는 두 개 생성하는 것이 좋습니다:
+
+* 볼륨 공간이 90% 차 있습니다. *Volume Space Full* 이벤트를 사용하여 알림을 설정하십시오.
++
+Unified Manager 데이터베이스의 공간 부족을 방지하기 위해 ONTAP System Manager 또는 ONTAP CLI를 사용하여 볼륨에 용량을 추가할 수 있습니다.
+
+* 스냅샷 개수가 최대 개수에 거의 도달했습니다. *스냅샷 복사본이 너무 많습니다* 이벤트를 사용하여 알림을 설정하십시오.
++
+ONTAP System Manager 또는 ONTAP CLI를 사용하여 오래된 스냅샷을 삭제하면 항상 새로운 스냅샷 복사본을 저장할 공간을 확보할 수 있습니다.
+
+
+
+알림 설정 페이지에서 알림을 구성합니다.

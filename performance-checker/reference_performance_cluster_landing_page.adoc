@@ -1,0 +1,28 @@
+---
+permalink: performance-checker/reference_performance_cluster_landing_page.html 
+sidebar: sidebar 
+keywords: performance, cluster, landing page 
+summary: 성능 클러스터 랜딩 페이지는 선택한 클러스터의 개략적인 성능 상태를 표시합니다. 이 페이지를 통해 선택한 클러스터의 스토리지 오브젝트에 대한 각 성능 카운터의 전체 세부 정보를 확인할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 성능 클러스터 랜딩 페이지 검토
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 클러스터 랜딩 페이지는 선택한 클러스터의 개략적인 성능 상태를 표시합니다. 이 페이지를 통해 선택한 클러스터의 스토리지 오브젝트에 대한 각 성능 카운터의 전체 세부 정보를 확인할 수 있습니다.
+
+퍼포먼스 클러스터 랜딩 페이지에는 클러스터 세부 정보를 네 가지 정보 영역으로 구분하는 네 개의 탭이 있습니다:
+
+* 요약 페이지
++
+** 클러스터 이벤트 창
+** MB/s 및 IOPS 성능 차트
+** 관리되는 오브젝트 창
+
+
+* 최고 성능 페이지
+* 탐색기 페이지
+* 정보 페이지
+

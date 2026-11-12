@@ -1,0 +1,130 @@
+---
+permalink: events/reference_port_events.html 
+sidebar: sidebar 
+keywords: port, events, impact area, availability, performance 
+summary: 포트 이벤트는 클러스터 포트에 대한 상태를 제공하므로 포트 다운 여부 등 포트의 변경 사항이나 문제를 모니터링할 수 있습니다. 
+---
+= Active IQ Unified Manager의 포트 이벤트에 대해 알아보십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+포트 이벤트는 클러스터 포트에 대한 상태를 제공하므로 포트 다운 여부 등 포트의 변경 사항이나 문제를 모니터링할 수 있습니다.
+
+
+
+[[impact-area-availability]]
+== 영향 영역: 가용성
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+포트 상태 다운(ocumEvtPortStatusDown)
+ a| 
+인시던트
+ a| 
+노드
+ a| 
+심각
+
+|===
+
+
+[[impact-area-performance]]
+== 영향 영역: 성능
+
+|===
+| 이벤트 이름 (트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+네트워크 포트 MB/s 위험 임계치 위반(ocumNetworkPortMbpsIncident)
+ a| 
+인시던트
+ a| 
+포트
+ a| 
+심각
+
+
+
+ a| 
+네트워크 포트 MB/s 경고 임계값 초과(ocumNetworkPortMbpsWarning)
+ a| 
+위험
+ a| 
+포트
+ a| 
+경고
+
+
+
+ a| 
+FCP 포트 MB/s 위험 임계치 초과(ocumFcpPortMbpsIncident)
+ a| 
+인시던트
+ a| 
+포트
+ a| 
+심각
+
+
+
+ a| 
+FCP 포트 MB/s 경고 임계값 초과(ocumFcpPortMbpsWarning)
+ a| 
+위험
+ a| 
+포트
+ a| 
+경고
+
+
+
+ a| 
+네트워크 포트 사용률 위험 임계치 초과(ocumNetworkPortUtilizationIncident)
+ a| 
+인시던트
+ a| 
+포트
+ a| 
+심각
+
+
+
+ a| 
+네트워크 포트 사용률 경고 임계값 초과(ocumNetworkPortUtilizationWarning)
+ a| 
+위험
+ a| 
+포트
+ a| 
+경고
+
+
+
+ a| 
+FCP 포트 사용률 위험 임계치 초과(ocumFcpPortUtilizationIncident)
+ a| 
+인시던트
+ a| 
+포트
+ a| 
+심각
+
+
+
+ a| 
+FCP 포트 사용률 경고 임계값 초과(ocumFcpPortUtilizationWarning)
+ a| 
+위험
+ a| 
+포트
+ a| 
+경고
+
+|===

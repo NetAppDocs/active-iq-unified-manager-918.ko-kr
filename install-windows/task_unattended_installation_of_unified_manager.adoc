@@ -1,0 +1,56 @@
+---
+permalink: install-windows/task_unattended_installation_of_unified_manager.html 
+sidebar: sidebar 
+keywords: perform, unattended, installation, unified manager 
+summary: 명령줄 인터페이스를 사용하여 사용자 개입 없이 Unified Manager를 설치할 수 있습니다. 키-값 쌍으로 매개변수를 전달하여 무인 설치를 완료할 수 있습니다. 
+---
+= Active IQ Unified Manager 의 무인 설치 수행
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+명령줄 인터페이스를 사용하여 사용자 개입 없이 Unified Manager를 설치할 수 있습니다. 키-값 쌍으로 매개변수를 전달하여 무인 설치를 완료할 수 있습니다.
+
+.단계
+. 기본 로컬 관리자 계정을 사용하여 Windows 명령줄 인터페이스에 로그인하십시오.
+. Unified Manager를 설치할 위치로 이동하여 다음 옵션 중 하나를 선택하십시오:
++
+[cols="4a,4a"]
+|===
+| 옵션 | 지침 
+
+
+ a| 
+타사 패키지가 사전 설치된 경우
+ a| 
+`ActiveIQUnifiedManager-x.y.exe /V"MYSQL_PASSWORD=mysql_password INSTALLDIR=\"Installation directory\" MYSQL_DATA_DIR=\"MySQL data directory\" MAINTENANCE_PASSWORD=maintenance_password MAINTENANCE_USERNAME=maintenance_username /qn /l*v CompletePathForLogFile"`
+
+*예:*
+
+`ActiveIQUnifiedManager.exe /s /v"MYSQL_PASSWORD=netapp21! INSTALLDIR=\"C:\Program Files\NetApp\" MYSQL_DATA_DIR=\"C:\ProgramData\MYSQL\MySQLServer\" MAINTENANCE_PASSWORD=******* MAINTENANCE_USERNAME=admin /qn /l*v C:\install.log"`
+
+
+
+ a| 
+타사 패키지가 설치되어 있지 않은 경우
+ a| 
+`ActiveIQUnifiedManager-x.y.exe /V"MYSQL_PASSWORD=mysql_password INSTALLDIR=\"Installation directory\" MYSQL_DATA_DIR=\"MySQL data directory\" MAINTENANCE_PASSWORD=maintenance_password MAINTENANCE_USERNAME=maintenance_username /qr /l*v CompletePathForLogFile"`
+
+*예:*
+
+`ActiveIQUnifiedManager.exe /s /v"MYSQL_PASSWORD=netapp21! INSTALLDIR=\"C:\Program Files\NetApp\" MYSQL_DATA_DIR=\"C:\ProgramData\MYSQL\MySQLServer\" MAINTENANCE_PASSWORD=******* MAINTENANCE_USERNAME=admin /qr /l*v C:\install.log"`
+
+|===
++
+ `/qr` 옵션은 축소된 사용자 인터페이스로 자동 모드를 활성화합니다. 설치 진행 상황을 보여주는 기본 사용자 인터페이스가 표시됩니다. 입력을 요구하지 않습니다. JRE, MySQL, 7zip 등 타사 패키지가 사전 설치되어 있지 않은 경우  `/qr` 옵션을 사용해야 합니다. 타사 패키지가 설치되지 않은 서버에서  `/qn` 옵션을 사용하면 설치가 실패합니다.
+
++
+ `/qn` 옵션은 사용자 인터페이스가 없는 자동 모드를 활성화합니다. 설치 중에는 사용자 인터페이스나 세부 정보가 표시되지 않습니다. 타사 패키지가 설치되어 있지 않은 경우에는  `/qn` 옵션을 사용하지 마십시오.
+
+. 다음 URL을 사용하여 Unified Manager 웹 사용자 인터페이스에 로그인하십시오:
++
+`\https://IP address`
+
+

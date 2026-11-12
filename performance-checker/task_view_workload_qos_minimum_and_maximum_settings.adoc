@@ -1,0 +1,71 @@
+---
+permalink: performance-checker/task_view_workload_qos_minimum_and_maximum_settings.html 
+sidebar: sidebar 
+keywords: view, workload, qos, minimum, maximum, settings, performance, explorer 
+summary: 'ONTAP에서 정의한 볼륨 또는 LUN의 QoS(서비스 품질) 정책 설정은 성능 탐색기 차트에서 확인할 수 있습니다. 최대 처리량 설정은 시스템 리소스에 대한 경쟁 워크로드의 영향을 제한합니다. 최소 처리량 설정은 경쟁 워크로드의 요구량과 관계없이 중요 워크로드가 최소 처리량 목표를 충족하도록 보장합니다.' 
+---
+= Active IQ Unified Manager에서 워크로드 QoS 최소 및 최대 설정 보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP에서 정의한 볼륨 또는 LUN의 QoS(서비스 품질) 정책 설정은 성능 탐색기 차트에서 확인할 수 있습니다. 최대 처리량 설정은 시스템 리소스에 대한 경쟁 워크로드의 영향을 제한합니다. 최소 처리량 설정은 경쟁 워크로드의 요구량과 관계없이 중요 워크로드가 최소 처리량 목표를 충족하도록 보장합니다.
+
+QoS 처리량 "`minimum`" 및 "`maximum`" IOPS 및 MB/s 설정은 ONTAP에서 구성된 경우에만 카운터 차트에 표시됩니다. 처리량 최소 설정은 ONTAP 9.2 이상 소프트웨어가 실행되는 AFF 시스템에서만 사용할 수 있으며, 현재는 IOPS에 대해서만 설정할 수 있습니다.
+
+ONTAP 9.3부터는 적응형 QoS 정책을 사용할 수 있으며, IOPS 대신 IOPS/TB로 표현됩니다. 이러한 정책은 워크로드별로 볼륨 크기에 따라 QoS 정책 값을 자동으로 조정하여 볼륨 크기 변화에 따른 IOPS 대 테라바이트 비율을 유지합니다. 적응형 QoS 정책 그룹은 볼륨에만 적용할 수 있습니다. 적응형 QoS 정책에서는 최소값과 최대값 대신 "`expected`"와 "`peak`"라는 QoS 용어를 사용합니다.
+
+Unified Manager는 이전 1시간 동안의 각 성능 수집 기간 동안 워크로드 처리량이 정의된 QoS 최대 정책 설정값을 초과할 경우 QoS 정책 위반에 대한 경고 이벤트를 생성합니다. 워크로드 처리량은 각 수집 기간 동안 짧은 시간 동안만 QoS 임계값을 초과할 수 있지만, Unified Manager는 차트에 수집 기간 동안의 "`평균`" 처리량을 표시합니다. 이러한 이유로 워크로드 처리량이 차트에 표시된 정책 임계값을 초과하지 않았더라도 QoS 이벤트가 표시될 수 있습니다.
+
+.단계
+. 선택한 볼륨 또는 LUN의 *성능 탐색기* 페이지에서 다음 작업을 수행하여 QoS 상한 및 하한 설정을 확인하십시오:
++
+|===
+| 원하신다면... | 이렇게 하세요... 
+
+
+ a| 
+IOPS 최대치(QoS 최대값)를 확인합니다.
+ a| 
+IOPS 총계 또는 세부 분석 차트에서 *확대 보기*를 클릭합니다.
+
+
+
+ a| 
+MB/s 상한(QoS 최대값)을 확인하십시오.
+ a| 
+MB/s 총계 또는 세부 내역 차트에서 *확대 보기*를 클릭하십시오.
+
+
+
+ a| 
+IOPS 최저치(QoS 최소값)를 확인하십시오.
+ a| 
+IOPS 총계 또는 세부 분석 차트에서 *확대 보기*를 클릭합니다.
+
+
+
+ a| 
+IOPS/TB 상한값(QoS 최고치)을 확인하십시오
+ a| 
+볼륨의 경우 IOPS/TB 차트에서 *확대 보기*를 클릭하십시오.
+
+
+
+ a| 
+IOPS/TB 최저치(예상 QoS)를 확인하십시오
+ a| 
+볼륨의 경우 IOPS/TB 차트에서 *확대 보기*를 클릭하십시오.
+
+|===
++
+점선으로 표시된 가로선은 ONTAP에서 설정된 최대 또는 최소 처리량 값을 나타냅니다. 또한 QoS 값 변경 사항이 적용된 시점도 확인할 수 있습니다.
+
+. QoS 설정과 비교한 특정 IOPS 및 MB/s 값을 보려면 차트 영역으로 마우스 커서를 이동하여 팝업 창을 확인하세요.
+
+
+특정 볼륨이나 LUN의 IOPS 또는 MB/s가 매우 높아서 시스템 리소스에 과부하를 주는 경우, System Manager 또는 ONTAP CLI를 사용하여 QoS 설정을 조정하여 이러한 워크로드가 다른 워크로드의 성능에 영향을 미치지 않도록 할 수 있습니다.
+
+QoS 설정 조정에 대한 자세한 내용은 다음을 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-perf-mon/home.html["성능 관리 개요"]

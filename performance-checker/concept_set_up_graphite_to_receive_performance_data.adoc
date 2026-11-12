@@ -1,0 +1,50 @@
+---
+permalink: performance-checker/concept_set_up_graphite_to_receive_performance_data.html 
+sidebar: sidebar 
+keywords: setting, graphite, receive, performance, data, unified manager 
+summary: Graphite는 컴퓨터 시스템의 성능 데이터를 수집하고 그래프로 표시하는 오픈 소프트웨어 툴입니다. Unified Manager에서 통계 데이터를 수신하려면 Graphite 서버와 소프트웨어가 올바르게 구성되어 있어야 합니다. 
+---
+= Graphite가 Active IQ Unified Manager에서 성능 데이터를 수신하도록 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Graphite는 컴퓨터 시스템의 성능 데이터를 수집하고 그래프로 표시하는 오픈 소프트웨어 툴입니다. Unified Manager에서 통계 데이터를 수신하려면 Graphite 서버와 소프트웨어가 올바르게 구성되어 있어야 합니다.
+
+NetApp은 Graphite 또는 기타 타사 툴의 특정 버전을 테스트하거나 검증하지 않습니다.
+
+
+NOTE: Graphite 서버는 Unified Manager로부터 볼륨에 대한 성능 데이터를 수신하지 않습니다.
+
+설치 지침에 따라 Graphite를 설치한 후에는 Unified Manager에서 통계 데이터 전송을 지원하도록 다음과 같은 변경 사항을 적용해야 합니다.
+
+*  `/opt/graphite/conf/carbon.conf` 파일에서 Graphite 서버에 분당 생성할 수 있는 최대 파일 수를 _200_ (`*MAX_CREATES_PER_MINUTE = 200*`으로 설정해야 합니다).
++
+구성에 있는 클러스터 수와 전송하도록 선택한 통계 오브젝트에 따라 초기에는 수천 개의 새 파일을 생성해야 할 수 있습니다. 분당 200개의 파일 속도로 모든 메트릭 파일이 처음 생성되는 데 15분 이상 걸릴 수 있습니다. 모든 고유한 메트릭 파일이 생성된 후에는 이 매개변수가 더 이상 관련이 없습니다.
+
+* IPv6 주소를 사용하여 구축된 서버에서 Graphite를 실행하는 경우,  `/opt/graphite/conf/carbon.conf` 파일의 LINE_RECEIVER_INTERFACE 값을 "`0.0.0.0`"에서 "`::`"로 변경해야 합니다 (`*LINE_RECEIVER_INTERFACE = ::*`)
+*  `/opt/graphite/conf/storage-schemas.conf` 파일에서  `retentions` 매개변수를 사용하여 빈도를 5분으로 설정하고 보존 기간을 사용 환경에 맞는 일수로 설정해야 합니다.
++
+보존 기간은 환경에서 허용하는 한 길게 설정할 수 있지만, 적어도 하나의 보존 설정에 대해서는 빈도 값을 5분으로 설정해야 합니다. 다음 예에서는  `pattern` 매개변수를 사용하여 Unified Manager에 대한 섹션을 정의하고, 초기 빈도를 5분으로, 보존 기간을 100일로 설정합니다. `*[OPM]*`
+
++
+`*pattern = ^netapp-performance\..*`
+
++
+`*retentions = 5m:100d*`
+
++
+[NOTE]
+====
+기본 벤더 태그가 "`netapp-performance`"에서 다른 것으로 변경되는 경우 해당 변경 사항이  `pattern` 매개변수에도 반영되어야 합니다.
+
+====
+
+
+[NOTE]
+====
+Unified Manager 서버가 성능 데이터를 전송하려고 할 때 Graphite 서버를 사용할 수 없는 경우 데이터가 전송되지 않으며 수집된 데이터에 간격이 생깁니다.
+
+====

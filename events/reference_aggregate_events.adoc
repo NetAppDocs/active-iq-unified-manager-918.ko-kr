@@ -1,0 +1,412 @@
+---
+permalink: events/reference_aggregate_events.html 
+sidebar: sidebar 
+keywords: aggregate events, impact, area, availability, capacity, configuration, performance 
+summary: 애그리게이트 이벤트는 애그리게이트의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다. 
+---
+= Active IQ Unified Manager의 애그리게이트 이벤트에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+애그리게이트 이벤트는 애그리게이트의 상태에 대한 정보를 제공하여 잠재적인 문제를 모니터링할 수 있도록 합니다. 이벤트는 영향 영역별로 그룹화되며 이벤트 및 트랩 이름, 영향 수준, 소스 유형 및 심각도를 포함합니다.
+
+
+
+[[impact-area-availability]]
+== 영향 영역: 가용성
+
+별표(*)는 Unified Manager 이벤트로 변환된 EMS 이벤트를 식별합니다.
+
+|===
+| 이벤트 이름(트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+애그리게이트 오프라인(ocumEvtAggregateStateOffline)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 실패(ocumEvtAggregateStateFailed)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 제한됨(ocumEvtAggregateStateRestricted)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 재구성(ocumEvtAggregateRaidStateReconstructing)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 저하됨(ocumEvtAggregateRaidStateDegraded)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+클라우드 계층 부분적으로 접근 가능(ocumEventCloudTierPartiallyReachable)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+클라우드 계층에 연결할 수 없음(ocumEventCloudTierUnreachable)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+애그리게이트 재배치에 대한 클라우드 계층 액세스 거부 *(arlNetraCaCheckFailed)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+스토리지 장애 조치 중 애그리게이트 재배치를 위한 클라우드 계층 액세스 거부 *(gbNetraCaCheckFailed)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+MetroCluster 애그리게이트 남겨짐(ocumEvtMetroClusterAggregateLeftBehind)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+MetroCluster 애그리게이트 미러링 성능 저하(ocumEvtMetroClusterAggregateMirrorDegraded)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+|===
+
+
+[[impact-area-capacity]]
+== 영향 영역: 용량
+
+|===
+| 이벤트 이름(트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+애그리게이트 공간이 거의 가득 참(ocumEvtAggregateNearlyFull)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 공간 가득 참(ocumEvtAggregateFull)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+애그리게이트가 가득 찰 때까지 남은 일수(ocumEvtAggregateDaysUntilFullSoon)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+애그리게이트 과다 약정(ocumEvtAggregateOvercommitted)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+오류
+
+
+
+ a| 
+애그리게이트 거의 과다 할당(ocumEvtAggregateAlmostOvercommitted)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 스냅샷 예약 가득 참(ocumEvtAggregateSnapReserveFull)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 증가율 비정상(ocumEvtAggregateGrowthRateAbnormal)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+|===
+
+
+[[impact-area-configuration]]
+== 영향 영역: 구성
+
+|===
+| 이벤트 이름(트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+애그리게이트 발견됨(해당 없음)
+ a| 
+이벤트
+ a| 
+애그리게이트
+ a| 
+정보
+
+
+
+ a| 
+애그리게이트 이름 변경됨(해당 없음)
+ a| 
+이벤트
+ a| 
+애그리게이트
+ a| 
+정보
+
+
+
+ a| 
+애그리게이트 삭제됨(해당 없음)
+ a| 
+이벤트
+ a| 
+노드
+ a| 
+정보
+
+|===
+
+
+[[impact-area-performance]]
+== 영향 영역: 성능
+
+|===
+| 이벤트 이름(트랩 이름) | 영향 수준 | 소스 유형 | 심각성 
+
+
+ a| 
+애그리게이트 IOPS 위험 임계치 초과(ocumAggregateIopsIncident)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 IOPS 경고 임계값 초과(ocumAggregateIopsWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 MB/s 중요 임계치 초과(ocumAggregateMbpsIncident)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 MB/s 경고 임계값 초과( ocumAggregateMbpsWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 지연 시간 위험 임계값 초과(ocumAggregateLatencyIncident)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 지연 시간 경고 임계값 초과( ocumAggregateLatencyWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 성능 용량 사용량 위험 임계치 초과(ocumAggregatePerfCapacityUsedIncident)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 성능 용량 사용량 경고 임계값 초과(ocumAggregatePerfCapacityUsedWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 활용률 위험 임계치 초과(ocumAggregateUtilizationIncident)
+ a| 
+인시던트
+ a| 
+애그리게이트
+ a| 
+심각
+
+
+
+ a| 
+애그리게이트 활용도 경고 임계값 초과 (ocumAggregateUtilizationWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 디스크 과사용 임계값 초과(ocumAggregateDisksOverUtilizedWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+
+
+ a| 
+애그리게이트 동적 임계값 초과(ocumAggregateDynamicEventWarning)
+ a| 
+위험
+ a| 
+애그리게이트
+ a| 
+경고
+
+|===

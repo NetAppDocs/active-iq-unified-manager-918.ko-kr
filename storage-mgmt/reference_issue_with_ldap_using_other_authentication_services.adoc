@@ -1,0 +1,38 @@
+---
+permalink: storage-mgmt/reference_issue_with_ldap_using_other_authentication_services.html 
+sidebar: sidebar 
+keywords: issue, addi, ldap, use, other, authentication, services 
+summary: 다른 인증 서비스를 사용하여 LDAP를 추가할 때 발생하는 문제를 해결합니다. 
+---
+= Active IQ Unified Manager에서 기타 인증 서비스를 사용하여 LDAP를 추가함으로써 발생하는 문제 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+인증 서비스로 기타를 선택하면 사용자 및 그룹 오브젝트 클래스는 이전에 선택한 템플릿의 값을 유지합니다. LDAP 서버가 동일한 값을 사용하지 않는 경우 작업이 실패할 수 있습니다.
+
+*원인*
+
+OpenLDAP에서 사용자 구성이 올바르지 않습니다.
+
+*시정 조치*
+
+다음 해결 방법 중 하나를 사용하여 이 문제를 수동으로 해결할 수 있습니다.
+
+LDAP 사용자 오브젝트 클래스와 그룹 오브젝트 클래스가 각각 user와 group인 경우 다음 단계를 수행하십시오.
+
+. 왼쪽 탐색 창에서 **일반** > *원격 인증*을 클릭합니다.
+. *인증 서비스* 드롭다운 메뉴에서 *Active Directory*를 선택한 다음 *기타*를 선택합니다.
+. 텍스트 필드를 작성하십시오.
+
+
+LDAP 사용자 오브젝트 클래스와 그룹 오브젝트 클래스가 각각 posixAccount 및 posixGroup인 경우 다음 단계를 수행하십시오.
+
+. 왼쪽 탐색 창에서 **일반** > *원격 인증*을 클릭합니다.
+. *인증 서비스* 드롭다운 메뉴에서 *OpenLDAP*을 선택한 다음 *기타*를 선택합니다.
+. 텍스트 필드를 작성하십시오.
+
+
+처음 두 가지 해결 방법이 적용되지 않으면  `option-set` API를 호출하고  `auth.ldap.userObjectClass` 및  `auth.ldap.groupObjectClass` 옵션을 올바른 값으로 설정하십시오.

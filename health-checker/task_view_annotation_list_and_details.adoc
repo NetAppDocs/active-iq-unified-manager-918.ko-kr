@@ -1,0 +1,19 @@
+---
+permalink: health-checker/task_view_annotation_list_and_details.html 
+sidebar: sidebar 
+keywords: view, annotation list, details 
+summary: '클러스터, 볼륨, SVM(스토리지 가상 머신)에 동적으로 연결된 어노테이션 목록을 볼 수 있습니다. 설명, 작성자, 작성 날짜, 값, 규칙, 어노테이션과 연결된 오브젝트 등의 세부 정보를 볼 수도 있습니다.' 
+---
+= Active IQ Unified Manager에서 주석 목록 및 세부 정보 보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터, 볼륨, SVM(스토리지 가상 머신)에 동적으로 연결된 어노테이션 목록을 볼 수 있습니다. 설명, 작성자, 작성 날짜, 값, 규칙, 어노테이션과 연결된 오브젝트 등의 세부 정보를 볼 수도 있습니다.
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지 관리* > *주석*을 클릭합니다.
+. *주석* 탭에서 주석 이름을 클릭하면 관련 세부 정보를 볼 수 있습니다.
+

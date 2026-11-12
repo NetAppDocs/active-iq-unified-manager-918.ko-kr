@@ -1,0 +1,74 @@
+---
+permalink: health-checker/task_retrieve_support_bundle_using_unix_or_linux_client.html 
+sidebar: sidebar 
+keywords: retrieve, support bundle, unix, linux, client 
+summary: 'UNIX 또는 Linux 사용자인 경우 Linux 클라이언트 서버의 명령줄 인터페이스(CLI)를 사용하여 vApp에서 지원 번들을 검색할 수 있습니다. SCP 또는 SFTP를 사용하여 지원 번들을 검색할 수 있습니다.' 
+---
+= Active IQ Unified Manager에서 UNIX 또는 Linux 클라이언트를 사용하여 지원 번들 검색
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UNIX 또는 Linux 사용자인 경우 Linux 클라이언트 서버의 명령줄 인터페이스(CLI)를 사용하여 vApp에서 지원 번들을 검색할 수 있습니다. SCP 또는 SFTP를 사용하여 지원 번들을 검색할 수 있습니다.
+
+.시작하기 전에
+이 작업을 수행하려면 유지 관리 사용자여야 합니다.
+
+유지 관리 콘솔을 사용하여 지원 번들을 생성해야 하며 지원 번들 이름을 알고 있어야 합니다.
+
+.단계
+. Linux 클라이언트 서버를 사용하여 Telnet 또는 콘솔을 통해 CLI에 액세스하십시오.
+. /`support` 디렉토리에 액세스하십시오.
+. 다음 명령어를 사용하여 지원 번들을 가져와 로컬 디렉터리에 복사하십시오:
++
+[cols="2*"]
+|===
+| 사용 중인 경우... | 그런 다음 다음 명령어를 사용하십시오... 
+
+
+ a| 
+SCP
+ a| 
+`scp <maintenance-user>@<vApp-name-or-ip>:/support/support_bundle_file_name.7z <destination-directory>`
+
+
+
+ a| 
+SFTP
+ a| 
+`sftp <maintenance-user>@<vApp-name-or-ip>:/support/support_bundle_file_name.7z <destination-directory>`
+
+|===
++
+유지 관리 콘솔을 사용하여 지원 번들을 생성하면 지원 번들의 이름이 제공됩니다.
+
+. 유지보수 사용자 암호를 입력하십시오.
+
+
+
+
+[[examples]]
+== 예
+
+다음 예제는 SCP를 사용하여 지원 번들을 가져옵니다:
+
+[listing]
+----
+
+        `$ scp admin@10.10.12.69:/support/support_bundle_20160216_145359.7z .`
+Password: `<maintenance_user_password>`
+support_bundle_20160216_145359.7z   100%  119MB  11.9MB/s   00:10
+----
+다음 예에서는 SFTP를 사용하여 지원 번들을 가져옵니다:
+
+[listing]
+----
+
+        `$ sftp admin@10.10.12.69:/support/support_bundle_20160216_145359.7z .`
+Password: `<maintenance_user_password>`
+Connected to 10.228.212.69.
+Fetching /support/support_bundle_20130216_145359.7z to ./support_bundle_20130216_145359.7z
+/support/support_bundle_20160216_145359.7z
+----

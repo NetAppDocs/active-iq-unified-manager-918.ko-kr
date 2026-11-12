@@ -1,0 +1,270 @@
+---
+permalink: storage-mgmt/concept_manage_performance_service_levels.html 
+sidebar: sidebar 
+keywords: manage, performance service level, PSL, User-defined, system-defined PSL, bursty, Database PSL, extreme PSL, beyond extreme PSL 
+summary: 성능 서비스 수준 계산 및 관리. 
+---
+= Active IQ Unified Manager에서 성능 서비스 수준 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 서비스 수준(PSL)을 사용하면 워크로드에 대한 성능 및 스토리지 목표를 정의할 수 있습니다. 워크로드를 처음 생성할 때 또는 나중에 워크로드를 편집하여 PSL을 할당할 수 있습니다.
+
+스토리지 리소스의 관리 및 모니터링은 서비스 수준 목표(SLO)를 기반으로 합니다. SLO는 요구되는 성능 및 용량을 기반으로 하는 서비스 수준 계약으로 정의됩니다. Unified Manager에서 SLO는 NetApp 스토리지에서 실행되는 애플리케이션의 PSL 정의를 의미합니다. 스토리지 서비스는 기본 리소스의 성능 및 활용률에 따라 구분됩니다. PSL은 스토리지 서비스 목표에 대한 설명입니다. PSL을 통해 스토리지 공급자는 워크로드에 대한 성능 및 용량 목표를 지정할 수 있습니다. 워크로드에 PSL을 할당하면 ONTAP의 해당 워크로드는 성능 및 용량 목표에 따라 관리됩니다. 각 PSL은 최대, 예상 및 절대 최소 IOPS와 예상 지연 시간을 거버넌스 기반으로 합니다.
+
+Unified Manager에는 다음과 같은 유형의 PSL이 있습니다:
+
+* *시스템 정의*: Unified Manager는 변경할 수 없는 몇 가지 기본 정책을 제공합니다. 이러한 사전 정의된 PSL은 다음과 같습니다.
++
+** 극한의 성능
+** 성능
+** 가치
++
+익스트림 퍼포먼스, 퍼포먼스 및 밸류 PSL은 데이터 센터에서 일반적으로 사용되는 대부분의 스토리지 워크로드에 적용할 수 있습니다.
+
++
+Unified Manager는 또한 데이터베이스 애플리케이션을 위한 세 가지 성능 서비스 레벨을 제공합니다. 이는 순간적인 IOPS 급증을 지원하는 초고성능 PSL로, 최고 수준의 처리량 요구가 있는 데이터베이스 애플리케이션에 적합합니다.
+
+** 데이터베이스 로그용 익스트림
+** 데이터베이스 공유 데이터용 Extreme
+** 데이터베이스 데이터에 대한 Extreme
+
+
+* *사용자 정의*: 사전 정의된 성능 서비스 수준이 요구 사항을 충족하지 못하는 경우, 필요에 맞는 새로운 PSL을 생성할 수 있습니다. 자세한 내용은 link:../storage-mgmt/task_create_and_edit_psls.html["성능 서비스 수준 생성 및 편집"]을(를) 참조하십시오.
+* *Beyond Extreme*: Beyond Extreme PSL은 Extreme보다 높은 IOPs를 요구하는 워크로드에 권장되는 시스템 권장 PSL입니다. 워크로드는 IOPS, 용량 및 지연 시간을 기반으로 내부적으로 분석되며, *스토리지 > 워크로드 > 모든 워크로드* 화면에서 이러한 각 워크로드에 대해 Beyond Extreme PSL이 권장됩니다. 최적의 성능을 보장하기 위해 워크로드에 PSL을 적용할 수 있습니다.
++
+워크로드의 IOPs 매개변수는 워크로드 동작에 따라 동적으로 생성되며, Beyond Extreme PSL의 이름에  `Beyond Extreme <number-(peak IOPS/TB)> <number(expected IOPS/TB)>` 형식으로 추가됩니다. 예를 들어, 시스템에서 워크로드의 최대 및 예상 IOPs를 각각  `106345` 및  `37929`(으)로 결정하는 경우, 해당 워크로드에 대해 생성되는 Beyond Extreme PSL의 이름은  `Beyond Extreme 106345 37929`(으)로 지정됩니다. 이러한 PSL은 시스템에서 권장하지만, 워크로드에 할당할 때 이 PSL은 유형이  `User-defined`(으)로 표시됩니다.
+
+
+
+
+
+[[manage-workloads-by-assigning-psls]]
+== PSL을 할당하여 워크로드 관리
+
+PSL은 *정책* > *성능 서비스 수준* 페이지에서 그리고 스토리지 공급자 API를 사용하여 액세스할 수 있습니다. PSL을 스토리지 워크로드에 할당하여 스토리지 워크로드를 관리하면 스토리지 워크로드를 개별적으로 관리할 필요가 없으므로 편리합니다. 수정 사항도 개별적으로 관리하는 대신 다른 PSL을 재할당하여 관리할 수 있습니다. Unified Manager는 내부 평가 및 권장 사항을 기반으로 워크로드에 PSL을 할당하는 데 도움이 됩니다.
+
+시스템에서 권장하는 PSL을 워크로드에 할당하는 방법에 대한 자세한 내용은 link:..//storage-mgmt/concept_assign_policies_on_workloads.html#assign-system-recommended-psls-to-workloads["시스템에서 권장하는 PSL을 워크로드에 할당합니다"]을(를) 참조하십시오.
+
+성능 서비스 수준 페이지에는 사용 가능한 PSL 정책 목록이 표시되며, 이를 추가, 편집 및 삭제할 수 있습니다.
+
+
+NOTE: 시스템에서 정의되었거나 현재 워크로드에 할당된 PSL은 수정할 수 없습니다. 워크로드에 할당된 PSL 또는 사용 가능한 유일한 PSL인 경우 해당 PSL을 삭제할 수 없습니다.
+
+이 페이지에는 다음 정보가 표시됩니다:
+
+|===
+| 필드 | 설명 
+
+
+ a| 
+이름
+ a| 
+PSL의 이름.
+
+
+
+ a| 
+유형
+ a| 
+정책이 시스템 정의 정책인지 사용자 정의 정책인지 여부.
+
+
+
+ a| 
+예상 IOPS/TB
+ a| 
+애플리케이션이 LUN 또는 파일 공유에서 수행할 것으로 예상되는 최소 IOPS 수입니다. 예상 IOPS는 스토리지 오브젝트의 할당된 크기를 기준으로 할당되는 최소 예상 IOPS를 지정합니다.
+
+
+
+ a| 
+최대 IOPS/TB
+ a| 
+애플리케이션이 LUN 또는 파일 공유에서 수행할 수 있는 최대 IOPS 수입니다. 피크 IOPS는 스토리지 오브젝트 할당 크기 또는 스토리지 오브젝트 사용 크기를 기준으로 할당 가능한 최대 IOPS를 지정합니다.
+
+최대 IOPS는 할당 정책에 따라 결정됩니다. 할당 정책은 할당 공간 기준 또는 사용 공간 기준입니다. 할당 정책이 할당 공간 기준으로 설정된 경우, 최대 IOPS는 스토리지 오브젝트의 크기를 기준으로 계산됩니다. 할당 정책이 사용 공간 기준으로 설정된 경우, 최대 IOPS는 스토리지 효율성을 고려하여 스토리지 오브젝트에 저장된 데이터 양을 기준으로 계산됩니다. 기본적으로 할당 정책은 사용 공간 기준으로 설정되어 있습니다.
+
+
+
+ a| 
+절대 최소 IOPS
+ a| 
+예상 IOPS가 이 값보다 작을 경우, 절대 최소 IOPS가 재정의 값으로 사용됩니다. 시스템에서 정의된 PSL의 기본값은 다음과 같습니다.
+
+* 극한 성능: 예상 IOPS >= 6144/TB인 경우, 절대 최소 IOPS = 1000
+* 성능: 예상 IOPS >= 2048/TB 및 < 6144/TB인 경우, 절대 최소 IOPS = 500
+* 값: 예상 IOPS >= 128/TB 및 < 2048/TB인 경우, 절대 최소 IOPS = 75
+
+
+시스템에서 정의한 데이터베이스 PSL의 기본값은 다음과 같습니다:
+
+* 데이터베이스 로그용 Extreme: 예상 IOPS >= 22528인 경우 절대 최소 IOPS = 4000
+* 데이터베이스 공유 데이터용 Extreme: 예상 IOPS >= 16384인 경우 절대 최소 IOPS = 2000
+* 데이터베이스 데이터용 Extreme: 예상 IOPS >= 12288인 경우 절대 최소 IOPS = 2000
+
+
+사용자 지정 PSL의 절대 최소 IOPS에 대한 더 높은 값은 최대 75000일 수 있습니다. 더 낮은 값은 다음과 같이 계산됩니다.
+
+1000/예상 지연 시간
+
+
+
+ a| 
+예상 지연 시간
+ a| 
+스토리지 IOPS에 대한 예상 지연 시간(밀리초/작업, ms/op).
+
+
+
+ a| 
+용량
+ a| 
+클러스터의 총 가용 용량 및 사용 용량.
+
+
+
+ a| 
+워크로드
+ a| 
+PSL이 할당된 스토리지 워크로드 수입니다.
+
+|===
+최대 IOPS와 예상 IOPS가 ONTAP 클러스터에서 일관되고 차별화된 성능을 달성하는 데 어떻게 도움이 되는지에 대한 자세한 내용은 다음 기술 자료 문서를 참조하십시오: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Infrastructure_Management/Active_IQ_Unified_Manager/What_is_Performance_Budgeting%3F["성능 예산 책정이란 무엇인가요?"]
+
+
+
+[[events-generated-for-workloads-breaching-the-threshold-defined-by-psls]]
+=== PSL에서 정의한 임계값을 초과하는 워크로드에 대해 생성된 이벤트
+
+참고로, 지난 1시간 중 30%의 시간 동안 워크로드가 예상 지연 시간 값을 초과하는 경우 Unified Manager는 잠재적인 성능 문제를 알리기 위해 다음 이벤트 중 하나를 생성합니다:
+
+* 성능 서비스 수준 정책에서 정의한 워크로드 볼륨 지연 시간 임계값을 초과했습니다.
+* 성능 서비스 수준 정책에서 정의한 워크로드 LUN 지연 시간 임계값을 초과했습니다.
+
+
+지연 시간이 높아지는 원인을 파악하기 위해 워크로드를 분석해 보는 것이 좋습니다.
+
+자세한 내용은 다음 링크를 참조하십시오:
+
+* link:../events/reference_volume_events.html#impact-area-performance["볼륨 이벤트"]
+* link:../performance-checker/concept_what_happens_when_performance_threshold_policy_is_breached.html["성능 임계값 정책이 위반되면 어떻게 됩니까"]
+* link:..//performance-checker/concept_how_unified_manager_uses_workload_response_time.html["Unified Manager가 워크로드 지연 시간을 사용하여 성능 문제를 식별하는 방법"]
+* link:../performance-checker/concept_what_performance_events_are.html["성능 이벤트란 무엇인가"]
+
+
+
+
+[[system-defined-psls]]
+=== 시스템 정의 PSL
+
+다음 표는 시스템에서 정의한 PSL에 대한 정보를 제공합니다:
+
+|===
+| 성능 서비스 수준 | 설명 및 사용 사례 | 예상 지연 시간(ms/op) | 최대 IOPS | 예상 IOPS | 절대 최소 IOPS 
+
+
+ a| 
+극한의 성능
+ a| 
+매우 낮은 지연 시간으로 매우 높은 처리량을 제공합니다
+
+지연 시간에 민감한 애플리케이션에 이상적입니다
+ a| 
+1
+ a| 
+12288
+ a| 
+6144
+ a| 
+1000
+
+
+
+ a| 
+성능
+ a| 
+낮은 지연 시간으로 높은 처리량을 제공합니다
+
+데이터베이스 및 가상화 애플리케이션에 이상적입니다
+ a| 
+2
+ a| 
+4096
+ a| 
+2048
+ a| 
+500
+
+
+
+ a| 
+가치
+ a| 
+높은 스토리지 용량과 적당한 지연 시간을 제공합니다.
+
+이메일, 웹 콘텐츠, 파일 공유, 백업 대상 등 대용량 애플리케이션에 이상적입니다.
+ a| 
+17
+ a| 
+512
+ a| 
+128
+ a| 
+75
+
+
+
+ a| 
+데이터베이스 로그용 익스트림
+ a| 
+최저 지연 시간으로 최대 처리량을 제공합니다.
+
+데이터베이스 로그를 지원하는 데이터베이스 애플리케이션에 이상적입니다. 데이터베이스 로그는 변동성이 매우 크고 로깅 요구가 끊임없이 발생하기 때문에 이 PSL은 최고의 처리량을 제공합니다.
+ a| 
+1
+ a| 
+45056
+ a| 
+22528
+ a| 
+4000
+
+
+
+ a| 
+데이터베이스 공유 데이터용 Extreme
+ a| 
+최저 지연 시간으로 매우 높은 처리량을 제공합니다.
+
+공통 데이터 저장소에 저장되지만 여러 데이터베이스에서 공유되는 데이터베이스 애플리케이션 데이터에 이상적입니다.
+ a| 
+1
+ a| 
+32768
+ a| 
+16384
+ a| 
+2000
+
+
+
+ a| 
+데이터베이스 데이터에 대한 Extreme
+ a| 
+최저 지연 시간으로 높은 처리량을 제공합니다.
+
+데이터베이스 테이블 정보 및 메타데이터 등 데이터베이스 애플리케이션 데이터에 이상적입니다.
+ a| 
+1
+ a| 
+24576
+ a| 
+12288
+ a| 
+2000
+
+|===

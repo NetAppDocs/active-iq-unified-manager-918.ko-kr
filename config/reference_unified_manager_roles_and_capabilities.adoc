@@ -1,0 +1,228 @@
+---
+permalink: config/reference_unified_manager_roles_and_capabilities.html 
+sidebar: sidebar 
+keywords: unified manager, user, roles, capabilities 
+summary: 할당된 사용자 역할에 따라 Unified Manager에서 수행할 수 있는 작업을 결정할 수 있습니다. 
+---
+= Active IQ Unified Manager의 사용자 역할 및 기능에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+할당된 사용자 역할에 따라 Unified Manager에서 수행할 수 있는 작업을 결정할 수 있습니다.
+
+다음 표는 각 사용자 역할이 수행할 수 있는 기능을 보여줍니다:
+
+[cols="6*"]
+|===
+| 기능 | 운영자 | 스토리지 관리자 | 애플리케이션 관리자 | 통합 스키마 | 보고서 스키마 
+
+
+ a| 
+스토리지 시스템 정보 보기
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+•
+
+
+
+ a| 
+이력 및 용량 추세 등 다른 데이터를 확인하십시오.
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+•
+
+
+
+ a| 
+이벤트 보기, 할당 및 해결
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+SVM 연결 및 리소스 풀 등 스토리지 서비스 객체를 봅니다.
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+임계값 정책 보기
+ a| 
+•
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+SVM 연결 및 리소스 풀 등 스토리지 서비스 객체를 관리합니다.
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+알림을 정의하십시오
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+스토리지 관리 옵션 관리
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+스토리지 관리 정책 관리
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+사용자 관리
+ a| 
+ a| 
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+관리자 옵션 관리
+ a| 
+ a| 
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+임계값 정책을 정의합니다
+ a| 
+ a| 
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+데이터베이스 접근 관리
+ a| 
+ a| 
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+WFA와의 통합을 관리하고 데이터베이스 뷰에 대한 액세스 권한을 제공합니다
+ a| 
+ a| 
+ a| 
+ a| 
+•
+ a| 
+
+
+
+ a| 
+보고서 예약 및 저장
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+Management Actions에서 "`Fix It`" 작업을 실행합니다.
+ a| 
+ a| 
+•
+ a| 
+•
+ a| 
+ a| 
+
+
+
+ a| 
+데이터베이스 뷰에 대한 읽기 전용 액세스를 제공합니다
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+•
+
+|===

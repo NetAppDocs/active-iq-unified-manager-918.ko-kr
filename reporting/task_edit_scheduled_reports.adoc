@@ -1,0 +1,35 @@
+---
+permalink: reporting/task_edit_scheduled_reports.html 
+sidebar: sidebar 
+keywords: editing, schedule, reports 
+summary: 보고서 일정을 예약한 후에는 보고서 일정 페이지에서 편집할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 예약된 보고서 편집
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보고서 일정을 예약한 후에는 보고서 일정 페이지에서 편집할 수 있습니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지 관리* > *보고서 일정*을 클릭합니다.
++
+image::../media/scheduled_reports_2.gif[예약된 보고서를 보여주는 UI 스크린샷입니다.]
+
++
+[NOTE]
+====
+적절한 권한이 있는 경우 시스템에서 모든 보고서와 보고서 일정을 수정할 수 있습니다.
+
+====
+. 변경하려는 일정의 더보기 아이콘 image:../media/more_icon.gif[""]을 클릭합니다.
+. *편집*을 클릭합니다.
+. 보고서 일정의 *일정 이름*, *수신자* 목록, *빈도* 및 *형식*을 변경할 수 있습니다.
+. 완료되면 확인 표시를 클릭하여 변경 사항을 저장하십시오.
+

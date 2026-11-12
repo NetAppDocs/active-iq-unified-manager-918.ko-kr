@@ -1,0 +1,101 @@
+---
+permalink: storage-mgmt/task_add_clusters.html 
+sidebar: sidebar 
+keywords: add cluster 
+summary: 클러스터를 모니터링할 수 있도록 Active IQ Unified Manager에 클러스터를 추가할 수 있습니다. 여기에는 발생할 수 있는 문제를 찾아 해결할 수 있도록 클러스터의 상태, 용량, 성능, 구성 등 클러스터 정보를 얻을 수 있는 기능이 포함됩니다. 
+---
+= Active IQ Unified Manager에 클러스터 추가
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터를 모니터링할 수 있도록 Active IQ Unified Manager에 클러스터를 추가할 수 있습니다. 여기에는 발생할 수 있는 문제를 찾아 해결할 수 있도록 클러스터의 상태, 용량, 성능, 구성 등 클러스터 정보를 얻을 수 있는 기능이 포함됩니다.
+
+.시작하기 전에
+* 애플리케이션 관리자 역할 또는 스토리지 관리자 역할이 있어야 합니다.
+* 다음 정보를 준비해 두셔야 합니다:
++
+** Unified Manager는 온프레미스 ONTAP 클러스터, ONTAP Select, Cloud Volumes ONTAP를 지원합니다.
+** 클러스터의 호스트 이름 또는 클러스터 관리 IP 주소(IPv4 또는 IPv6)가 있어야 합니다.
++
+호스트 이름을 사용하는 경우, 클러스터 관리 LIF의 클러스터 관리 IP 주소로 확인되어야 합니다. 노드 관리 LIF를 사용하면 작업이 실패합니다.
+
+** 클러스터에 접속하려면 사용자 이름과 비밀번호가 있어야 합니다.
++
+이 계정에는 _admin_ 역할이 있어야 하며 애플리케이션 액세스가 _ontapi_, _amqp_, _console_ 및 _http_로 설정되어 있어야 합니다.
+
+** HTTPS 프로토콜을 사용하여 클러스터에 연결하려면 포트 번호(일반적으로 443번 포트)를 알아야 합니다.
+** 클러스터는 ONTAP 버전 9.9 이상의 소프트웨어를 실행해야 합니다.
+** Unified Manager 서버에 충분한 공간이 있어야 합니다. 서버 공간의 90% 이상이 이미 사용된 경우 클러스터를 추가할 수 없습니다.
+** 필요한 인증서를 보유하고 있습니다:
++
+*SSL (HTTPS) 인증서*: 이 인증서는 Unified Manager에서 소유합니다. Unified Manager를 새로 설치하면 기본적으로 자체 서명된 SSL (HTTPS) 인증서가 생성됩니다. NetApp은 보안 강화를 위해 CA에서 서명한 인증서로 업그레이드할 것을 권장합니다. 서버 인증서가 만료되면 인증서를 다시 생성하고 Unified Manager를 다시 시작하여 서비스에 새 인증서가 적용되도록 해야 합니다. SSL 인증서 다시 생성에 대한 자세한 내용은 link:../config/task_generate_an_https_security_certificate_ocf.html["HTTPS 보안 인증서 생성"]를 참조하십시오.
+
++
+*EMS 인증서*: 이 인증서는 Unified Manager가 소유합니다. ONTAP에서 수신한 EMS 알림에 대한 인증 중에 사용됩니다.
+
++
+*상호 TLS 통신용 인증서*: Unified Manager와 ONTAP 간의 상호 TLS 통신 중에 사용됩니다. 인증서 기반 인증은 ONTAP 버전에 따라 클러스터에 대해 활성화됩니다. 실행 중인 ONTAP 버전이 9.5 미만인 클러스터의 경우 인증서 기반 인증이 활성화되지 않습니다.
+
++
+Unified Manager의 이전 버전을 업데이트하는 경우 클러스터에 대해 인증서 기반 인증이 자동으로 활성화되지 않습니다. 하지만 클러스터 세부 정보를 수정하고 저장하여 활성화할 수 있습니다. 인증서가 만료되면 새 인증서를 적용하기 위해 인증서를 다시 생성해야 합니다. 인증서 보기 및 다시 생성에 대한 자세한 내용은 link:../storage-mgmt/task_edit_clusters.html["클러스터 편집"]을(를) 참조하십시오.
+
++
+[NOTE]
+====
+*** 웹 UI에서 클러스터를 추가할 수 있으며, 인증서 기반 인증이 자동으로 활성화됩니다.
+*** Unified Manager CLI를 통해 클러스터를 추가할 수 있지만, 기본적으로 인증서 기반 인증은 활성화되어 있지 않습니다. Unified Manager CLI를 사용하여 클러스터를 추가한 경우 Unified Manager UI를 사용하여 클러스터를 편집해야 합니다. Unified Manager CLI를 사용하여 클러스터를 추가하려면 link:https://docs.netapp.com/us-en/active-iq-unified-manager/events/reference_supported_unified_manager_cli_commands.html["지원되는 Unified Manager CLI 명령"]을(를) 참조하십시오.
+*** 클러스터에 인증서 기반 인증이 활성화된 경우, 서버에서 Unified Manager 백업을 수행하고 호스트 이름이나 IP 주소가 변경된 다른 Unified Manager 서버로 복원하면 클러스터 모니터링이 실패할 수 있습니다. 이러한 오류를 방지하려면 클러스터 세부 정보를 편집하고 저장하십시오. 클러스터 세부 정보 편집에 대한 자세한 내용은 link:../storage-mgmt/task_edit_clusters.html["클러스터 편집"]을(를) 참조하십시오.
+*** 클러스터 수준에서 Active IQ 인터페이스는 인증 방법 "cert"에 대한 두 개의 새로운 사용자 그룹 항목을 추가합니다.
+
+
+====
++
+*클러스터 인증서*: 이 인증서는 ONTAP이 소유합니다. 만료된 인증서로는 Unified Manager에 클러스터를 추가할 수 없으며, 인증서가 이미 만료된 경우 클러스터를 추가하기 전에 인증서를 다시 생성해야 합니다. 인증서 생성에 대한 자세한 내용은 기술 자료(KB) 문서를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_renew_an_SSL_certificate_in_ONTAP_9["System Manager 사용자 인터페이스에서 ONTAP 자체 서명 인증서를 갱신하는 방법"^].
+
+
+
+* Unified Manager 인스턴스 하나는 특정 개수의 노드를 지원할 수 있습니다. 지원되는 노드 수를 초과하는 환경을 모니터링해야 하는 경우, 일부 클러스터를 모니터링하기 위해 Unified Manager 인스턴스를 추가로 설치해야 합니다. 지원되는 노드 수 목록을 보려면  https://www.netapp.com/media/13504-tr4621.pdf["Unified Manager 모범 사례 가이드"^]을(를) 참조하십시오.
+
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지 관리* > *클러스터 설정*을 클릭합니다.
+. 클러스터 설정 페이지에서 *추가*를 클릭합니다.
+. 클러스터 추가 대화 상자에서 필요한 값을 지정한 다음 *제출*을 클릭합니다.
+. 호스트 인증 대화 상자에서 *인증서 보기*를 클릭하여 클러스터에 대한 인증서 정보를 확인합니다.
+. *예*를 클릭합니다.
++
+클러스터 세부 정보를 저장하면 클러스터의 상호 TLS 통신에 사용되는 인증서를 확인할 수 있습니다.
+
++
+인증서 기반 인증이 활성화되지 않은 경우 Unified Manager는 클러스터를 처음 추가할 때만 인증서를 확인합니다. Unified Manager는 ONTAP에 대한 각 API 호출에 대해 인증서를 확인하지 않습니다.
+
+
+
+새 클러스터에 필요한 모든 객체가 검색되면 Unified Manager는 지난 15일간의 성능 기록 데이터를 수집하기 시작합니다. 이러한 통계는 데이터 연속성 수집 기능을 사용하여 수집됩니다. 이 기능을 통해 클러스터가 추가된 직후 2주 이상의 성능 정보를 확인할 수 있습니다. 데이터 연속성 수집 주기가 완료되면 기본적으로 5분마다 실시간 클러스터 성능 데이터가 수집됩니다.
+
+[NOTE]
+====
+* 15일간의 성능 데이터 수집은 CPU 사용량이 높습니다. NetApp은 데이터 연속성 수집 폴링이 너무 많은 클러스터에서 동시에 실행되지 않도록 새 클러스터 추가를 단계적으로 진행할 것을 권장합니다. 또한 데이터 연속성 수집 기간 중에 Unified Manager를 재시작하면 수집이 중단되고, 누락된 기간에 대한 성능 차트의 공백이 표시됩니다.
+* 버전 9.14.1 이상의 ONTAP 클러스터를 추가하면 클라우드 에이전트 기능을 통해 통신이 이루어집니다. ONTAP은 읽기 전용 권한(예: clus-agent-xxxx)을 가진 내부 서비스 계정 사용자를 자동으로 생성합니다. 해당  `clus-agent` 사용자가 삭제되면 Unified Manager는 해당 클러스터에서 데이터 수집을 중지합니다.
+
+
+====
+[TIP]
+====
+클러스터를 추가할 수 없다는 오류 메시지가 표시되면 다음 문제가 있는지 확인하십시오:
+
+* 두 시스템의 시계가 동기화되지 않았고 Unified Manager HTTPS 인증서 시작 날짜가 클러스터의 날짜보다 늦은 경우. NTP 또는 유사한 서비스를 사용하여 시계를 동기화해야 합니다.
+* 클러스터가 최대 EMS 알림 대상 수에 도달한 경우 Unified Manager 주소를 추가할 수 없습니다. 기본적으로 클러스터에는 20개의 EMS 알림 대상만 정의할 수 있습니다.
+
+
+====
+*관련 정보*
+
+link:../config/task_add_users.html["사용자 추가"]
+
+link:../health-checker/task_view_cluster_list_and_details.html["클러스터 목록 및 세부 정보 보기"]
+
+link:../config/task_install_ca_signed_and_returned_https_certificate.html#example-certificate-chain["CA에서 서명하고 발급한 HTTPS 인증서 설치"]

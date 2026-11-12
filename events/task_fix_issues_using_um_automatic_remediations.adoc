@@ -1,0 +1,26 @@
+---
+permalink: events/task_fix_issues_using_um_automatic_remediations.html 
+sidebar: sidebar 
+keywords: fix, issues, use, unified manager, automatic, remediations 
+summary: 'Unified Manager는 특정 이벤트를 철저하게 진단하고 "해결하기" 버튼을 사용하여 단일 해결 방법을 제공할 수 있습니다. 이러한 해결 방법은 사용 가능한 경우 대시보드, 이벤트 세부 정보 페이지 및 왼쪽 탐색 메뉴의 워크로드 분석 항목에 표시됩니다.' 
+---
+= Active IQ Unified Manager에서 자동 수정을 사용하여 문제 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager는 특정 이벤트를 철저하게 진단하고 *Fix It* 버튼을 사용하여 단일 해결 방법을 제공할 수 있습니다. 이러한 해결 방법은 사용 가능한 경우 대시보드, 이벤트 세부 정보 페이지 및 왼쪽 탐색 메뉴의 워크로드 분석 항목에 표시됩니다.
+
+대부분의 이벤트에는 이벤트 세부 정보 페이지에 표시되는 다양한 해결 방법이 있으므로 ONTAP System Manager 또는 ONTAP CLI를 사용하여 최적의 해결 방법을 적용할 수 있습니다. Unified Manager에서 문제를 해결할 수 있는 단일 해결 방법이 있고 ONTAP CLI 명령을 사용하여 해결할 수 있다고 판단한 경우 *Fix It* 작업을 사용할 수 있습니다.
+
+.단계
+. *대시보드*에서 해결할 수 있는 이벤트를 보려면 *대시보드*를 클릭하십시오.
++
+image::../media/management_actions.png[대시보드에서 이벤트를 확인하고 수정하는 방법을 보여주는 UI 스크린샷입니다.]
+
+. Unified Manager에서 해결할 수 있는 문제를 해결하려면 *해결하기* 버튼을 클릭하십시오. 여러 오브젝트에 존재하는 문제를 해결하려면 *모두 해결* 버튼을 클릭하십시오.
+
+
+자동 수정으로 해결할 수 있는 문제에 대한 자세한 내용은 link:..//storage-mgmt/reference_what_ontap_issues_can_unified_manager_fix.html["Unified Manager는 어떤 문제를 해결할 수 있습니까"]을(를) 참조하십시오.

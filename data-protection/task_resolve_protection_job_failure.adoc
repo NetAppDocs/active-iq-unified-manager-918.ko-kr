@@ -1,0 +1,36 @@
+---
+permalink: data-protection/task_resolve_protection_job_failure.html 
+sidebar: sidebar 
+keywords: resolve, protection, job failure 
+summary: 이 워크플로는 Unified Manager 대시보드에서 보호 작업 실패를 식별하고 해결하는 방법의 예를 제공합니다. 
+---
+= Active IQ Unified Manager에서 보호 작업 실패 해결
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 워크플로는 Unified Manager 대시보드에서 보호 작업 실패를 식별하고 해결하는 방법의 예를 제공합니다.
+
+.시작하기 전에
+이 워크플로의 일부 작업에는 관리자 역할로 로그인해야 하므로 다양한 기능을 사용하기 위해 필요한 역할에 대해 잘 알고 있어야 합니다.
+
+이 시나리오에서는 대시보드 페이지에 접속하여 보호 작업에 문제가 있는지 확인합니다. 보호 인시던트 영역에서 볼륨에 보호 작업 실패 오류가 표시된 작업 종료 인시던트가 있음을 확인합니다. 이 오류를 조사하여 가능한 원인과 해결 방법을 파악합니다.
+
+.단계
+. 대시보드의 미해결 인시던트 및 위험 영역의 보호 인시던트 패널에서 *보호 작업 실패* 이벤트를 클릭합니다.
++
+[TIP]
+====
+이벤트에 대한 링크 텍스트는 `object_name:/object_name - Error Name`,  `cluster2_src_svm:/cluster2_src_vol2 - Protection Job Failed` 등의 형식으로 작성됩니다.
+
+====
++
+실패한 보호 작업에 대한 이벤트 세부 정보 페이지가 표시됩니다.
+
+. 문제를 파악하고 가능한 해결 조치를 평가하려면 *요약* 영역의 원인 필드에 있는 오류 메시지를 검토하십시오.
++
+link:task_identify_problem_for_failed_protection_job.html["실패한 보호 작업에 대한 문제 파악 및 시정 조치 수행"]를 참조하십시오.
+
+

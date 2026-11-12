@@ -1,0 +1,24 @@
+---
+permalink: performance-checker/concept_what_happens_when_performance_threshold_policy_is_changed.html 
+sidebar: sidebar 
+keywords: happens, performance, threshold, policy, changed 
+summary: 기존 성능 임계값 정책의 카운터 값 또는 지속 시간을 조정하면 해당 정책을 사용하는 모든 스토리지 오브젝트에 정책 변경 사항이 적용됩니다. 새 설정은 즉시 적용되며, Unified Manager는 새로 수집된 모든 성능 데이터에 대해 성능 카운터 값을 새 임계값 설정과 비교하기 시작합니다. 
+---
+= Active IQ Unified Manager의 성능 임계값 정책 변경 사항 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 성능 임계값 정책의 카운터 값 또는 지속 시간을 조정하면 해당 정책을 사용하는 모든 스토리지 오브젝트에 정책 변경 사항이 적용됩니다. 새 설정은 즉시 적용되며, Unified Manager는 새로 수집된 모든 성능 데이터에 대해 성능 카운터 값을 새 임계값 설정과 비교하기 시작합니다.
+
+변경된 임계값 정책을 사용하는 오브젝트에 대해 활성 이벤트가 있는 경우 해당 이벤트는 더 이상 사용되지 않는 것으로 표시되고, 임계값 정책은 새롭게 정의된 임계값 정책으로 카운터 모니터링을 시작합니다.
+
+카운터 차트 상세 보기에서 임계값이 적용된 카운터를 확인할 때, 중요 임계값 및 경고 임계값 선은 현재 임계값 설정을 반영합니다. 이전 임계값 설정이 적용되었던 시점의 기간별 데이터를 보더라도 원래 임계값 설정은 이 페이지에 표시되지 않습니다.
+
+[NOTE]
+====
+이전 임계값 설정이 카운터 차트 상세 보기에서 표시되지 않으므로 현재 임계값 선 아래에 과거 이벤트가 나타날 수 있습니다.
+
+====

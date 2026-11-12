@@ -1,0 +1,96 @@
+---
+permalink: install-windows/reference_windows_software_and_installation_requirements.html 
+sidebar: sidebar 
+keywords: windows, software, installation, requirements, system, active iq unified manager 
+summary: Windows에 Unified Manager를 성공적으로 설치하려면 Unified Manager를 설치할 시스템이 소프트웨어 요구 사항을 충족하는지 확인해야 합니다. 
+---
+= Active IQ Unified Manager의 Windows 소프트웨어 및 설치 요구 사항 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+:pp: &#43;&#43;
+
+
+[role="lead"]
+Windows에 Unified Manager를 성공적으로 설치하려면 Unified Manager를 설치할 시스템이 소프트웨어 요구 사항을 충족하는지 확인해야 합니다.
+
+
+
+[[operating-system-software]]
+== 운영 체제 소프트웨어
+
+다음 Windows 버전에 Unified Manager를 설치할 수 있습니다.
+
+* Microsoft Windows Server 2019 Standard 및 Datacenter 에디션
+* Microsoft Windows Server 2022 Standard 및 Datacenter 에디션
+
+
+Unified Manager는 다음 언어에 대해 64비트 Windows 운영 체제에서 지원됩니다:
+
+* 영어
+* 일본어
+* 중국어 간체
+
+
+지원되는 Windows 버전의 전체 및 최신 목록은 상호 운용성 매트릭스를 참조하십시오.
+
+http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"^]
+
+
+NOTE: NetApp은(는) Microsoft System Center 구성 매니저(SCCM) 등 타사 툴을 사용한 Unified Manager 설치를 지원하지 않습니다.
+
+서버는 Unified Manager 실행 전용이어야 합니다. 서버에는 다른 애플리케이션을 설치해서는 안 됩니다. 회사 규정으로 인해 Windows 시스템에 활성 바이러스 백신 소프트웨어가 설치되어 있을 수 있습니다. 설치 실패를 방지하려면 Unified Manager를 설치하기 전에 바이러스 백신 소프트웨어를 비활성화해야 합니다.
+
+
+
+[[third-party-software]]
+== 타사 소프트웨어
+
+Unified Manager에는 다음과 같은 타사 패키지가 포함되어 있습니다. 시스템에 이러한 타사 패키지가 설치되어 있지 않은 경우 Unified Manager는 설치 과정의 일부로 해당 패키지를 설치합니다.
+
+* Microsoft Visual C++ Redistributable Packages for Visual Studio 2015 버전 14.29.30133.0
+* MySQL Community Edition 버전 8.4.10
+* Python 3.13.3
+* OpenJDK 버전 17.0.15+6
+* 7-zip 버전 25.01 이상
+
+
+[NOTE]
+====
+Unified Manager 9.5부터 OpenJDK는 Unified Manager 설치 패키지에 포함되어 자동으로 설치됩니다. Unified Manager 9.5부터 Oracle Java는 지원되지 않습니다.
+
+====
+MySQL이 사전 설치되어 있는 경우 다음 사항을 확인해야 합니다:
+
+* 기본 포트를 사용하고 있습니다.
+* 샘플 데이터베이스가 설치되지 않았습니다.
+* 서비스 이름은 "`MYSQL84`"입니다.
+
+
+Unified Manager는 WildFly 웹 서버에 배포됩니다. WildFly 27.0.1.Final은 Unified Manager와 함께 번들로 제공되며 구성됩니다.
+
+[NOTE]
+====
+타사 소프트웨어를 업그레이드하기 전에 실행 중인 Unified Manager 인스턴스를 종료해야 합니다. 타사 소프트웨어 설치가 완료되면 Unified Manager를 다시 시작할 수 있습니다.
+
+====
+
+
+[[installation-requirements]]
+== 설치 요구 사항
+
+* Microsoft .NET 4.5.2 이상 버전이 설치되어 있어야 합니다.
+* 설치 파일 추출을 위해  `temp` 디렉터리는 2GB의 디스크 공간으로 구성되어야 합니다. 디렉터리가 생성되었는지 확인하려면 명령줄 인터페이스에서 다음 명령을 실행하십시오: `echo %temp%`
+* Unified Manager MSI 파일 캐싱을 위해 Windows 드라이브에 2GB의 디스크 공간을 확보해야 합니다.
+* Unified Manager를 설치하려는 Microsoft Windows Server는 호스트 이름 및 FQDN에 대한  `ping` 응답이 성공하도록 정규화된 도메인 이름(FQDN)으로 구성되어야 합니다.
+* Microsoft IIS 월드와이드 웹 게시 서비스를 비활성화하고 포트 80과 443이 사용 가능한지 확인해야 합니다.
+* 설치 중에 "`Windows Installer RDS 호환성`"에 대한 원격 데스크톱 세션 호스트 설정이 비활성화되어 있는지 확인해야 합니다.
+* UDP 포트 514는 비어 있어야 하며, 다른 서비스에서 사용해서는 안 됩니다.
+* Unified Manager를 설치하기 전에 시스템의 모든 바이러스 백신 소프트웨어를 비활성화해야 합니다. 설치가 완료되면 다음 경로를 바이러스 백신 검사에서 수동으로 제외하십시오.
++
+** Unified Manager 데이터 디렉터리, 예를 들어  `C:\ProgramData\NetApp\OnCommandAppData\`
+** Unified Manager 설치 디렉터리, 예를 들어  `\C:\Program Files\NetApp\`
+** 예를 들어 MySQL 데이터 디렉터리는 다음과 같습니다. `C:\ProgramData\MySQL\MySQLServerData`
+
+
+

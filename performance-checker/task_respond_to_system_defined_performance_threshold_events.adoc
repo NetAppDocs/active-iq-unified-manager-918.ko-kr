@@ -1,0 +1,33 @@
+---
+permalink: performance-checker/task_respond_to_system_defined_performance_threshold_events.html 
+sidebar: sidebar 
+keywords: system-defined, performance, threshold, events 
+summary: Unified Manager를 사용하여 성능 카운터가 시스템에서 정의한 경고 임계값을 초과하여 발생한 성능 이벤트를 조사할 수 있습니다. 또한 Unified Manager를 사용하여 클러스터 구성 요소의 상태를 확인하고 해당 구성 요소에서 최근 감지된 이벤트가 성능 이벤트에 영향을 미쳤는지 확인할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 시스템 정의 성능 임계값 이벤트에 응답합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Unified Manager를 사용하여 성능 카운터가 시스템에서 정의한 경고 임계값을 초과하여 발생한 성능 이벤트를 조사할 수 있습니다. 또한 Unified Manager를 사용하여 클러스터 구성 요소의 상태를 확인하고 해당 구성 요소에서 최근 감지된 이벤트가 성능 이벤트에 영향을 미쳤는지 확인할 수 있습니다.
+
+.시작하기 전에
+* 운영자, 애플리케이션 관리자 또는 스토리지 관리자 역할이 있어야 합니다.
+* 새로운 또는 더 이상 사용되지 않는 성능 이벤트가 있어야 합니다.
+
+
+.단계
+. 이벤트에 대한 정보를 보려면 *이벤트 상세 정보* 페이지를 표시하십시오.
+. 이벤트 발생 원인이 된 임계값 위반에 대한 설명이 포함된 *설명*을 검토하십시오.
++
+예를 들어, "`Node utilization value of 90 % has triggered a WARNING event based on threshold setting of 85 %`" 메시지는 클러스터 오브젝트에 대해 노드 사용률 경고 이벤트가 발생했음을 나타냅니다.
+
+. *이벤트 발생 시간*을 기록해 두면 이 이벤트에 영향을 미쳤을 수 있는 다른 이벤트가 같은 시간에 발생했는지 조사할 수 있습니다.
+. *시스템 진단*에서 시스템 정의 정책이 클러스터 오브젝트에서 수행하는 분석 유형에 대한 간략한 설명을 검토하십시오.
++
+일부 이벤트의 경우 특정 진단에서 문제가 발견되었는지 여부를 나타내기 위해 진단 옆에 녹색 또는 빨간색 아이콘이 표시됩니다. 다른 유형의 시스템 정의 이벤트의 경우 카운터 차트에 오브젝트의 성능이 표시됩니다.
+
+. *권장 조치* 아래에서 *도움 요청* 링크를 클릭하여 성능 이벤트를 직접 해결하기 위해 시도할 수 있는 권장 조치를 확인하십시오.
+

@@ -1,0 +1,16 @@
+---
+permalink: config/concept_configure_unified_manager.html 
+sidebar: sidebar 
+keywords: configure, active iq unified manager 
+summary: 'Active IQ Unified Manager(이전 명칭: OnCommand Unified Manager)를 설치한 후에는 웹 UI에 액세스하기 위해 초기 설정(첫 사용 마법사라고도 함)을 완료해야 합니다. 그런 다음 클러스터 추가, 원격 인증 구성, 사용자 추가, 경고 추가 등 추가 구성 작업을 수행할 수 있습니다.' 
+---
+= Active IQ Unified Manager 구성에 대해 알아보기
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager(이전 명칭: OnCommand Unified Manager)를 설치한 후에는 웹 UI에 액세스하기 위해 초기 설정(첫 사용 마법사라고도 함)을 완료해야 합니다. 그런 다음 클러스터 추가, 원격 인증 구성, 사용자 추가, 경고 추가 등 추가 구성 작업을 수행할 수 있습니다.
+
+이 설명서에 설명된 절차 중 일부는 Unified Manager 인스턴스의 초기 설정을 완료하는 데 필수적입니다. 다른 절차는 새 인스턴스에 설정해 두면 유용한 권장 구성 설정이거나 ONTAP 시스템의 정기적인 모니터링을 시작하기 전에 알아두면 좋은 설정입니다.

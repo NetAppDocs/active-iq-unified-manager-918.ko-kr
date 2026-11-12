@@ -1,0 +1,20 @@
+---
+permalink: performance-checker/concept_add_disks_and_perform_aggregate_layout_reconstruction.html 
+sidebar: sidebar 
+keywords: add, disks, perform, aggregate, layout, reconstruction 
+summary: 디스크를 애그리게이트에 추가하여 해당 애그리게이트의 스토리지 용량과 성능을 향상시킬 수 있습니다. 디스크를 추가한 후 성능 향상은 애그리게이트를 재구성한 후에만 확인할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 디스크 추가가 애그리게이트 레이아웃에 미치는 영향 이해
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+디스크를 애그리게이트에 추가하여 해당 애그리게이트의 스토리지 용량과 성능을 향상시킬 수 있습니다. 디스크를 추가한 후 성능 향상은 애그리게이트를 재구성한 후에만 확인할 수 있습니다.
+
+이벤트 세부 정보 페이지에서 시스템 정의 임계값 이벤트를 수신하면 이벤트 설명 텍스트에 문제가 발생한 애그리게이트의 이름이 나열됩니다. 이 애그리게이트에 디스크를 추가하고 데이터를 재구성할 수 있습니다.
+
+애그리게이트에 추가하는 디스크는 클러스터에 이미 존재해야 합니다. 클러스터에 사용 가능한 추가 디스크가 없는 경우 관리자에게 문의하거나 디스크를 추가로 구매해야 할 수 있습니다. ONTAP System Manager 또는 ONTAP 명령을 사용하여 애그리게이트에 디스크를 추가할 수 있습니다.
+
+https://www.netapp.com/pdf.html?item=/media/19675-tr-3838.pdf["기술 보고서 3838: 스토리지 서브시스템 구성 가이드"^]

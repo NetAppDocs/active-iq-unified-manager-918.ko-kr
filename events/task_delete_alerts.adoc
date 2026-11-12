@@ -1,0 +1,23 @@
+---
+permalink: events/task_delete_alerts.html 
+sidebar: sidebar 
+keywords: delete, alerts 
+summary: 더 이상 필요하지 않은 알림은 삭제할 수 있습니다. 예를 들어, Unified Manager에서 더 이상 특정 리소스를 모니터링하지 않는 경우 해당 리소스에 대해 생성된 알림을 삭제할 수 있습니다. 
+---
+= Active IQ Unified Manager에서 알림 삭제
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+더 이상 필요하지 않은 알림은 삭제할 수 있습니다. 예를 들어, Unified Manager에서 더 이상 특정 리소스를 모니터링하지 않는 경우 해당 리소스에 대해 생성된 알림을 삭제할 수 있습니다.
+
+.시작하기 전에
+애플리케이션 관리자 역할이 있어야 합니다.
+
+.단계
+. 왼쪽 탐색 창에서 *스토리지 관리* > *알림 설정*을 클릭합니다.
+. *알림 설정* 페이지에서 삭제할 알림을 선택하고 *삭제*를 클릭합니다.
+. 삭제 요청을 확인하려면 *예*를 클릭하세요.
+
